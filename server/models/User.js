@@ -5,18 +5,23 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      required: true
+      required: true,
+      minlength: 1,
     },
     password: {
       type: String,
-      required: true
+      required: true,
+      minlength: 1,
     },
     firstname: {
       type: String,
       required: true
     },
-
     lastname: {
+      type: String,
+      required: true
+    },
+    profileimage: {
       type: String,
       required: true
     },
