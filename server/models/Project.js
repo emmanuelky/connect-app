@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
-const ProjectSchema = new mongoose.Schema({
+const projectSchema = new mongoose.Schema({
+  _creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
   name: {
     type: String,
     required: [true, "The project name is required"],
@@ -16,14 +20,18 @@ const ProjectSchema = new mongoose.Schema({
   },
   projectimage: {
     type: String,
-    url: String
   },
-  technologyUsed: {
-    type: [],
-    required: true
+  technologyused: {
+    type: [String],
+    default: []
+    
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 
-const Project = mongoose.model("Project", ProjectSchema);
+const Project = mongoose.model("Project", projectSchema);
 
 module.exports = Project;

@@ -46,6 +46,13 @@ export default {
       .catch(errHandler)
   },
 
+  getProfile() {
+    return service
+      .get('/profile')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
   logout() {
     localStorage.removeItem('user')
     return service
@@ -59,9 +66,20 @@ export default {
       .catch(errHandler)
   },
 
-  addProject(data) {
+  addProjects(formData) {
     return service
-      .post('/add-project', data)
+      .post('/projects', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        }
+      })
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
+  editProfile(Id, body) {
+    return service
+      .put('/profile/'+Id, body)
       .then(res => res.data)
       .catch(errHandler)
   },

@@ -3,16 +3,6 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    username: {
-      type: String,
-      required: true,
-      minlength: 1,
-    },
-    password: {
-      type: String,
-      required: true,
-      minlength: 1,
-    },
     firstname: {
       type: String,
       required: true
@@ -21,7 +11,21 @@ const userSchema = new Schema(
       type: String,
       required: true
     },
+    username: {
+      type: String,
+      required: true,
+      minlength: 1,
+    },
+    password: {
+      type: String,
+      required: true,
+      
+    },
     profileimage: {
+      type: String,
+      required: true
+    },
+    email: {
       type: String,
       required: true
     },
@@ -51,7 +55,7 @@ const userSchema = new Schema(
     },
     status: {
         type: String,
-        enum: ["alumni", "student"],
+        enum: ["alumni", "student", "employer"],
       },
     age: {
       type: Number,
@@ -61,11 +65,10 @@ const userSchema = new Schema(
         type: String,
         enum: ["male", "female"]
       },
-    social: [{
-        type: String,
-        url: String,
-      }],
-    _owner: { type: Schema.Types.ObjectId, ref: 'User' }
+    social: {
+      type: [String],
+      default: []
+      },
     },
     
 

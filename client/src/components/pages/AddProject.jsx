@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import {Redirect} from 'react-router-dom';
 import api from '../../api';
 
 
@@ -9,34 +10,40 @@ class AddProject extends Component {
       name: "",
       projectlink: "",
       description: "",
-      projectimage: "",
-      technologyUsed: "",
-      message: null,
+      technologyused: "",
+      projectimage: null,
+      message: null
     }
+
+    this.handleClick = this.handleClick.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
     this.handleFileChange = this.handleFileChange.bind(this)
   }
 
-  handleFileChange(){
-    this.handleFileChange.bind(this)
-  }
+  handleInputChange(stateFieldName, event) {
+    let newState = {}
+    newState[stateFieldName] = event.target.value
 
-  handleInputChange(name,event) {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
+    this.setState(newState)
   }
 
   handleClick(e) {
     e.preventDefault()
     console.log(this.state.name, this.state.description)
-    let data = {
-      name: this.state.name,
-      projectlink: this.state.projectlink,
-      description: this.state.description,
-      projectimage: this.state.projectimage,
-      technologyUsed: this.state.technologyUsed,
-    }
-    api.addProject(data)
+    // let data = {
+    //   name: this.state.name,
+    //   capitals: this.state.capitals,
+    //   area: this.state.area,
+    //   description: this.state.description,
+    // }
+
+    let formData = new FormData()
+    formData.append("name", this.state.name);
+    formData.append("projectlink", this.state.projectlink);
+    formData.append("description", this.state.description);
+    formData.append("technologyused", this.state.technologyused);
+    formData.append("projectimage", this.state.projectimage);
+    api.addProjects(formData)
       .then(result => {
         console.log('SUCCESS!')
         this.setState({
@@ -55,22 +62,31 @@ class AddProject extends Component {
       })
       .catch(err => this.setState({ message: err.toString() }))
   }
+
+  handleFileChange(e) {
+    this.setState({
+      projectimage: e.target.files[0]
+    })
+  }
+
   render() {
+    // if (!api.isLoggedIn()) {
+    //   return <Redirect to="/login" />
+    // }
     return (
       <div className="AddProject">
-        <h2>Add Project</h2>
+        <h2>Add Projects</h2>
         <form>
-          Name: <input type="text" name="name" value={this.state.name} onChange={(e) => { this.handleInputChange("name", e) }} /> <br />
-          Project Link: <input type="text" name="projectlink" value={this.state.projectlink} onChange={(e) => { this.handleInputChange("projectlink", e) }} /> <br />
-          Description: <textarea value={this.state.description}  name="description" cols="30" rows="10" onChange={(e) => { this.handleInputChange("description", e) }} ></textarea> <br />
-          ProjectImage: <input type="file" name="projectimage" onChange={this.state.handleFileChange}/> <br />
-          Technology Used: <input type="text" name="technologyUsed" value={this.state.technologyUsed} onChange={(e) => { this.handleInputChange("technologyUsed", e) }} /> <br />
-          <button onClick={(e) => this.handleClick(e)}>Create project</button>
+          Project Image: <input type="file" onChange={this.handleFileChange} /><br />
+          Name: <input type="text" value={this.state.name} onChange={(e) => { this.handleInputChange("name", e) }} /> <br />
+          Description: <textarea value={this.state.description} cols="30" rows="10" onChange={(e) => { this.handleInputChange("description", e) }} ></textarea> <br />
+          Technology Used: <input type="number" value={this.state.technologyused} onChange={(e) => { this.handleInputChange("technologyused", e) }} /> <br />
+          Project Link: <input type="text" value={this.state.projectlink} onChange={(e) => { this.handleInputChange("projectlink", e) }} /> <br />
+          <button onClick={(e) => this.handleClick(e)}>Add Project</button>
         </form>
         {this.state.message && <div className="info">
           {this.state.message}
         </div>}
-
       </div>
     );
   }
