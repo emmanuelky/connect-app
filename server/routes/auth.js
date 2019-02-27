@@ -108,6 +108,19 @@ router.get("/profile", (req, res, next) => {
   res.json(req.user);
 });
 
+router.post("/edit-profile", (req, res, next) => {
+  var userId = req.user._id;
+  console.log("user id is", userId);
+  console.log("user body is", req.body);
+});
+
+
+profile.updateOne(userId, updatedProfile)
+.then(function(success){
+  console.log("update")
+  response.redirect("/");
+})
+
 router.post("/login-with-passport-local-strategy", (req, res, next) => {
   passport.authenticate("local", (err, theUser, failureDetails) => {
     if (err) {
