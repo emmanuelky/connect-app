@@ -65,7 +65,9 @@ const userSchema = new Schema(
         type: String,
         url: String,
       }],
+    _owner: { type: Schema.Types.ObjectId, ref: 'User' }
     },
+    
 
   {
     timestamps: {

@@ -52,16 +52,16 @@ export default {
       .get('/logout')
   },
 
-  getCountries() {
+  getProjects() {
     return service
-      .get('/countries')
+      .get('/projects')
       .then(res => res.data)
       .catch(errHandler)
   },
 
-  postCountries(data) {
+  addProject(data) {
     return service
-      .post('/countries', data)
+      .post('/add-project', data)
       .then(res => res.data)
       .catch(errHandler)
   },
@@ -72,8 +72,6 @@ export default {
       .then(res => res.data)
       .catch(errHandler)
   },
-
-
 
   addPicture(file) {
     const formData = new FormData()
