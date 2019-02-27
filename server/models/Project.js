@@ -7,7 +7,7 @@ const ProjectSchema = new mongoose.Schema({
     minlength: 1,
     required: true
   },
-  projectlink: {
+  projectLink: {
     type: String,
     required: true
   },
@@ -15,13 +15,17 @@ const ProjectSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  projectimage: {
+  projectImage: {
     type: String,
     url: String
   },
   technologyUsed: {
     type: [],
     required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 

@@ -3,6 +3,14 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
+    firstname: {
+      type: String,
+      required: true
+    },
+    lastname: {
+      type: String,
+      required: true
+    },
     username: {
       type: String,
       required: true,
@@ -13,15 +21,11 @@ const userSchema = new Schema(
       required: true,
       minlength: 1,
     },
-    firstname: {
-      type: String,
-      required: true
-    },
-    lastname: {
-      type: String,
-      required: true
-    },
     profileimage: {
+      type: String,
+      required: true
+    },
+    email: {
       type: String,
       required: true
     },
@@ -51,7 +55,7 @@ const userSchema = new Schema(
     },
     status: {
         type: String,
-        enum: ["alumni", "student"],
+        enum: ["alumni", "student", "employer"],
       },
     age: {
       type: Number,

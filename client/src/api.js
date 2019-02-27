@@ -46,6 +46,13 @@ export default {
       .catch(errHandler)
   },
 
+  getProfile() {
+    return service
+      .get('/profile')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
   logout() {
     localStorage.removeItem('user')
     return service
@@ -54,14 +61,14 @@ export default {
 
   getCountries() {
     return service
-      .get('/countries')
+      .get('/projects')
       .then(res => res.data)
       .catch(errHandler)
   },
 
   postCountries(data) {
     return service
-      .post('/countries', data)
+      .post('/projects', data)
       .then(res => res.data)
       .catch(errHandler)
   },
@@ -72,8 +79,6 @@ export default {
       .then(res => res.data)
       .catch(errHandler)
   },
-
-
 
   addPicture(file) {
     const formData = new FormData()

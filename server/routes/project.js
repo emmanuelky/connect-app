@@ -1,34 +1,55 @@
-const express = require('express');
-const Country = require('../models/Project')
+const express = require("express");
+const Project = require("../models/Project");
 
 const router = express.Router();
 
-
 router.use((req, res, next) => {
-  console.log('DEBUG routes/countries');
-  next()
-})
-
-// Route to get all countries
-router.get('/', (req, res, next) => {
-  Country.find()
-    .then(countries => {
-      res.json(countries);
-    })
-    .catch(err => next(err))
+  console.log("DEBUG routes/projects");
+  next();
 });
 
-// Route to add a country
-router.post('/', (req, res, next) => {
-  let { name, capitals, area, description } = req.body
-  Country.create({ name, capitals, area, description })
-    .then(country => {
+// Route to get all projects
+router.get("/", (req, res, next) => {
+  Project.find()
+    .sort({ date: -1 })
+    .then(projects => {
+      res.json(projects);
+    })
+    .catch(err => next(err));
+});
+
+// Route to add a project
+router.post("/", (req, res, next) => {
+  let {
+    name,
+    projectLink,
+    description,
+    projectImage,
+    technologyUsed,
+    date
+  } = req.body;
+  Project.create({
+    name,
+    projectLink,
+    description,
+    projectImage,
+    technologyUsed,
+    date
+  })
+    .then(projects => {
       res.json({
         success: true,
-        country
+        projects
       });
     })
-    .catch(err => next(err))
+    .catch(err => next(err));
+});
+
+// Route to delete a project
+router.delete("/:id", (req, res, next) => {
+  Project.findById(req.params.id)
+    .then(projects => projects.remove().then(() => res.json({ success: true })))
+    .catch(err => next(err));
 });
 
 module.exports = router;

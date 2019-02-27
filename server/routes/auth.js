@@ -13,6 +13,7 @@ router.post("/signup", (req, res, next) => {
     password,
     firstname,
     lastname,
+    email,
     profileimage,
     university,
     institute,
@@ -42,6 +43,7 @@ router.post("/signup", (req, res, next) => {
         password: hashPass,
         firstname,
         lastname,
+        email,
         profileimage,
         university,
         institute,
@@ -100,6 +102,10 @@ router.post("/login", (req, res, next) => {
       });
     })
     .catch(err => next(err));
+});
+
+router.get("/profile", (req, res, next) => {
+  res.json(req.user);
 });
 
 router.post("/login-with-passport-local-strategy", (req, res, next) => {
