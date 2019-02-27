@@ -59,16 +59,20 @@ export default {
       .get('/logout')
   },
 
-  getCountries() {
+  getProjects() {
     return service
-      .get('/countries')
+      .get('/projects')
       .then(res => res.data)
       .catch(errHandler)
   },
 
-  postCountries(data) {
+  addProjects(formData) {
     return service
-      .post('/countries', data)
+      .post('/projects', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        }
+      })
       .then(res => res.data)
       .catch(errHandler)
   },

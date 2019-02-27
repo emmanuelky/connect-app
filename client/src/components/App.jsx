@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Route, Link, NavLink, Switch } from "react-router-dom";
 import Home from "./pages/Home";
-import Countries from "./pages/Projects";
-import AddCountry from "./pages/AddCountry";
+import Projects from "./pages/Projects";
+import AddProjects from "./pages/AddProject";
 import Secret from "./pages/Secret";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
@@ -16,7 +16,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      profile: []
+      projects: []
     };
     // api.loadUser();
   }
@@ -34,10 +34,10 @@ class App extends Component {
           <NavLink to="/" exact>
             Home
           </NavLink>
-          <NavLink to="/countries">Countries</NavLink>
+          <NavLink to="/projects">Projects</NavLink>
 
           {/* The NavLink "Add country" is displayed only when the user is connected */}
-          {api.isLoggedIn() && <NavLink to="/add-country">Add country</NavLink>}
+          {api.isLoggedIn() && <NavLink to="/add-project">Add project</NavLink>}
           {api.isLoggedIn() && <NavLink to="/profile">Profile</NavLink>}
           {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
           {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
@@ -50,11 +50,11 @@ class App extends Component {
         </header>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/countries" component={Countries} />
+          <Route exact path="/projects" component={Projects} />
           <Route exact path="/profile" component={Profile} />
           {/* <Route exact path="/countries/:countryId" component={CountryDetail} /> */}
           <Route exact path="/edit-profile" component={EditProfile} />
-          <Route exact path="/add-country" component={AddCountry} />
+          <Route exact path="/add-project" component={AddProjects} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/secret" component={Secret} />

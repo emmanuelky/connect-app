@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import api from '../../api';
 
-class Countries extends Component {
+class Projects extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      countries: []
+      projects: []
     }
   }
   deleteCountry(countryId){
@@ -26,15 +26,15 @@ class Countries extends Component {
   }
   render() {
     return (
-      <div className="Countries">
-        <h2>List of countries</h2>
+      <div className="Projects">
+        <h2>List of Projects</h2>
         {/* `c` represents the current country */}
         <ul>
-          {this.state.countries.map(c => <li key={c._id}>
-            {c.name}{' '}
-            <Link to={"/countries/"+c._id}>Detail</Link>{' '}
+          {this.state.projects.map(p => <li key={p._id}>
+            {p.name}{p.date}
+            {/* <Link to={"/countries/"+c._id}>Detail</Link>{' '}
             <Link to={"/edit-country/"+c._id}>Edit</Link>{' '}
-            <button onClick={()=>this.deleteCountry(c._id)}>Delete</button>
+            <button onClick={()=>this.deleteCountry(c._id)}>Delete</button> */}
           </li>)}
         </ul>
         {this.state.message && <div className="info">
@@ -44,15 +44,15 @@ class Countries extends Component {
     );
   }
   componentDidMount() {
-    api.getCountries()
-      .then(countries => {
-        console.log(countries)
+    api.getProjects()
+      .then(projects => {
+        console.log(projects)
         this.setState({
-          countries: countries
+          projects: projects
         })
       })
       .catch(err => console.log(err))
   }
 }
 
-export default Countries;
+export default Projects;
