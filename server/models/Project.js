@@ -25,6 +25,7 @@ const projectSchema = new mongoose.Schema({
   technologyused: {
     type: [String],
     default: []
+    
   },
   date: {
     type: Date,
