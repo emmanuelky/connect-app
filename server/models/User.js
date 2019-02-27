@@ -19,7 +19,7 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
-      minlength: 1,
+      
     },
     profileimage: {
       type: String,
@@ -65,10 +65,10 @@ const userSchema = new Schema(
         type: String,
         enum: ["male", "female"]
       },
-    social: [{
-        type: String,
-        url: String,
-      }],
+    social: {
+      type: [String],
+      default: []
+      },
     },
 
   {

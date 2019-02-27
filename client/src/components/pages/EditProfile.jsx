@@ -29,7 +29,7 @@ export default class EditProfile extends Component {
   handleSubmit(e){
     e.preventDefault() // To not not submit the form and redirect the user to another page
 
-    api.editProfile(this.props.match.params.profileId, {
+    api.editProfile(this.props.match.params.profile, {
       firstname: this.state.firstname,
       lastname: this.state.lastname,
       email: this.state.email,

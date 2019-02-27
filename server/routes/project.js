@@ -1,7 +1,9 @@
-const express = require("express");
-const Project = require("../models/Project");
-
+const express = require('express');
+const Project = require('../models/Projects')
+const parser = require('../configs/cloudinary')
+const { isLoggedIn } = require('../middlewares')
 const router = express.Router();
+
 
 router.use((req, res, next) => {
   console.log("DEBUG routes/projects");

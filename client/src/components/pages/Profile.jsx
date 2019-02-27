@@ -24,6 +24,8 @@ class Profile extends Component {
           <h5>Social Network: {this.state.profile.social}</h5>
         </div>
         <Link to={"/edit-profile/"}>Edit</Link>{' '}
+       <br /><br />
+        <h1>My Projects</h1>
       </div>
     );
   }
