@@ -61,14 +61,21 @@ export default {
 
   getCountries() {
     return service
-      .get('/projects')
+      .get('/countries')
       .then(res => res.data)
       .catch(errHandler)
   },
 
   postCountries(data) {
     return service
-      .post('/projects', data)
+      .post('/countries', data)
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
+  editProfile(profileId, body) {
+    return service
+      .put('/profile/'+profileId, body)
       .then(res => res.data)
       .catch(errHandler)
   },
