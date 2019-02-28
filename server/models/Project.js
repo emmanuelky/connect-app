@@ -9,6 +9,7 @@ const projectSchema = new mongoose.Schema({
     type: String,
     required: [true, "The project name is required"],
     minlength: 1,
+    required: true
   },
   projectlink: {
     type: String,
