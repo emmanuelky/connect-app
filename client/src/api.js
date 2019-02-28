@@ -66,6 +66,13 @@ export default {
       .catch(errHandler)
   },
 
+  getProjectsbyProfile() {
+    return service
+      .get('/projects/byprofile')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
   addProjects(formData) {
     return service
       .post('/projects', formData, {
