@@ -91,6 +91,13 @@ export default {
       .catch(errHandler)
   },
 
+  editProject(Id, body) {
+    return service
+      .put('/edit-project/'+Id, body)
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
   getSecret() {
     return service
       .get('/secret')

@@ -1,50 +1,51 @@
-import React, { Component } from 'react';
-// import {Link} from 'react-router-dom'
-import api from '../../api';
+import React, { Component } from "react";
+import api from "../../api";
+import { Link } from "react-router-dom";
 
 class Projects extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       projects: []
-    }
+    };
   }
-  deleteProject(countryId){
-    api.deleteProject(countryId)
-      .then(data => {
-        this.setState({
-          countries: this.state.countries.filter(c => c._id !== countryId),
-          message: data.message
-        })
-        // Remove the message after 3 seconds
-        setTimeout(() => {
-          this.setState({
-            message: null
-          })
-        }, 3000)
-      })
-  }
+  // deleteProject(_creator){
+  //   api.deleteProject(_creator)
+  //     .then(data => {
+  //       this.setState({
+  //         _creator: this.state._creator.filter(c => c._id !== _creator),
+  //         message: data.message
+  //       })
+  //       // Remove the message after 3 seconds
+  //       setTimeout(() => {
+  //         this.setState({
+  //           message: null
+  //         })
+  //       }, 3000)
+  //     })
+  // }
   render() {
     return (
-      <div className="Projects">
+      <div className="projects">
         <h2>List of Projects</h2>
-        <ul>
-          {this.state.projects.map(p => <li key={p._id}>
-            {p.name}{p.date} 
-            <div >
-              <img className="projectImage" src={p.projectimage} />
-            </div>
-          </li>)}
-        </ul>
-        {this.state.message && <div className="info">
-        
-          {this.state.message}
-        </div>}
+        <div>
+          <ul>
+            {this.state.projects.map(p => (
+              <li key={p._id}>
+                {p.name}
+                {p.date}
+                <img className="projectImage" src={p.projectimage} />
+              </li>
+            ))}
+          </ul>
+        </div>
+        {this.state.message && <div className="info">{this.state.message}</div>}
       </div>
     );
   }
   componentDidMount() {
-    api.getProjects()
+    api
+      .getProjects()
       .then(projects => {
         console.log(projects);
         this.setState({
@@ -54,5 +55,4 @@ class Projects extends Component {
       .catch(err => console.log(err));
   }
 }
-
 export default Projects;
