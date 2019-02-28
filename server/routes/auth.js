@@ -3,6 +3,7 @@ const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
 
+
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
@@ -109,17 +110,54 @@ router.get("/profile", (req, res, next) => {
 });
 
 router.post("/edit-profile", (req, res, next) => {
-  var userId = req.user._id;
+  let userId = req.user._id;
+  let {firstname,
+    lastname,
+    email,
+    profileimage,
+    university,
+    institute,
+    country,
+    city,
+    specialization,
+    status,
+    age,
+    gender,
+    social} = req.body
+
+    User.update({firstname,
+      lastname,
+      email,
+      profileimage,
+      university,
+      institute,
+      country,
+      city,
+      specialization,
+      status,
+      age,
+      gender,
+      social})
+
+      .then(user => {
+        res.json({
+          success: true,
+          user
+        });
+        response.redirect('/');
+      })
+      .catch(err => next(err))
+
   console.log("user id is", userId);
   console.log("user body is", req.body);
 });
 
 
-profile.updateOne(userId, updatedProfile)
-.then(function(success){
-  console.log("update")
-  response.redirect("/");
-})
+// profile.updateOne(userId, updatedProfile)
+// .then(function(success){
+//   console.log("update")
+//   response.redirect("/");
+// })
 
 router.post("/login-with-passport-local-strategy", (req, res, next) => {
   passport.authenticate("local", (err, theUser, failureDetails) => {

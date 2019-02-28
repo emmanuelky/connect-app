@@ -60,7 +60,7 @@ router.get("/:id", (req, res, next) => {
 // });
 
 // Route to add a project
-router.post("/", parser.single("projectimage"), (req, res, next) => {
+router.post("/", isLoggedIn, parser.single("projectimage"), (req, res, next) => {
   let _creator = req.user._id;
   let { name, projectlink, description, technologyused, date } = req.body;
 
