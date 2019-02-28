@@ -30,7 +30,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">MERN Boilerplate</h1>
+          <h1 className="App-title">Project connect</h1>
           <NavLink to="/" exact>
             Home
           </NavLink>

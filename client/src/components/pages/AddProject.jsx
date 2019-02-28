@@ -14,6 +14,10 @@ class AddProject extends Component {
       projectimage: null,
       message: null
     }
+
+    this.handleClick = this.handleClick.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleFileChange = this.handleFileChange.bind(this)
   }
 
   handleInputChange(stateFieldName, event) {
@@ -46,8 +50,9 @@ class AddProject extends Component {
           name: "",
           projectlink: "",
           description: "",
-          technologyused: "",
-          message: `Your project '${this.state.name}' has been created`,
+          projectimage: "",
+          technologyUsed: "",
+          message: `Your project '${this.state.name}' has been created`
         })
         setTimeout(() => {
           this.setState({
@@ -86,5 +91,4 @@ class AddProject extends Component {
     );
   }
 }
-
 export default AddProject;
