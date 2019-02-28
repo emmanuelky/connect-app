@@ -31,7 +31,14 @@ class Projects extends Component {
         {/* `c` represents the current country */}
         <ul>
           {this.state.projects.map(p => <li key={p._id}>
-            {p.name}{p.date}
+            {p.projectimage} <br /><br />
+            {p.name} <br /><br />
+            {p.date} <br /><br />
+            {p._creator} <br /><br />
+
+
+
+
             {/* <Link to={"/countries/"+c._id}>Detail</Link>{' '}
             <Link to={"/edit-country/"+c._id}>Edit</Link>{' '}
             <button onClick={()=>this.deleteCountry(c._id)}>Delete</button> */}
