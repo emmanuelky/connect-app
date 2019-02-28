@@ -153,11 +153,12 @@ router.post("/edit-profile", (req, res, next) => {
 });
 
 
-// profile.updateOne(userId, updatedProfile)
-// .then(function(success){
-//   console.log("update")
-//   response.redirect("/");
-// })
+/*profile.updateOne(userId, updatedProfile)
+.then(function(success){
+  console.log("update")
+  response.redirect("/");
+})
+*/
 
 router.post("/login-with-passport-local-strategy", (req, res, next) => {
   passport.authenticate("local", (err, theUser, failureDetails) => {
