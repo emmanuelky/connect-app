@@ -29,7 +29,7 @@ class Profile extends Component {
         <h2>My Projects</h2>
         <ul>
         <div >
-        <Link to={"/edit-profile/"}>Edit
+        {/* <Link to={"/edit-profile/"}>Edit */}
 
         {this.state.projects.map(p => <li key={p._id}>           
               <img className="projectImage" src={p.projectimage} />
@@ -37,7 +37,7 @@ class Profile extends Component {
               <h5>Date: {p.date}</h5>
               <h5>Technology Used: {p.technologyused}</h5>
               </li>)}
-              </Link>{' '}
+              {/* </Link>{' '} */}
             </div>
         </ul>
         <img className="projectImage" src={this.state.projects.projectimage} />

@@ -30,6 +30,7 @@ class Projects extends Component {
         <h2>List of Projects</h2>
         <div>
           <ul>
+          <Link to={"/edit-project/"}>Edit Project
             {this.state.projects.map(p => (
               <li key={p._id}>
                 {p.name}
@@ -37,6 +38,7 @@ class Projects extends Component {
                 <img className="projectImage" src={p.projectimage} />
               </li>
             ))}
+            </Link>{' '}
           </ul>
         </div>
         {this.state.message && <div className="info">{this.state.message}</div>}
@@ -50,6 +52,16 @@ class Projects extends Component {
         console.log(projects);
         this.setState({
           projects: projects
+        });
+      })
+      .catch(err => console.log(err));
+
+      api
+      .editProject()
+      .then(projects => {
+        console.log("Projects", projects);
+        this.setState({
+          projects : projects
         });
       })
       .catch(err => console.log(err));
