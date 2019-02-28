@@ -80,7 +80,7 @@ class AddProject extends Component {
           Project Image: <input type="file" onChange={this.handleFileChange} /><br />
           Name: <input type="text" value={this.state.name} onChange={(e) => { this.handleInputChange("name", e) }} /> <br />
           Description: <textarea value={this.state.description} cols="30" rows="10" onChange={(e) => { this.handleInputChange("description", e) }} ></textarea> <br />
-          Technology Used: <input type="number" value={this.state.technologyused} onChange={(e) => { this.handleInputChange("technologyused", e) }} /> <br />
+          Technology Used: <input type="text" value={this.state.technologyused} onChange={(e) => { this.handleInputChange("technologyused", e) }} /> <br />
           Project Link: <input type="text" value={this.state.projectlink} onChange={(e) => { this.handleInputChange("projectlink", e) }} /> <br />
           <button onClick={(e) => this.handleClick(e)}>Add Project</button>
         </form>
