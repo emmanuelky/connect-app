@@ -6,6 +6,8 @@ import AddProjects from "./pages/AddProject";
 import Secret from "./pages/Secret";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import EditProject from "./pages/EditProject";
+
 import Signup from "./pages/Signup";
 // import CountryDetail from './pages/CountryDetail';
 import EditProfile from "./pages/EditProfile";
@@ -55,6 +57,7 @@ class App extends Component {
           <Route exact path="/profile" component={Profile} />
           {/* <Route exact path="/countries/:countryId" component={CountryDetail} /> */}
           <Route exact path="/edit-profile" component={EditProfile} />
+          <Route exact path="/edit-project" component={EditProject} />
           <Route exact path="/add-project" component={AddProjects} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />

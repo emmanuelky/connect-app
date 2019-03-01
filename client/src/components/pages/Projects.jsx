@@ -28,6 +28,20 @@ class Projects extends Component {
     return (
       <div className="projects">
         <h2>List of Projects</h2>
+        <div>
+          <ul>
+          <Link to={"/edit-project/"}>Edit Project
+            {this.state.projects.map(p => (
+              <li key={p._id}>
+                {p.name}
+                {p.date}
+                <img className="projectImage" src={p.projectimage} />
+              </li>
+            ))}
+            </Link>{' '}
+          </ul>
+        </div>
+        {this.state.message && <div className="info">{this.state.message}</div>}
         <ul>
           {this.state.projects.map(p => <li key={p._id}>
             {p.name}{p.date} 
