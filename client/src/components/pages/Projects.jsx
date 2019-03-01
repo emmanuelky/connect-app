@@ -67,16 +67,6 @@ class Projects extends Component {
         });
       })
       .catch(err => console.log(err));
-
-      api
-      .editProject()
-      .then(projects => {
-        console.log("Projects", projects);
-        this.setState({
-          projects : projects
-        });
-      })
-      .catch(err => console.log(err));
   }
 }
 export default Projects;
