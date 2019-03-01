@@ -32,6 +32,7 @@ class Home extends Component {
         <ul>
           {this.state.projects.map(p => (
             <li key={p._id}>
+            
               {p.name} 
             </li>
           ))}

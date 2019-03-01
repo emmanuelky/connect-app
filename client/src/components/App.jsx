@@ -10,7 +10,7 @@ import Signup from "./pages/Signup";
 // import CountryDetail from './pages/CountryDetail';
 import EditProfile from "./pages/EditProfile";
 import api from "../api";
-import logo from "../logo.svg";
+import logo from "../logo.png"
 
 class App extends Component {
   constructor(props) {

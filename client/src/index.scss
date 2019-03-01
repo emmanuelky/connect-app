@@ -1,6 +1,6 @@
 // --------------------
 // Definition of variables
-$primary: #32c3ff;
+$primary: #4D9DE0;
 
 
 // ----------------------------------------
@@ -38,8 +38,8 @@ body {
   text-align: center;
 
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
     height: 80px;
+    border-radius: 10px
   }
 
   .App-header {
@@ -83,6 +83,9 @@ body {
   p {
     font-size: 1.2em;
   }
+}
+.Home ul {
+  list-style: none;
 }
 
 // --------------------
