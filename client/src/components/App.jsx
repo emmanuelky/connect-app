@@ -32,13 +32,13 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Project connect</h1>
+          <h1 className="App-title">ConnectMond</h1>
           <NavLink to="/" exact>
             Home
           </NavLink>
           <NavLink to="/projects">Projects</NavLink>
 
-          {/* The NavLink "Add country" is displayed only when the user is connected */}
+          {/* The NavLink "Add project" is displayed only when the user is connected */}
           {api.isLoggedIn() && <NavLink to="/add-project">Add project</NavLink>}
           {api.isLoggedIn() && <NavLink to="/profile">Profile</NavLink>}
           {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
@@ -55,9 +55,8 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/projects" component={Projects} />
           <Route exact path="/profile" component={Profile} />
-          {/* <Route exact path="/countries/:countryId" component={CountryDetail} /> */}
           <Route exact path="/edit-profile" component={EditProfile} />
-          <Route exact path="/edit-project" component={EditProject} />
+          <Route exact path="/edit-project/:projectId" component={EditProject} />
           <Route exact path="/add-project" component={AddProjects} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />

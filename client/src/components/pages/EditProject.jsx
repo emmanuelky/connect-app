@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import api from '../../api';
+import {Link} from 'react-router-dom'
+
 
 export default class EditProject extends Component {
   constructor(props) {
@@ -14,26 +16,30 @@ export default class EditProject extends Component {
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    // this.handleClick = this.handleClick.bind(this)
   }
-
   handleInputChange(stateKey, event){
     this.setState({
       [stateKey]: event.target.value
     })
   }
-
-  
   handleSubmit(e){
-    e.preventDefault() // To not not submit the form and redirect the user to another page
+    e.preventDefault(); 
+    let {
+      name,
+      projectlink,
+      projectimage,
+      description,
+      technologyused,
+      date,
+    } = this.state;
 
-    api.editProject(this.props.match.params.projects, {
-      name: this.state.name,
-      projectlink: this.state.projectlink,
-      projectimage: this.state.projectimage,
-      description: this.state.description,
-      technologyused: this.state.technologyused,
-      date: this.state.date,
+    api.editProject(this.props.match.params.projectId, {
+      name,
+      projectlink,
+      projectimage,
+      description,
+      technologyused,
+      date,
     })
       .then(data => {
         console.log("I could do it", data)
@@ -51,18 +57,85 @@ export default class EditProject extends Component {
   render() {
     return (
       <div className="editProject">
-        <h1>Edit Project</h1>
-        <form onSubmit={this.handleSubmit}>
-          Project Name: <input type="text" value={this.state.name} onChange={(e) => { this.handleInputChange("name", e) }} /> <br />
-          Project Link: <input type="text" value={this.state.projectlink} onChange={(e) => { this.handleInputChange("projectlink", e) }} /> <br />
-          Project Image: <input type="text" value={this.state.email} onChange={(e) => { this.handleInputChange("email", e) }} /> <br />
-          Description: <input type="text" value={this.state.description} onChange={(e) => { this.handleInputChange("description", e) }} /> <br /> 
-          <button>Edit Profile</button>
+      <h3>Edit Project</h3>
+      <form onSubmit={this.handleSubmit}>
+          Project Name:{" "}
+          <input
+            type="text"
+            value={this.state.name}
+            onChange={e => {
+              this.handleInputChange("name", e);
+            }}
+          />{" "}
+          <br />
+          Project Link:{" "}
+          <input
+            type="text"
+            value={this.state.projectlink}
+            onChange={e => {
+              this.handleInputChange("projectlink", e);
+            }}
+          />{" "}
+          <br />
+          Project Description:{" "}
+          <input
+            type="text"
+            value={this.state.description}
+            onChange={e => {
+              this.handleInputChange("description", e);
+            }}
+          />{" "}
+          <br />
+          Technology Used:{" "}
+          <input
+            type="text"
+            value={this.state.technologyused}
+            onChange={e => {
+              this.handleInputChange("technologyused", e);
+            }}
+          />{" "}
+          <br />
+          Date:{" "}
+          <input
+            type="date"
+            value={this.state.date}
+            onChange={e => {
+              this.handleInputChange("date", e);
+            }}
+          />{" "}
+          <br />
+          <Link to="/project/"> <button>Edit Profile</button></Link>{' '}
         </form>
-        {this.state.message && <div className="info">
-          {this.state.message}
-        </div>}
+        {this.state.message && <div className="info">{this.state.message}</div>}
       </div>
-    )
+    );
+  }
+  //     <div className="editProject">
+  //       <h1>Edit Project</h1>
+  //       <form onSubmit={this.handleSubmit}>
+  //         Project Name: <input type="text" value={this.state.name} onChange={(e) => { this.handleInputChange("name", e) }} /> <br />
+  //         Project Link: <input type="text" value={this.state.projectlink} onChange={(e) => { this.handleInputChange("projectlink", e) }} /> <br />
+  //         Project Image: <input type="text" value={this.state.email} onChange={(e) => { this.handleInputChange("email", e) }} /> <br />
+  //         Description: <input type="text" value={this.state.description} onChange={(e) => { this.handleInputChange("description", e) }} /> <br /> 
+  //         <button>Edit Profile</button>
+  //       </form>
+  //       {this.state.message && <div className="info">
+  //         {this.state.message}
+  //       </div>}
+  //     </div>
+  //   )
+  // }
+  componentDidMount(){
+    api.getProject(this.props.match.params.projectId)
+      .then(project => {
+        this.setState({
+          name: project.name,
+          projectlink: project.projectlink,
+          technologyused: project.technologyused,
+          email: project.email,
+          date: project.date.slice(0, 10),
+          description: project.description,
+        })
+      })
   }
 }

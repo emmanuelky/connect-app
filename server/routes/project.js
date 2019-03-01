@@ -106,6 +106,37 @@ router.post("/", isLoggedIn, parser.single("projectimage"), (req, res, next) => 
     .catch(err => next(err));
 });
 
+router.post("/edit-project", (req, res, next) => {
+  let projectsId = req.user._id;
+  let {name,
+    projectlink,
+    projectimage,
+    description,
+    technologyused,
+    date} = req.body
+
+    Project.update({firstname,
+      name,
+      projectlink,
+      projectimage,
+      description,
+      technologyused,
+      date})
+
+      .then(project => {
+        res.json({
+          success: true,
+          project
+        });
+        response.redirect('/projects');
+      })
+      .catch(err => next(err))
+
+  console.log("project id is", projectsId);
+  console.log("project body is", req.body);
+});
+
+
 // Route to delete a project
 router.delete("/:id", (req, res, next) => {
   Project.findById(req.params.id)

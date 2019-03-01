@@ -93,9 +93,16 @@ export default {
       .catch(errHandler);
   },
 
-  editProject(Id, body) {
+  getProject(projectId) {
     return service
-      .put('/edit-project/'+Id, body)
+      .get('/projects/'+projectId)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
+  editProject(body) {
+    return service
+      .put('/edit-project/', body)
       .then(res => res.data)
       .catch(errHandler)
   },
