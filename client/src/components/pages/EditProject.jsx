@@ -14,9 +14,9 @@ export default class EditProject extends Component {
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleClick = this.handleClick.bind(this)
-    
+    // this.handleClick = this.handleClick.bind(this)
   }
+
   handleInputChange(stateKey, event){
     this.setState({
       [stateKey]: event.target.value

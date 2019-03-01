@@ -28,7 +28,6 @@ class Projects extends Component {
     return (
       <div className="projects">
         <h2>List of Projects</h2>
-<<<<<<< HEAD
         <div>
           <ul>
           <Link to={"/edit-project/"}>Edit Project
@@ -43,7 +42,6 @@ class Projects extends Component {
           </ul>
         </div>
         {this.state.message && <div className="info">{this.state.message}</div>}
-=======
         <ul>
           {this.state.projects.map(p => <li key={p._id}>
             {p.name}{p.date} 
@@ -56,7 +54,6 @@ class Projects extends Component {
         
           {this.state.message}
         </div>}
->>>>>>> master
       </div>
     );
   }
