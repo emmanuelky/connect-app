@@ -9,8 +9,8 @@ class Projects extends Component {
       projects: []
     }
   }
-  deleteCountry(countryId){
-    api.deleteCountry(countryId)
+  deleteProject(countryId){
+    api.deleteProject(countryId)
       .then(data => {
         this.setState({
           countries: this.state.countries.filter(c => c._id !== countryId),
@@ -28,23 +28,16 @@ class Projects extends Component {
     return (
       <div className="Projects">
         <h2>List of Projects</h2>
-        {/* `c` represents the current country */}
         <ul>
           {this.state.projects.map(p => <li key={p._id}>
-            {p.projectimage} <br /><br />
-            {p.name} <br /><br />
-            {p.date} <br /><br />
-            {p._creator} <br /><br />
-
-
-
-
-            {/* <Link to={"/countries/"+c._id}>Detail</Link>{' '}
-            <Link to={"/edit-country/"+c._id}>Edit</Link>{' '}
-            <button onClick={()=>this.deleteCountry(c._id)}>Delete</button> */}
+            {p.name}{p.date} 
+            <div >
+              <img className="projectImage" src={p.projectimage} alt="imgproj"/>
+            </div>
           </li>)}
         </ul>
         {this.state.message && <div className="info">
+        
           {this.state.message}
         </div>}
       </div>
@@ -53,12 +46,12 @@ class Projects extends Component {
   componentDidMount() {
     api.getProjects()
       .then(projects => {
-        console.log(projects)
+        console.log(projects);
         this.setState({
           projects: projects
-        })
+        });
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 }
 
