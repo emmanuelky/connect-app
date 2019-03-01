@@ -3,7 +3,7 @@ const Project = require("../models/Project");
 const parser = require("../configs/cloudinary");
 const { isLoggedIn } = require("../middlewares");
 const router = express.Router();
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 // router.use((req, res, next) => {
 //   console.log("DEBUG routes/projects");
@@ -21,9 +21,10 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/byprofile", (req, res, next) => {
-  console.log("by", req.user)
-  var mongoFilter = {_creator: mongoose.Types.ObjectId(req.user._id)} 
+  console.log("by", req.user);
+  let mongoFilter = { _creator: mongoose.Types.ObjectId(req.user._id) };
   Project.find(mongoFilter)
+    .sort({ date: -1 })
     .then(projects => {
       res.json(projects);
     })
@@ -39,6 +40,73 @@ router.get("/:id", (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
+router.put("/:id", (req, res, next) => {
+  let {
+    name,
+    description,
+    projectlink,
+    projectimage,
+    technologyused
+  } = req.body;
+
+  Project.findByIdAndUpdate(
+    req.params.id,
+    {
+      name,
+      description,
+      projectlink,
+      projectimage,
+      technologyused
+    },
+    { new: true }
+  ) // To access the updated country (and not the old country)
+    .then(project => {
+      res.json({
+        message: "Your project has been updated",
+        country: project
+      });
+    })
+    .catch(err => next(err));
+});
+
+
+router.get("/byprofile", (req, res, next) => {
+  
+  res.json(req.user);
+});
+
+router.post("/edit-project", (req, res, next) => {
+  let projectId = req.user._id;
+  let {name,
+    projectlink,
+    projectimage,
+    description,
+    technologyused} = req.body
+
+    Project.update({name,
+      projectlink,
+      projectimage,
+      description,
+      technologyused})
+
+      .then(user => {
+        res.json({
+          success: true,
+          user
+        });
+        response.redirect('/');
+      })
+      .catch(err => next(err))
+
+  console.log("user id is", projectId);
+  console.log("user body is", req.body);
+});
+
+  
+
+
+
 
 // Route to add a project
 // router.post('/', isLoggedIn, parser.single('projectimage'), (req, res, next) => {
@@ -72,45 +140,50 @@ router.get("/:id", (req, res, next) => {
 // });
 
 // Route to add a project
-router.post("/", isLoggedIn, parser.single("projectimage"), (req, res, next) => {
-  let _creator = req.user._id;
-  let { name, projectlink, description, technologyused, date } = req.body;
+router.post(
+  "/",
+  isLoggedIn,
+  parser.single("projectimage"),
+  (req, res, next) => {
+    let _creator = req.user._id;
+    let { name, projectlink, description, technologyused, date } = req.body;
 
-  let projectimage = req.file.url;
+    let projectimage = req.file.url;
 
-  console.log({
-    name,
-    projectlink,
-    projectimage,
-    description,
-    technologyused,
-    _creator,
-    date
-  });
+    console.log({
+      name,
+      projectlink,
+      projectimage,
+      description,
+      technologyused,
+      _creator,
+      date
+    });
 
-  Project.create({
-    name,
-    projectlink,
-    projectimage,
-    description,
-    technologyused,
-    _creator,
-    date
-  })
-    .then(project => {
-      res.json({
-        success: true,
-        project
-      });
+    Project.create({
+      name,
+      projectlink,
+      projectimage,
+      description,
+      technologyused,
+      _creator,
+      date
     })
-    .catch(err => next(err));
-});
+      .then(project => {
+        res.json({
+          success: true,
+          project
+        });
+      })
+      .catch(err => next(err));
+  }
+);
 
 // Route to delete a project
-router.delete("/:id", (req, res, next) => {
+router.delete('/:id', (req, res, next) => {
   Project.findById(req.params.id)
-    .then(projects => projects.remove().then(() => res.json({ success: true })))
-    .catch(err => next(err));
+    .then(project => project.remove().then(() => res.json({ success: true })))
+    .catch(err => res.status(404).json({ success: false }));
 });
 
 router.get("/projects", (req, res, next) => {

@@ -1,5 +1,18 @@
 import React, { Component } from "react";
 import api from "../../api";
+import { Link } from "react-router-dom";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
 class Home extends Component {
   constructor(props) {
@@ -11,26 +24,6 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    api
-      .getProjects()
-      .then(projects => {
-        console.log(projects);
-        this.setState({
-          projects: projects
-        });
-      })
-      .catch(err => console.log(err));
-
-    api
-      .getProjectsbyProfile()
-      .then(projects => {
-        console.log("Projects", projects);
-        this.setState({
-          projects: projects
-        });
-      })
-      .catch(err => console.log(err));
-
     api
       .getProfile()
       .then(user => {
@@ -46,28 +39,51 @@ class Home extends Component {
     return (
       <div className="Home">
         <h2>Top 10 Recent Projects</h2>
-
-        <ul>
-          <div>
+        <div>
+          <ul>
             {this.state.projects.map(p => (
               <li key={p._id}>
-                <img className="projectImage" src={p.projectimage} />
-                <h5>
-                  Creator: {this.state.profile.firstname}{" "}
-                  {this.state.profile.lastname}{" "}
-                </h5>
-                <h5>Date Added: {p.date}</h5>
+                <Link to="/projects">
+                  {" "}
+                  <img className="projectImage" src={p.projectimage} />{" "}
+                </Link>{" "}
+                <br />
+                Project Name: {p.name} <br />
+                Technology Used: {p.technologyused} <br /> Date Added: {p.date}{" "}
+                <br />
                 <br />
                 <br />
                 <br />
               </li>
             ))}
-          </div>
+          </ul>
+        </div>
+        {this.state.message && <div className="info">{this.state.message}</div>}
+        {/* <ul>
+          {this.state.projects.map(p => <li key={p._id}>
+            {p.name}{p.date} 
+            <div >
+              <img className="projectImage" src={p.projectimage} alt=""/>
+            </div>
+          {/* </li>)}
         </ul>
-        {/* <img className="projectImage" src={this.state.projects.projectimage} /> */}
+        {this.state.message && <div className="info">
+        
+          {this.state.message} 
+        </div>*/}
       </div>
     );
   }
+  componentDidMount() {
+    api
+      .getProjects()
+      .then(projects => {
+        console.log(projects);
+        this.setState({
+          projects: projects
+        });
+      })
+      .catch(err => console.log(err));
+  }
 }
-
 export default Home;

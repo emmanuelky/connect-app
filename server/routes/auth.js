@@ -158,11 +158,7 @@ router.get("/project", (req, res, next) => {
   res.json(req.user);
 });
 
-router.post("/edit-project", (req, res, next) => {
-  var userId = req.user._creator;
-  console.log("user id is", _creator);
-  console.log("user body is", req.body);
-});
+
 
 
 /*profile.updateOne(userId, updatedProfile)

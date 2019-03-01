@@ -93,9 +93,16 @@ export default {
       .catch(errHandler);
   },
 
-  editProject(Id, body) {
+  editProject(body) {
     return service
-      .put('/edit-project/'+Id, body)
+      .post('/edit-project/', body)
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
+  getProjectDetail(id) {
+    return service
+      .get('/'+id)
       .then(res => res.data)
       .catch(errHandler)
   },
@@ -118,5 +125,13 @@ export default {
       })
       .then(res => res.data)
       .catch(errHandler);
-  }
+  },
+
+
+  deleteProject(projectId) {
+    return service
+      .delete('/profile/'+projectId)
+      .then(res => res.data)
+      .catch(errHandler)
+  },
 };

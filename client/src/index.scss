@@ -88,6 +88,10 @@ body {
   list-style: none;
 }
 
+.projects ul {
+  list-style: none;
+}
+
 // --------------------
 // Style for Secret component
 .Secret {
@@ -101,4 +105,8 @@ body {
   padding: 20px;
   text-align: center;
   height: 100px;
+}
+
+.profile ul{
+list-style: none;
 }

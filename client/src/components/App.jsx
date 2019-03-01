@@ -7,12 +7,11 @@ import Secret from "./pages/Secret";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import EditProject from "./pages/EditProject";
-
 import Signup from "./pages/Signup";
 // import CountryDetail from './pages/CountryDetail';
 import EditProfile from "./pages/EditProfile";
 import api from "../api";
-import logo from "../logo.png"
+import logo from "../logo.png";
 
 class App extends Component {
   constructor(props) {
@@ -29,41 +28,76 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Project connect</h1>
+      <div className="container">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <NavLink to="/" exact>
-            Home
+            <img
+              src={logo}
+              className="App-logo"
+              alt="logo"
+              width="100px"
+              height="100px"
+            />
           </NavLink>
-          <NavLink to="/projects">Projects</NavLink>
+          <button className="btn btn-outline-primary navbar-brand my-2 my-sm-0 p-4">
+            <NavLink to="/projects"> Projects</NavLink>
+          </button>
 
           {/* The NavLink "Add country" is displayed only when the user is connected */}
-          {api.isLoggedIn() && <NavLink to="/add-project">Add project</NavLink>}
-          {api.isLoggedIn() && <NavLink to="/profile">Profile</NavLink>}
-          {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
-          {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
-          
           {api.isLoggedIn() && (
-            <Link to="/" onClick={e => this.handleLogoutClick(e)}>
-              Logout
-            </Link>
+            <button className="btn btn-outline-primary navbar-brand my-2 my-sm-0 p-4">
+              {" "}
+              <NavLink to="/add-project">Add project</NavLink>{" "}
+            </button>
           )}
-          <NavLink to="/secret">Secret</NavLink>
-        </header>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/projects" component={Projects} />
-          <Route exact path="/profile" component={Profile} />
-          {/* <Route exact path="/countries/:countryId" component={CountryDetail} /> */}
-          <Route exact path="/edit-profile" component={EditProfile} />
-          <Route exact path="/edit-project" component={EditProject} />
-          <Route exact path="/add-project" component={AddProjects} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/secret" component={Secret} />
-          <Route render={() => <h2>404</h2>} />
-        </Switch>
+          {api.isLoggedIn() && (
+            <button className="btn btn-outline-primary navbar-brand my-2 my-sm-0 p-4">
+              <NavLink to="/profile">Profile</NavLink>
+            </button>
+          )}
+          {!api.isLoggedIn() && (
+            <button className="btn btn-outline-primary navbar-brand my-2 my-sm-0 p-4">
+              <NavLink to="/signup">Signup</NavLink>
+            </button>
+          )}
+          {!api.isLoggedIn() && (
+            <button className="btn btn-outline-primary navbar-brand my-2 my-sm-0 p-4">
+              <NavLink to="/login">Login</NavLink>
+            </button>
+          )}
+
+          <button className="btn btn-outline-primary navbar-brand my-2 my-sm-0 p-4">
+            <NavLink to="/secret">Jobs</NavLink>
+          </button>
+
+
+          {api.isLoggedIn() && (
+            <button className="btn btn-outline-primary navbar-brand my-2 my-sm-0 p-4">
+              {" "}
+              <Link to="/" onClick={e => this.handleLogoutClick(e)}>
+                Logout
+              </Link>
+            </button>
+          )}
+        </nav>
+
+        <div>
+          <div className="App">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/projects" component={Projects} />
+              <Route exact path="/profile" component={Profile} />
+              {/* <Route exact path="/countries/:countryId" component={CountryDetail} /> */}
+              <Route exact path="/edit-profile" component={EditProfile} />
+              <Route exact path="/edit-project" component={EditProject} />
+              <Route exact path="/add-project" component={AddProjects} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/secret" component={Secret} />
+              <Route render={() => <h2>404</h2>} />
+            </Switch>
+          </div>
+        </div>
       </div>
     );
   }

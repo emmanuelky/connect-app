@@ -10,6 +10,27 @@ class Profile extends Component {
       projects: []
     };
   }
+
+
+  deleteProject(projectId){
+    api.deleteProject(projectId)
+      .then(data => {
+        this.setState({
+          projects: this.state.projects.filter(p => p._id !== projectId),
+          message: data.message
+        })
+        // Remove the message after 3 seconds
+        setTimeout(() => {
+          this.setState({
+            message: null
+          })
+        }, 2000)
+      })
+  }
+
+
+
+
   render() {
     return (
       <div className="profile">
@@ -31,22 +52,24 @@ class Profile extends Component {
         </div>
         <Link to={"/edit-profile/"}>Edit</Link> <br />
         <br />
+        
+        
+          <div className="myProjects">
         <h2>My Projects</h2>
         <ul>
-          <div>
-            <Link to={"/edit-profile/"}>Edit</Link>{" "}
             {this.state.projects.map(p => (
               <li key={p._id}>
                 <img className="projectImage" src={p.projectimage} />
                 <h5>Name: {p.name}</h5>
-                <h5>Date: {p.date}</h5>
+                <h5>Date Added: {p.date}</h5>
                 <h5>Technology Used: {p.technologyused}</h5>
+                <Link to={"/edit-project/"}>Edit Project</Link> <br />
+                <button onClick={()=>this.deleteProject(p._id)}>Delete Project</button>
               </li>
             ))}
-          </div>
         </ul>
-        <img className="projectImage" src={this.state.projects.projectimage} />
-        <button>Delete</button>
+          </div>
+        
       </div>
     );
   }
