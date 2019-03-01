@@ -32,7 +32,7 @@ class Projects extends Component {
           {this.state.projects.map(p => <li key={p._id}>
             {p.name}{p.date} 
             <div >
-              <img className="projectImage" src={p.projectimage} alt="imgproj"/>
+              <img className="projectImage" src={p.projectimage} alt=""/>
             </div>
           </li>)}
         </ul>
