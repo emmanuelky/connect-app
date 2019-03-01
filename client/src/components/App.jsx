@@ -10,7 +10,7 @@ import Signup from "./pages/Signup";
 // import CountryDetail from './pages/CountryDetail';
 import EditProfile from "./pages/EditProfile";
 import api from "../api";
-import logo from "../logo.svg";
+import logo from "../logo.png"
 
 class App extends Component {
   constructor(props) {
@@ -41,6 +41,7 @@ class App extends Component {
           {api.isLoggedIn() && <NavLink to="/profile">Profile</NavLink>}
           {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
           {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
+          
           {api.isLoggedIn() && (
             <Link to="/" onClick={e => this.handleLogoutClick(e)}>
               Logout

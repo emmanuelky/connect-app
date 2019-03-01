@@ -1,69 +1,71 @@
-import axios from 'axios'
+import axios from "axios";
 
 const service = axios.create({
-  baseURL: process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:5000/api',
+  baseURL:
+    process.env.NODE_ENV === "production"
+      ? "/api"
+      : "http://localhost:5000/api",
   withCredentials: true
-})
+});
 
 const errHandler = err => {
-  console.error(err)
+  console.error(err);
   if (err.response && err.response.data) {
-    console.error("API response", err.response.data)
-    throw err.response.data.message
+    console.error("API response", err.response.data);
+    throw err.response.data.message;
   }
-  throw err
-}
+  throw err;
+};
 
 export default {
   service: service,
 
   isLoggedIn() {
-    return localStorage.getItem('user') != null
+    return localStorage.getItem("user") != null;
   },
 
   signup(userInfo) {
     return service
-      .post('/signup', userInfo)
+      .post("/signup", userInfo)
       .then(res => {
         // If we have localStorage.getItem('user') saved, the application will consider we are loggedin
-        localStorage.setItem('user', JSON.stringify(res.data))
-        return res.data
+        localStorage.setItem("user", JSON.stringify(res.data));
+        return res.data;
       })
-      .catch(errHandler)
+      .catch(errHandler);
   },
 
   login(username, password) {
     return service
-      .post('/login', {
+      .post("/login", {
         username,
-        password,
+        password
       })
       .then(res => {
         // If we have localStorage.getItem('user') saved, the application will consider we are loggedin
-        localStorage.setItem('user', JSON.stringify(res.data))
-        return res.data
+        localStorage.setItem("user", JSON.stringify(res.data));
+        return res.data;
       })
-      .catch(errHandler)
+      .catch(errHandler);
   },
 
   getProfile() {
     return service
-      .get('/profile')
+      .get("/profile")
       .then(res => res.data)
-      .catch(errHandler)
+      .catch(errHandler);
   },
 
   logout() {
-    localStorage.removeItem('user')
-    return service
-      .get('/logout')
+    localStorage.removeItem("user");
+    return service.get("/logout");
   },
 
   getProjects() {
     return service
-      .get('/projects')
+      .get("/projects")
       .then(res => res.data)
-      .catch(errHandler)
+      .catch(errHandler);
   },
 
   getProjectsbyProfile() {
@@ -75,20 +77,20 @@ export default {
 
   addProjects(formData) {
     return service
-      .post('/projects', formData, {
+      .post("/projects", formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data"
         }
       })
       .then(res => res.data)
-      .catch(errHandler)
+      .catch(errHandler);
   },
 
-  editProfile(Id, body) {
+  editProfile(body) {
     return service
-      .put('/profile/'+Id, body)
+      .post("/edit-profile", body)
       .then(res => res.data)
-      .catch(errHandler)
+      .catch(errHandler);
   },
 
   editProject(Id, body) {
@@ -100,21 +102,21 @@ export default {
 
   getSecret() {
     return service
-      .get('/secret')
+      .get("/secret")
       .then(res => res.data)
-      .catch(errHandler)
+      .catch(errHandler);
   },
 
   addPicture(file) {
-    const formData = new FormData()
-    formData.append("picture", file)
+    const formData = new FormData();
+    formData.append("picture", file);
     return service
-      .post('/endpoint/to/add/a/picture', formData, {
+      .post("/endpoint/to/add/a/picture", formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+          "Content-Type": "multipart/form-data"
+        }
       })
       .then(res => res.data)
-      .catch(errHandler)
-  },
-}
+      .catch(errHandler);
+  }
+};

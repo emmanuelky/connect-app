@@ -41,7 +41,38 @@ router.get("/:id", (req, res, next) => {
 });
 
 // Route to add a project
-router.post("/", parser.single("projectimage"), (req, res, next) => {
+// router.post('/', isLoggedIn, parser.single('projectimage'), (req, res, next) => {
+//   let {
+//     name,
+//     projectlink,
+//     description,
+//     projectimage,
+//     technologyused,
+//     date
+//   } = req.body;
+
+//   let _creator = req.user._id // req.user contains information about the connected user
+// let projectimage = req.file.url
+//   Project.create({
+//     name,
+//     projectlink,
+//     description,
+//     projectimage,
+//     technologyused,
+//     _creator,
+//     date
+//   })
+//     .then(projects => {
+//       res.json({
+//         success: true,
+//         projects
+//       });
+//     })
+//     .catch(err => next(err));
+// });
+
+// Route to add a project
+router.post("/", isLoggedIn, parser.single("projectimage"), (req, res, next) => {
   let _creator = req.user._id;
   let { name, projectlink, description, technologyused, date } = req.body;
 
