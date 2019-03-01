@@ -68,6 +68,13 @@ export default {
       .catch(errHandler);
   },
 
+  getProjectsbyProfile() {
+    return service
+      .get('/projects/byprofile')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
   addProjects(formData) {
     return service
       .post("/projects", formData, {
@@ -84,6 +91,13 @@ export default {
       .post("/edit-profile", body)
       .then(res => res.data)
       .catch(errHandler);
+  },
+
+  editProject(Id, body) {
+    return service
+      .put('/edit-project/'+Id, body)
+      .then(res => res.data)
+      .catch(errHandler)
   },
 
   getSecret() {

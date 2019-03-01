@@ -2,6 +2,8 @@ const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
+const Project = require("../models/Project");
+
 
 
 // Bcrypt to encrypt passwords
@@ -149,6 +151,16 @@ router.post("/edit-profile", (req, res, next) => {
       .catch(err => next(err))
 
   console.log("user id is", userId);
+  console.log("user body is", req.body);
+});
+
+router.get("/project", (req, res, next) => {
+  res.json(req.user);
+});
+
+router.post("/edit-project", (req, res, next) => {
+  var userId = req.user._creator;
+  console.log("user id is", _creator);
   console.log("user body is", req.body);
 });
 

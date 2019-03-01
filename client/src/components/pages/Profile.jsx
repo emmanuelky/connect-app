@@ -6,7 +6,8 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      profile: {}
+      profile: {},
+      projects: [],
     };
   }
   render() {
@@ -25,7 +26,22 @@ class Profile extends Component {
         </div>
         <Link to={"/edit-profile/"}>Edit</Link>{' '}
        <br /><br />
-        <h1>My Projects</h1>
+        <h2>My Projects</h2>
+        <ul>
+        <div >
+        <Link to={"/edit-profile/"}>Edit
+
+        {this.state.projects.map(p => <li key={p._id}>           
+              <img className="projectImage" src={p.projectimage} />
+              <h5>Name: {p.name}</h5>
+              <h5>Date: {p.date}</h5>
+              <h5>Technology Used: {p.technologyused}</h5>
+              </li>)}
+              </Link>{' '}
+            </div>
+        </ul>
+        <img className="projectImage" src={this.state.projects.projectimage} />
+        
       </div>
     );
   }
@@ -39,7 +55,19 @@ class Profile extends Component {
         });
       })
       .catch(err => console.log(err));
+
+    api
+      .getProjectsbyProfile()
+      .then(projects => {
+        console.log("Projects", projects);
+        this.setState({
+          projects : projects
+        });
+      })
+      .catch(err => console.log(err));
   }
 }
+
+
 
 export default Profile;
