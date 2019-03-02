@@ -43,6 +43,7 @@ router.get("/:id", (req, res, next) => {
 
 router.put("/:id", (req, res, next) => {
   let {
+    username,
     name,
     description,
     projectlink,
@@ -53,6 +54,7 @@ router.put("/:id", (req, res, next) => {
   Project.findByIdAndUpdate(
     req.params.id,
     {
+      username,
       name,
       description,
       projectlink,
@@ -78,13 +80,17 @@ router.get("/byprofile", (req, res, next) => {
 
 router.post("/edit-project", (req, res, next) => {
   let projectId = req.user._id;
-  let {name,
+  let {
+    username,
+    name,
     projectlink,
     projectimage,
     description,
     technologyused} = req.body
 
-    Project.update({name,
+    Project.update({
+      username,
+      name,
       projectlink,
       projectimage,
       description,
@@ -146,11 +152,12 @@ router.post(
   parser.single("projectimage"),
   (req, res, next) => {
     let _creator = req.user._id;
-    let { name, projectlink, description, technologyused, date } = req.body;
+    let { username, name, projectlink, description, technologyused, date } = req.body;
 
     let projectimage = req.file.url;
 
     console.log({
+      username,
       name,
       projectlink,
       projectimage,
@@ -161,6 +168,7 @@ router.post(
     });
 
     Project.create({
+      username,
       name,
       projectlink,
       projectimage,

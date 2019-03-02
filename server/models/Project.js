@@ -5,6 +5,11 @@ const projectSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
+  username: {
+    type: String,
+    required: true,
+    minlength: 1,
+  },
   name: {
     type: String,
     required: [true, "The project name is required"],
@@ -28,7 +33,7 @@ const projectSchema = new mongoose.Schema({
   },
   date: {
     type: Date,
-    default: Date.now
+    default: Date.now()
   }
 });
 

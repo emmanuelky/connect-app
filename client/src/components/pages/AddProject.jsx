@@ -5,6 +5,7 @@ class AddProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      username: "",
       name: "",
       projectlink: "",
       description: "",
@@ -36,6 +37,7 @@ class AddProject extends Component {
     // }
 
     let formData = new FormData();
+    formData.append("username", this.state.username);
     formData.append("name", this.state.name);
     formData.append("projectlink", this.state.projectlink);
     formData.append("description", this.state.description);
@@ -46,6 +48,7 @@ class AddProject extends Component {
       .then(result => {
         console.log("SUCCESS!", result);
         this.setState({
+          username: "",
           name: "",
           projectlink: "",
           description: "",
@@ -76,6 +79,15 @@ class AddProject extends Component {
         <form>
           Project Image:{" "}
           <input type="file" onChange={e => this.handleFileChange(e)} />
+          <br />
+          Username:{" "}
+          <input
+            type="text"
+            value={this.state.username}
+            onChange={e => {
+              this.handleInputChange("username", e);
+            }}
+          />{" "}
           <br />
           Name:{" "}
           <input

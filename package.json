@@ -12,6 +12,8 @@
     "node": "8.9.4"
   },
   "dependencies": {
-    "@material-ui/core": "^3.9.2"
+    "@material-ui/core": "^3.9.2",
+    "font-awesome": "^4.7.0",
+    "react-fontawesome": "^1.6.1"
   }
 }

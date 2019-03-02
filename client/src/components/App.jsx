@@ -28,59 +28,62 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container rounded">
+        <nav className="navbar d-flex justify-content-between sticky-top navbar-expand-lg navbar-light bg-light ">
           <NavLink to="/" exact>
             <img
               src={logo}
               className="App-logo"
               alt="logo"
-              width="100px"
-              height="100px"
+              width="200px"
+              height="200px"
             />
           </NavLink>
-          <button className="btn btn-outline-primary navbar-brand my-2 my-sm-0 p-4">
+          <button className="btn btn-outline-primary border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
             <NavLink to="/projects"> Projects</NavLink>
           </button>
 
           {/* The NavLink "Add country" is displayed only when the user is connected */}
           {api.isLoggedIn() && (
-            <button className="btn btn-outline-primary navbar-brand my-2 my-sm-0 p-4">
+            <button className="btn btn-outline-primary border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
               {" "}
               <NavLink to="/add-project">Add project</NavLink>{" "}
             </button>
           )}
           {api.isLoggedIn() && (
-            <button className="btn btn-outline-primary navbar-brand my-2 my-sm-0 p-4">
+            <button className="btn btn-outline-primary border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
               <NavLink to="/profile">Profile</NavLink>
             </button>
           )}
-          {!api.isLoggedIn() && (
-            <button className="btn btn-outline-primary navbar-brand my-2 my-sm-0 p-4">
-              <NavLink to="/signup">Signup</NavLink>
-            </button>
-          )}
-          {!api.isLoggedIn() && (
-            <button className="btn btn-outline-primary navbar-brand my-2 my-sm-0 p-4">
-              <NavLink to="/login">Login</NavLink>
-            </button>
-          )}
 
-          <button className="btn btn-outline-primary navbar-brand my-2 my-sm-0 p-4">
+          <button className="btn btn-outline-primary border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
             <NavLink to="/secret">Jobs</NavLink>
           </button>
 
 
+          {!api.isLoggedIn() && (
+            <button className="btn btn-outline-primary border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
+              <NavLink to="/signup"><i className="fas fa-sign-out-alt">Signup</i></NavLink>
+            </button>
+          )}
+          {!api.isLoggedIn() && (
+            <button className="btn btn-outline-primary border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
+              <NavLink to="/login"><i className="fas fa-sign-out-alt">Login</i></NavLink>
+            </button>
+          )}
+
+          <ul className="nav justify-content-end">
           {api.isLoggedIn() && (
-            <button className="btn btn-outline-primary navbar-brand my-2 my-sm-0 p-4">
+            <button className="btn btn-outline-primary border-bottom-0 navbar-brand my-2 my-sm-0 d-flex justify-content-end shadow-lg p-3 mb-5 bg-white rounded">
               {" "}
               <Link to="/" onClick={e => this.handleLogoutClick(e)}>
-                Logout
+              <i className="fas fa-sign-out-alt">Logout</i>
               </Link>
             </button>
           )}
+        </ul>
         </nav>
-
+        
         <div>
           <div className="App">
             <Switch>

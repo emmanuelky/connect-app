@@ -1,18 +1,6 @@
 import React, { Component } from "react";
 import api from "../../api";
 import { Link } from "react-router-dom";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
 
 class Home extends Component {
   constructor(props) {
