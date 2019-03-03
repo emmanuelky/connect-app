@@ -47,6 +47,7 @@ router.put("/:id", (req, res, next) => {
     name,
     description,
     projectlink,
+    githublink,
     projectimage,
     technologyused
   } = req.body;
@@ -58,6 +59,7 @@ router.put("/:id", (req, res, next) => {
       name,
       description,
       projectlink,
+      githublink,
       projectimage,
       technologyused
     },
@@ -82,6 +84,7 @@ router.post("/edit-project", (req, res, next) => {
     username,
     name,
     projectlink,
+    githublink,
     projectimage,
     description,
     technologyused
@@ -91,6 +94,7 @@ router.post("/edit-project", (req, res, next) => {
     username,
     name,
     projectlink,
+    githublink,
     projectimage,
     description,
     technologyused
@@ -151,6 +155,7 @@ router.post(
       username,
       name,
       projectlink,
+      githublink,
       description,
       technologyused,
       date
@@ -162,6 +167,7 @@ router.post(
       username,
       name,
       projectlink,
+      githublink,
       projectimage,
       description,
       technologyused,
@@ -173,6 +179,7 @@ router.post(
       username,
       name,
       projectlink,
+      githublink,
       projectimage,
       description,
       technologyused,

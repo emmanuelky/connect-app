@@ -8,6 +8,7 @@ class AddProject extends Component {
       username: "",
       name: "",
       projectlink: "",
+      githublink: "",
       description: "",
       technologyused: "",
       projectimage: null,
@@ -40,6 +41,7 @@ class AddProject extends Component {
     formData.append("username", this.state.username);
     formData.append("name", this.state.name);
     formData.append("projectlink", this.state.projectlink);
+    formData.append("githublink", this.state.githublink);
     formData.append("description", this.state.description);
     formData.append("technologyused", this.state.technologyused);
     formData.append("projectimage", this.state.projectimage);
@@ -51,6 +53,7 @@ class AddProject extends Component {
           username: "",
           name: "",
           projectlink: "",
+          githublink: "",
           description: "",
           projectimage: "",
           technologyUsed: "",
@@ -117,12 +120,21 @@ class AddProject extends Component {
             }}
           />{" "}
           <br />
-          Project Link:{" "}
+          Demo Link:{" "}
           <input
             type="text"
             value={this.state.projectlink}
             onChange={e => {
               this.handleInputChange("projectlink", e);
+            }}
+          />{" "}
+          <br />
+          Github Link:{" "}
+          <input
+            type="text"
+            value={this.state.githublink}
+            onChange={e => {
+              this.handleInputChange("githublink", e);
             }}
           />{" "}
           <br />

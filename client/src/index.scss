@@ -42,21 +42,7 @@ body {
     border-radius: 10px
   }
 
-  .App-header {
-    background-color: $primary;
-    padding: 20px;
-    color: white;
-
-    a {
-      color: white;
-      padding: 0 5px;
-      text-decoration: unset;
-    }
-
-    a.active {
-      font-weight: bold;
-    }
-  }
+  
 
   .App-title {
     font-size: 1.5em;
@@ -82,6 +68,9 @@ body {
 .Home {
   p {
     font-size: 1.2em;
+    background-image: url("../src/image1.jpeg");
+    height: 700px;
+    background-repeat: no-repeat;
   }
 }
 .Home ul {
@@ -90,6 +79,11 @@ body {
 
 .projects ul {
   list-style: none;
+}
+
+
+.carousel{
+  
 }
 
 // --------------------
@@ -109,4 +103,19 @@ body {
 
 .profile ul{
 list-style: none;
+}
+
+.Search{
+  font-size: 1rem;
+  padding: 15px 5px;
+  width: 600px;
+  border-radius: 20px;
+  border: solid 1px black;
+  text-align: center;
+}
+
+.home-section-two{
+  background-image: url("../src/image1.jpeg");
+  height: 700px;
+  background-repeat: no-repeat;
 }

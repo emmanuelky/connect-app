@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import api from "../../api";
 import Search from "./Search";
 import { Link } from "react-router-dom";
-import { SSL_OP_NO_TLSv1_1 } from "constants";
+
 
 class Projects extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class Projects extends Component {
 
   handleInputChange(e) {
     this.setState({
-      [e.target.name]: e.target.value.substr(0,20)
+      [e.target.name]: e.target.value.substr(0, 20)
     });
   }
 
@@ -40,7 +40,6 @@ class Projects extends Component {
 
   render() {
     let colorIndex = this.state.nbOfLikes % this.colors.length;
-    
 
     let lowerSearch = this.state.search.toLowerCase();
     let filteredProjects = this.state.projects;
@@ -57,9 +56,8 @@ class Projects extends Component {
         <div className="projects border border-white rounded-left shadow p-3 mb-5 bg-white rounded">
           <ul className="d-flex flex-wrap card-group">
             {filteredProjects
-              .filter(project =>
-                project.name.toLowerCase().includes(lowerSearch),
-                
+              .filter((project, i) =>
+                project.name.toLowerCase().includes(lowerSearch)
               )
               .map((p, i) => (
                 <div className="d-flex flex-wrap">
@@ -82,11 +80,22 @@ class Projects extends Component {
                           {" "}
                           <i> {p.description} </i>
                         </p>
-                        <i> by: </i>{" "}
-                        <h5 className="card-title"> {p.username}</h5>
                         <pre>
                           <i>Technology Used: {p.technologyused}</i>{" "}
                         </pre>
+                        <a href={p.projectlink} target="_blank">
+                          Demo Link{" "}
+                        </a>
+                        <br />
+                        <a href={p.githublink} target="_blank">
+                          Github
+                        </a>
+                        <br />
+                        <i>
+                          {" "}
+                         Creator: <h5 className="card-title"> {p.username}</h5>{" "}
+                        </i>{" "}
+                        <pre> <Link to ="/profile" >Contact Info</Link> </pre>
                         <pre>
                           <i>
                             {" "}
@@ -102,11 +111,10 @@ class Projects extends Component {
                           color: "white"
                         }}
                       >
-                        {this.state.nbOfLikes} Like
+                        {this.state.nbOfLikes} Like 
                         {this.state.nbOfLikes !== 1 && "s"}
                       </button>
                     </li>
-                    
                   </div>
                 </div>
               ))}

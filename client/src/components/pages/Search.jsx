@@ -6,13 +6,17 @@ class Search extends Component {
       <input
         type="text"
         name="technologyused"
-        className="Search input"
+        className="Search"
         value={this.props.value}
         onChange={e => this.props.onSearch(e.target.value)}
-        placeholder="e.g react, vue, graphql"
+        placeholder="Search... by technology e.g React, Vue, GraphQL, Python, R, SQL etc..."
+        
       />
+      
     );
   }
 }
 
 export default Search;
+
+
