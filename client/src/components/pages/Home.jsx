@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import api from "../../api";
 import { Link } from "react-router-dom";
-import ControlledCarousel from './ControlledCarousel';
+import ControlledCarousel from "./ControlledCarousel";
 
 class Home extends Component {
   constructor(props) {
@@ -27,8 +27,9 @@ class Home extends Component {
   render() {
     return (
       <div className="Home p-3 mb-2 bg-dark text-white rounded-top ">
-        
-        <ControlledCarousel />
+        <div>
+          <ControlledCarousel />
+        </div>
 
         <div>
           <h1 className="p-5">EXPLORE AND CONNECT</h1>
