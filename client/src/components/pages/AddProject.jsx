@@ -89,7 +89,7 @@ class AddProject extends Component {
             }}
           />{" "}
           <br />
-          Name:{" "}
+          Project Name:{" "}
           <input
             type="text"
             value={this.state.name}

@@ -28,15 +28,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container rounded">
+      <div className="container border-bottom-0 border border-primary rounded">
         <nav className="navbar d-flex justify-content-between sticky-top navbar-expand-lg navbar-light bg-light ">
           <NavLink to="/" exact>
             <img
               src={logo}
               className="App-logo"
               alt="logo"
-              width="200px"
-              height="200px"
+              width="150px"
+              height="150px"
             />
           </NavLink>
           <button className="btn btn-outline-primary border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">

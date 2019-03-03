@@ -72,9 +72,7 @@ router.put("/:id", (req, res, next) => {
     .catch(err => next(err));
 });
 
-
 router.get("/byprofile", (req, res, next) => {
-  
   res.json(req.user);
 });
 
@@ -86,33 +84,30 @@ router.post("/edit-project", (req, res, next) => {
     projectlink,
     projectimage,
     description,
-    technologyused} = req.body
+    technologyused
+  } = req.body;
 
-    Project.update({
-      username,
-      name,
-      projectlink,
-      projectimage,
-      description,
-      technologyused})
+  Project.update({
+    username,
+    name,
+    projectlink,
+    projectimage,
+    description,
+    technologyused
+  })
 
-      .then(user => {
-        res.json({
-          success: true,
-          user
-        });
-        response.redirect('/');
-      })
-      .catch(err => next(err))
+    .then(user => {
+      res.json({
+        success: true,
+        user
+      });
+      response.redirect("/");
+    })
+    .catch(err => next(err));
 
   console.log("user id is", projectId);
   console.log("user body is", req.body);
 });
-
-  
-
-
-
 
 // Route to add a project
 // router.post('/', isLoggedIn, parser.single('projectimage'), (req, res, next) => {
@@ -152,7 +147,14 @@ router.post(
   parser.single("projectimage"),
   (req, res, next) => {
     let _creator = req.user._id;
-    let { username, name, projectlink, description, technologyused, date } = req.body;
+    let {
+      username,
+      name,
+      projectlink,
+      description,
+      technologyused,
+      date
+    } = req.body;
 
     let projectimage = req.file.url;
 
@@ -188,7 +190,7 @@ router.post(
 );
 
 // Route to delete a project
-router.delete('/:id', (req, res, next) => {
+router.delete("/:id", (req, res, next) => {
   Project.findById(req.params.id)
     .then(project => project.remove().then(() => res.json({ success: true })))
     .catch(err => res.status(404).json({ success: false }));
