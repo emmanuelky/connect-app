@@ -40,6 +40,7 @@ class App extends Component {
 
           {/* The NavLink "Add project" is displayed only when the user is connected */}
           {api.isLoggedIn() && <NavLink to="/add-project">Add project</NavLink>}
+          {/* {api.isLoggedIn() && <NavLink to="/edit-project">Edit project</NavLink>} */}
           {api.isLoggedIn() && <NavLink to="/profile">Profile</NavLink>}
           {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
           {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}

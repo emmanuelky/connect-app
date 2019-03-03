@@ -24,12 +24,12 @@ const projectSchema = new mongoose.Schema({
   technologyused: {
     type: [String],
     default: []
-    
   },
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  nbOfLikes: { type: Number, default: 0 },
 });
 
 const Project = mongoose.model("Project", projectSchema);

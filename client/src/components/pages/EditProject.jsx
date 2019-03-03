@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import api from '../../api';
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 
 export default class EditProject extends Component {
@@ -104,7 +104,7 @@ export default class EditProject extends Component {
             }}
           />{" "}
           <br />
-          <Link to="/project/"> <button>Edit Profile</button></Link>{' '}
+          <button>Edit Project</button>
         </form>
         {this.state.message && <div className="info">{this.state.message}</div>}
       </div>
