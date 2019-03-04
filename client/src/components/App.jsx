@@ -5,6 +5,7 @@ import Projects from "./pages/Projects";
 import AddProjects from "./pages/AddProject";
 import Secret from "./pages/Secret";
 import Login from "./pages/Login";
+import Search from "./pages/Search";
 import Profile from "./pages/Profile";
 import EditProject from "./pages/EditProject";
 import Signup from "./pages/Signup";
@@ -13,6 +14,7 @@ import api from "../api";
 import logo from "../logo.png";
 import ProfileUsername from "./pages/ProfileUsername";
 import SuccessLogin from "./pages/SuccessLogin";
+import SearchProfile from "./pages/SearchProfile";
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +45,6 @@ class App extends Component {
           <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
             <NavLink to="/projects"> Projects</NavLink>
           </button>
-
           {api.isLoggedIn() && (
             <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
               {" "}
@@ -59,6 +60,12 @@ class App extends Component {
           <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
             <NavLink to="/secret">Jobs</NavLink>
           </button>
+
+          {api.isLoggedIn() && (
+            <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
+              <NavLink to="/profile"> Search</NavLink>
+            </button>
+          )}
 
           <ul className="nav navbar-nav justify-content-end ml-auto">
             {!api.isLoggedIn() && (
@@ -94,6 +101,8 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/projects" component={Projects} />
               <Route exact path="/profile" component={Profile} />
+              <Route exact path="/searchprofile" component={SearchProfile} />
+
               <Route
                 exact
                 path="/profile/:username"
