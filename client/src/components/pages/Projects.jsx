@@ -65,8 +65,8 @@ class Projects extends Component {
               })
               .map((p, i) => (
                 <div className="d-flex ">
-                  <div className="card flex-md-{grow|shrink}-0 mr-2 m-2 shadow-lg p-3 mb-5 bg-white rounded">
-                    <li key={p.i}>
+                  <div className="card mr-2 m-2 shadow-lg p-3 mb-5 bg-white rounded">
+                    <li key={p.i} className="">
                       <img
                         className=""
                         src={p.projectimage}
@@ -91,7 +91,7 @@ class Projects extends Component {
                           Demo Link{" "}
                         </a>
                         <br />
-                        <a href={p.githublink} target="_blank">
+                        <a href={p.githublink} target="_blank" className="grow">
                           Github
                         </a>
                         <br />
@@ -115,7 +115,9 @@ class Projects extends Component {
                           </i>
                         </pre>
                       </div>
-                      <button
+
+                      <i class="fas fa-code"></i> <i class="fas fa-laptop-code"></i>
+                      {/* <button
                         className="rounded"
                         onClick={this.handleClick}
                         style={{
@@ -125,7 +127,7 @@ class Projects extends Component {
                       >
                         {this.state.nbOfLikes} Like
                         {this.state.nbOfLikes !== 1 && "s"}
-                      </button>
+                      </button> */}
                     </li>
                   </div>
                 </div>
