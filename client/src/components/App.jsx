@@ -7,6 +7,8 @@ import Secret from "./pages/Secret";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import EditProject from "./pages/EditProject";
+// import LikeButton from './LikeButton'
+
 
 import Signup from "./pages/Signup";
 // import CountryDetail from './pages/CountryDetail';

@@ -35,10 +35,10 @@ export default {
       .catch(errHandler);
   },
 
-  login(username, password) {
+  login(email, password) {
     return service
       .post("/login", {
-        username,
+        email,
         password
       })
       .then(res => {
@@ -47,6 +47,16 @@ export default {
         return res.data;
       })
       .catch(errHandler);
+  },
+
+  getConnectedProfile(){
+    return service
+      .get("connected-profile")
+      .then(res => {
+        let user = res.data
+        localStorage.setItem('user', JSON.stringify(user))
+        return user
+      })
   },
 
   getProfile() {
@@ -100,9 +110,23 @@ export default {
       .catch(errHandler);
   },
 
-  editProject(body) {
+  getProjectDetail(projectId) {
     return service
-      .put('/edit-project/', body)
+      .get('/edit-project/'+projectId)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
+  editProject(id, body) {
+    return service
+      .put('/projects/'+ id, body)
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
+  deleteProject(projectId) {
+    return service
+      .delete('/projects/'+projectId)
       .then(res => res.data)
       .catch(errHandler)
   },

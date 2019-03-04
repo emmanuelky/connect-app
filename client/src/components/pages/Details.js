@@ -9,28 +9,25 @@ export default class ProjectDetail extends Component {
     }
   }
   render() {
-    if (!this.state.country) {
+    if (!this.state.project) {
       return <div className="ProjectDetail">Loading...</div>
     }
     return (
       <div className="ProjectDetail">
         <h1>ProjectDetail</h1>
-        <strong>Name</strong>: {this.state.country.name}<br/>
-        <strong>Capitals</strong>: {this.state.country.capitals.join(', ')}<br/>
-        <strong>Area</strong>: {this.state.country.area}<br/>
-        <strong>Description</strong>: {this.state.country.description}<br/>
-        <strong>Creator</strong>: {this.state.country._creator.username}<br/>
-        <strong>Flag</strong>: <br/>
-        <img src={this.state.country.flagUrl} alt="flag"/><br/>
-        
+        <strong>Name</strong>: {this.state.project.name}<br/>
+        <strong>Project Link</strong>: {this.state.projectlink}<br/>
+        <strong>Technology Used</strong>: {this.state.project.technologyused}<br/>
+        <strong>Description</strong>: {this.state.project.description}<br/>
+        <strong>Project Submit Date</strong>: {this.state.project.date.slice(0,10)}<br/>
       </div>
     )
   }
   componentDidMount() {
-    api.getCountryDetail(this.props.match.params.countryId)
-      .then(country => {
+    api.getProjectDetail(this.props.match.params.projectId)
+      .then(project => {
         this.setState({
-          country: country
+          project: project
         })
       })
       .catch(err => console.log(err))

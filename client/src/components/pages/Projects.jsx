@@ -9,21 +9,21 @@ class Projects extends Component {
       projects: []
     };
   }
-  // deleteProject(_creator){
-  //   api.deleteProject(_creator)
-  //     .then(data => {
-  //       this.setState({
-  //         _creator: this.state._creator.filter(c => c._id !== _creator),
-  //         message: data.message
-  //       })
-  //       // Remove the message after 3 seconds
-  //       setTimeout(() => {
-  //         this.setState({
-  //           message: null
-  //         })
-  //       }, 3000)
-  //     })
-  // }
+  deleteProject(_creator){
+    api.deleteProject(_creator)
+      .then(data => {
+        this.setState({
+          _creator: this.state._creator.filter(c => c._id !== _creator),
+          message: data.message
+        })
+        // Remove the message after 3 seconds
+        setTimeout(() => {
+          this.setState({
+            message: null
+          })
+        }, 3000)
+      })
+  }
   render() {
     return (
       <div className="projects">

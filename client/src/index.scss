@@ -1,6 +1,9 @@
 // --------------------
 // Definition of variables
 $primary: #4D9DE0;
+$linkedin: #0077B5;
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
 
 
 // ----------------------------------------
@@ -9,6 +12,7 @@ $primary: #4D9DE0;
 // 2) Import bootstrap with the following line
 // @import 'bootstrap/scss/bootstrap';
 // ----------------------------------------
+
 
 
 // --------------------
@@ -76,6 +80,15 @@ body {
     }
   }
 }
+
+.Linkedin-Login {
+  background-color: $linkedin
+}
+.Linkedin-Login > a {
+  color: white;
+  text-decoration: none;
+}
+
 
 // --------------------
 // Style for Home component

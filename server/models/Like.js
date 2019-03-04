@@ -4,8 +4,10 @@ const Schema = mongoose.Schema;
 //TODO: more constrain
 const likeSchema = new Schema(
   {
-    _user: { type: Schema.Types.ObjectId, ref: 'User' },
-    _project: { type: Schema.Types.ObjectId, ref: 'Project' }
+    // _user: { type: Schema.Types.ObjectId, ref: 'User' },
+    // _project: { type: Schema.Types.ObjectId, ref: 'Project' }
+    likes: { type: Number, required: false }
+
   },
   {
     timestamps: {

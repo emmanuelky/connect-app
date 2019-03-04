@@ -5,10 +5,10 @@ const { isLoggedIn } = require("../middlewares");
 const router = express.Router();
 const mongoose = require('mongoose')
 
-// router.use((req, res, next) => {
-//   console.log("DEBUG routes/projects");
-//   next();
-// });
+router.use((req, res, next) => {
+  console.log("DEBUG routes/projects");
+  next();
+});
 
 // Route to get all projects
 router.get("/", (req, res, next) => {
@@ -139,10 +139,39 @@ router.post("/edit-project", (req, res, next) => {
 
 // Route to delete a project
 router.delete("/:id", (req, res, next) => {
-  Project.findById(req.params.id)
-    .then(projects => projects.remove().then(() => res.json({ success: true })))
-    .catch(err => next(err));
-});
+  Project.findByIdAndDelete(req.params.id)
+    .then(projects => {
+      res.json({
+        message: "The projects was deleted",
+        projects: projects // The deleted projects are sent
+      })
+    })
+    .catch(err => next(err))
+})
+// router.delete("/:id", (req, res, next) => {
+
+//   Project.findById(req.params.id)
+//     .then(projects => projects.remove().then(() => res.json({ success: true })))
+//     .catch(err => next(err));
+// });
+
+// The route is PUT /api/projects/:id
+router.put('/:id', (req,res,next)=>{
+  Project.findByIdAndUpdate(req.params.id, {
+    name: req.body.name,
+    projectlink: req.body.projectlink,
+    description: req.body.description,
+    technologyused: req.body.technologyused,
+    date: req.body.date,
+  }, { new: true }) // To access the updated project (and not the old project)
+    .then(projects => {
+      res.json({
+        message: "The project has been updated",
+        projects: projects
+      })
+    })
+    .catch(err => next(err))
+})
 
 router.get("/projects", (req, res, next) => {
   console.log("HELLO FROM PROJECTS");

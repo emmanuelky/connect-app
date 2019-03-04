@@ -22,12 +22,19 @@ class Signup extends Component {
       gender: "",
       social: []
     };
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
+  // handleInputChange(stateFieldName, event) {
+  //   this.setState({
+  //     [stateFieldName]: event.target.value
+  //   });
+  // }
 
-  handleInputChange(stateFieldName, event) {
+  handleInputChange(event) {
     this.setState({
-      [stateFieldName]: event.target.value
-    });
+      [event.target.name]: event.target.value
+    })
   }
 
   handleClick(e) {
