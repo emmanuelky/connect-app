@@ -137,3 +137,19 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+.myprofile{
+background-image: url("./image3.jpeg");
+background-repeat: no-repeat;
+background-image: cover;
+color: rgb(18, 8, 99);
+font-weight: bolder
+}
+
+.myproject{
+  background-image: url("./image2.jpeg");
+  background-repeat: no-repeat;
+  color: wheat;
+  background-image: cover;
+  height: 100vh;;
+  }

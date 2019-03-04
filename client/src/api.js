@@ -70,9 +70,9 @@ export default {
 
   getProjectsbyProfile() {
     return service
-      .get('/projects/byprofile')
+      .get("/projects/byprofile")
       .then(res => res.data)
-      .catch(errHandler)
+      .catch(errHandler);
   },
 
   addProjects(formData) {
@@ -95,30 +95,24 @@ export default {
 
   editProject(body) {
     return service
-      .post('/edit-project/', body)
+      .post("/edit-project/", body)
       .then(res => res.data)
-      .catch(errHandler)
+      .catch(errHandler);
   },
 
   getProjectDetail(id) {
     return service
-      .get('/'+id)
+      .get("/" + id)
       .then(res => res.data)
-      .catch(errHandler)
+      .catch(errHandler);
   },
-
-
-
 
   getProfileWithUsername(username) {
     return service
-      .get('/profile/'+username)
+      .get("/profile/" + username)
       .then(res => res.data)
-      .catch(errHandler)
+      .catch(errHandler);
   },
-
-
-
 
   getSecret() {
     return service
@@ -140,11 +134,10 @@ export default {
       .catch(errHandler);
   },
 
-
   deleteProject(projectId) {
     return service
-      .delete('/projects/'+projectId)
+      .delete("/projects/delete/" + projectId)
       .then(res => res.data)
-      .catch(errHandler)
-  },
+      .catch(errHandler);
+  }
 };

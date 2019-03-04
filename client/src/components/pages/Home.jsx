@@ -28,7 +28,7 @@ class Home extends Component {
   render() {
     return (
       <div className="container flex-lg-wrap col-md-10 mb-10 Home p-3 mb-2 bg-dark text-white rounded-top ">
-        <div className="container1 flex-sm-wrap col-md-12 mb-10 justify-content-sm-center d-flex align-content-center flex-wrap justify-content-between m-2 p-5">
+        <div className="container1 flex-sm-wrap col-md-12 mb-14 justify-content-sm-center d-flex align-content-center flex-wrap justify-content-between m-2 p-5">
 
         <h1 className="grow">Are you a Software Developer???</h1> <br />
         <h2 className="grow">Do you have a project to show???</h2> <br />
@@ -38,7 +38,7 @@ class Home extends Component {
         <h6 className="grow">Do you have the imposter symdrone???</h6>
 <hr />
 
-        <h1 className="grow">Then you are in the right place</h1>
+        <h1 className="grow"><i class="fas fa-code"></i>Then you are in the right place!!!<i class="fas fa-code"></i></h1>
           <ControlledCarousel />
           
         </div>

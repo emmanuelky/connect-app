@@ -29,32 +29,45 @@ class Profile extends Component {
   render() {
     return (
       <div className="container col-md-18 mb-12 profile">
-        <h2>My Profile</h2>
-        <div>
+        <div className="rounded border m-5 font-italic myprofile border-dark shadow p-3 mb-5 bg-white rounded">
+        <i class="fas fa-user-circle"></i>
+          <h2>My Profile</h2>
+          
+          <hr />
+          <hr />
           <h5>
-            Name: {this.state.profile.firstname} {this.state.profile.lastname} (
+            Full Name: {this.state.profile.firstname} {this.state.profile.lastname} (
             {this.state.profile.gender}, {this.state.profile.age})
           </h5>
+          Username: {this.state.profile.username}
           <h5>Email: {this.state.profile.email}</h5>
+          <hr />
+          <hr />
           <h5>University: {this.state.profile.university}</h5>
           <h5>Institute: {this.state.profile.institute}</h5>
           <h5>Status: {this.state.profile.status}</h5>
           <h5>Specialization: {this.state.profile.specialization}</h5>
           <h5>
+            <hr />
+            <hr />
             Location: {this.state.profile.city} {this.state.profile.country}
           </h5>
           <h5>Social Network: {this.state.profile.social}</h5>
+          <hr />
+            <hr />
+            <Link to={"/edit-profile/"} ><button type="button" class="btn btn-dark m-10">Edit</button></Link>
+          
+          <br />
         </div>
-        <Link to={"/edit-profile/"}>Edit</Link> <br />
         <br />
-          <h2>My Projects</h2>
-        <div>
-          <ul>
+        <h2>My Projects</h2>
+        <div className="rounded border m-10 myproject d-flex flex-wrap d-flex flex-row bd-highlight mb-3 border-dark shadow p-3 mb-5 bg-white rounded">
+          <ul className="d-flex flex-wrap ">
             {this.state.projects.map(p => (
-              <li key={p._id} >
+              <li key={p._id}>
                 <img className="projectImage" src={p.projectimage} />
-                <h5>Name: {p.name}</h5>
-                <h5>Date: {p.date}</h5>
+                <h5>{p.name}</h5>
+                <h5>{p.date}</h5>
                 <h5>Technology Used: {p.technologyused}</h5>
                 <Link to={"/edit-project/"}>Edit Project</Link> <br />
                 <button onClick={() => this.deleteProject(p._id)}>

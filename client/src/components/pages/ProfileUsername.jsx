@@ -21,8 +21,8 @@ export default class ProfileUsername extends Component {
       .catch(err => console.log(err));
   }
   render() {
-    return (
-     <div></div>
-    );
+    return <div>
+    {this.state.profile.firstname}  {this.state.profile.lastname}
+    </div>;
   }
 }

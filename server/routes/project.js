@@ -12,6 +12,7 @@ const mongoose = require("mongoose");
 
 // Route to get all projects
 router.get("/", (req, res, next) => {
+  console.log("I am listing all the projects");
   Project.find()
     .sort({ date: -1 })
     .then(projects => {
@@ -197,8 +198,8 @@ router.post(
 );
 
 // Route to delete a project
-router.delete("/projects/:projectId", (req, res, next) => {
-  Project.findById(req.params.ProjectId)
+router.delete("/delete/:projectId", (req, res, next) => {
+  Project.findById(req.params.projectId)
     .then(project => project.remove().then(() => res.json({ success: true })))
     .catch(err => res.status(404).json({ success: false }));
 });
