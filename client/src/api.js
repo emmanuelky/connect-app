@@ -131,6 +131,26 @@ export default {
       .catch(errHandler)
   },
 
+  getProjectDetail(id) {
+    return service
+      .get('/'+id)
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
+
+
+
+  getProfileWithUsername(username) {
+    return service
+      .get('/profile/'+username)
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
+
+
+
   getSecret() {
     return service
       .get("/secret")
@@ -149,5 +169,13 @@ export default {
       })
       .then(res => res.data)
       .catch(errHandler);
-  }
+  },
+
+
+  deleteProject(projectId) {
+    return service
+      .delete('/projects/'+projectId)
+      .then(res => res.data)
+      .catch(errHandler)
+  },
 };

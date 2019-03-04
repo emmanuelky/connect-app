@@ -5,8 +5,10 @@ class AddProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      username: "",
       name: "",
       projectlink: "",
+      githublink: "",
       description: "",
       technologyused: "",
       projectimage: null,
@@ -36,8 +38,10 @@ class AddProject extends Component {
     // }
 
     let formData = new FormData();
+    formData.append("username", this.state.username);
     formData.append("name", this.state.name);
     formData.append("projectlink", this.state.projectlink);
+    formData.append("githublink", this.state.githublink);
     formData.append("description", this.state.description);
     formData.append("technologyused", this.state.technologyused);
     formData.append("projectimage", this.state.projectimage);
@@ -46,8 +50,10 @@ class AddProject extends Component {
       .then(result => {
         console.log("SUCCESS!", result);
         this.setState({
+          username: "",
           name: "",
           projectlink: "",
+          githublink: "",
           description: "",
           projectimage: "",
           technologyUsed: "",
@@ -77,7 +83,16 @@ class AddProject extends Component {
           Project Image:{" "}
           <input type="file" onChange={e => this.handleFileChange(e)} />
           <br />
-          Name:{" "}
+          Username:{" "}
+          <input
+            type="text"
+            value={this.state.username}
+            onChange={e => {
+              this.handleInputChange("username", e);
+            }}
+          />{" "}
+          <br />
+          Project Name:{" "}
           <input
             type="text"
             value={this.state.name}
@@ -105,12 +120,21 @@ class AddProject extends Component {
             }}
           />{" "}
           <br />
-          Project Link:{" "}
+          Demo Link:{" "}
           <input
             type="text"
             value={this.state.projectlink}
             onChange={e => {
               this.handleInputChange("projectlink", e);
+            }}
+          />{" "}
+          <br />
+          Github Link:{" "}
+          <input
+            type="text"
+            value={this.state.githublink}
+            onChange={e => {
+              this.handleInputChange("githublink", e);
             }}
           />{" "}
           <br />

@@ -1,6 +1,6 @@
 // --------------------
 // Definition of variables
-$primary: #4D9DE0;
+$primary: #4d9de0;
 $linkedin: #0077B5;
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
@@ -13,8 +13,6 @@ $linkedin: #0077B5;
 // @import 'bootstrap/scss/bootstrap';
 // ----------------------------------------
 
-
-
 // --------------------
 // Style reusable for all components
 body {
@@ -23,62 +21,10 @@ body {
   font-family: sans-serif;
 }
 
-.info {
-  margin: 20px;
-  padding: 10px 20px;
-  border-radius: 10px;
-  display: inline-block;
-  background-color: #5776e9;
-  color: white;
-}
-
-.info.info-danger {
-  background-color: #e73f3f;
-}
-
 // --------------------
 // Style for App component
 .App {
   text-align: center;
-
-  .App-logo {
-    height: 80px;
-    border-radius: 10px
-  }
-
-  .App-header {
-    background-color: $primary;
-    padding: 20px;
-    color: white;
-
-    a {
-      color: white;
-      padding: 0 5px;
-      text-decoration: unset;
-    }
-
-    a.active {
-      font-weight: bold;
-    }
-  }
-
-  .App-title {
-    font-size: 1.5em;
-  }
-
-  .App-intro {
-    font-size: large;
-  }
-
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(360deg);
-    }
-  }
 }
 
 .Linkedin-Login {
@@ -95,10 +41,68 @@ body {
 .Home {
   p {
     font-size: 1.2em;
+    background-image: url("../src/image1.jpeg");
+    height: 700px;
+    background-repeat: no-repeat;
   }
 }
 .Home ul {
   list-style: none;
+}
+
+.projects ul {
+  list-style: none;
+}
+
+.container1 {
+  background-image: url("./image1.jpeg");
+  width: 90vw;
+  height: 100vh;
+  background-image: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+  text-align: center;
+  justify-content: space-evenly;
+}
+.container1 h1 {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  padding: 40px;
+  margin: 3px;
+}
+
+.container1 h2 {
+  -webkit-transform: rotate(-15deg);
+  -moz-transform: rotate(15deg);
+  padding: 40px;
+  margin: 3px;
+}
+
+.container1 h3 {
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(30deg);
+  padding: 40px;
+  margin: 3px;
+  transition: ease-in-out;
+}
+
+.container1 h4 {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(45deg);
+  padding: 40px;
+  margin: 3px;
+}
+.container1 h5 {
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  padding: 40px;
+  margin: 3px;
+}
+.container1 h6 {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  padding: 40px;
+  margin: 3px;
 }
 
 // --------------------
@@ -114,4 +118,31 @@ body {
   padding: 20px;
   text-align: center;
   height: 100px;
+}
+
+.profile ul {
+  list-style: none;
+}
+
+.Search {
+  font-size: 1rem;
+  padding: 15px 5px;
+  width: 600px;
+  border-radius: 20px;
+  border: solid 1px black;
+  text-align: center;
+}
+
+.home-section-two {
+  background-image: url("../src/image1.jpeg");
+  height: 700px;
+  background-repeat: no-repeat;
+}
+
+footer {
+  background-image: url("./image4.jpeg");
+  background-repeat: no-repeat;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
 }

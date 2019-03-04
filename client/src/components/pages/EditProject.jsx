@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import api from '../../api';
-// import {Link} from 'react-router-dom'
-
 
 export default class EditProject extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       name: "",
       projectlink: "",
@@ -17,11 +15,13 @@ export default class EditProject extends Component {
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
+
   handleInputChange(stateKey, event){
     this.setState({
       [stateKey]: event.target.value
-    })
+    });
   }
+
   handleSubmit(e){
     e.preventDefault(); 
     let {
@@ -42,23 +42,23 @@ export default class EditProject extends Component {
       date,
     })
       .then(data => {
-        console.log("I could do it", data)
+        console.log("I could do it", data);
         this.setState({
           message: data.message
-        })
+        });
         // Remove of the message after 3 seconds
         setTimeout(() => {
           this.setState({
-            message: null
-          })
-        }, 3000)
-      })
+            message: "Your project has been updated"
+          });
+        }, 2000);
+      });
   }
   render() {
     return (
       <div className="editProject">
-      <h3>Edit Project</h3>
-      <form onSubmit={this.handleSubmit}>
+        <h1>Edit Project</h1>
+        <form onSubmit={this.handleSubmit}>
           Project Name:{" "}
           <input
             type="text"
@@ -77,7 +77,16 @@ export default class EditProject extends Component {
             }}
           />{" "}
           <br />
-          Project Description:{" "}
+          Project Image:{" "}
+          <input
+            type="text"
+            value={this.state.projectimage}
+            onChange={e => {
+              this.handleInputChange("projectimage", e);
+            }}
+          />{" "}
+          <br />
+          Description:{" "}
           <input
             type="text"
             value={this.state.description}
@@ -95,16 +104,7 @@ export default class EditProject extends Component {
             }}
           />{" "}
           <br />
-          Date:{" "}
-          <input
-            type="date"
-            value={this.state.date}
-            onChange={e => {
-              this.handleInputChange("date", e);
-            }}
-          />{" "}
-          <br />
-          <button>Edit Project</button>
+          <button>Edit Profile</button>
         </form>
         {this.state.message && <div className="info">{this.state.message}</div>}
       </div>
