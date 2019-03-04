@@ -24,13 +24,21 @@ class Signup extends Component {
     };
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3d50affc9bfac084ac430356dbdb9079e8253676
   }
+  // handleInputChange(stateFieldName, event) {
+  //   this.setState({
+  //     [stateFieldName]: event.target.value
+  //   });
+  // }
 
-  handleInputChange(stateFieldName, event) {
+  handleInputChange(event) {
     this.setState({
-      [stateFieldName]: event.target.value
-    });
+      [event.target.name]: event.target.value
+    })
   }
 
   handleClick(e) {

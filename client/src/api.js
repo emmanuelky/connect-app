@@ -111,6 +111,7 @@ export default {
   },
 
   getProjectDetail(projectId) {
+<<<<<<< HEAD
     return service
       .get('/edit-project/'+projectId)
       .then(res => res.data)
@@ -119,6 +120,16 @@ export default {
 
   editProject(id, body) {
     return service
+=======
+    return service
+      .get('/edit-project/'+projectId)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
+  editProject(id, body) {
+    return service
+>>>>>>> 3d50affc9bfac084ac430356dbdb9079e8253676
       .put('/projects/'+ id, body)
       .then(res => res.data)
       .catch(errHandler)
