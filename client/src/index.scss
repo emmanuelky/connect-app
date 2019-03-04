@@ -63,6 +63,7 @@ body {
   justify-content: center;
   text-align: center;
   justify-content: space-evenly;
+  font-family: 'Permanent Marker', cursive;
 }
 .container1 h1 {
   -webkit-transform: rotate(0deg);
@@ -105,6 +106,9 @@ body {
   margin: 3px;
 }
 
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.5); }
+
 // --------------------
 // Style for Secret component
 .Secret {
@@ -146,3 +150,19 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+.myprofile{
+background-image: url("./image3.jpeg");
+background-repeat: no-repeat;
+background-image: cover;
+color: rgb(18, 8, 99);
+font-weight: bolder
+}
+
+.myproject{
+  background-image: url("./image2.jpeg");
+  background-repeat: no-repeat;
+  color: wheat;
+  background-image: cover;
+  height: 100vh;;
+  }

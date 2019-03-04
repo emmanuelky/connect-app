@@ -10,32 +10,26 @@ class Signup extends Component {
       username: "",
       email: "",
       password: "hashPass",
-      
-      // profileimage: "",
-      // university: "",
-      // institute: "",
-      // country: "",
-      // state: "",
-      // city: "",
-      // specialization: "",
-      // status: "",
-      // age: "",
-      // gender: "",
-      // social: []
-    };
-    this.handleInputChange = this.handleInputChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
-  }
-  // handleInputChange(stateFieldName, event) {
-  //   this.setState({
-  //     [stateFieldName]: event.target.value
-  //   });
-  // }
 
-  handleInputChange(event) {
+      profileimage: "",
+      university: "",
+      institute: "",
+      country: "",
+      state: "",
+      city: "",
+      specialization: "",
+      status: "",
+      age: "",
+      gender: "",
+      social: []
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleInputChange(stateFieldName, event) {
     this.setState({
-      [event.target.name]: event.target.value
-    })
+      [stateFieldName]: event.target.value
+    });
   }
 
   handleClick(e) {
@@ -72,8 +66,8 @@ class Signup extends Component {
     return re.test(String(this.state.email).toLowerCase());
   }
 
-  isPasswordStrong(){
-    return this.state.password.length >= 6
+  isPasswordStrong() {
+    return this.state.password.length >= 6;
   }
 
   render() {
@@ -87,8 +81,7 @@ class Signup extends Component {
             value={this.state.firstname}
             onChange={e => this.handleInputChange("firstname", e)}
           />{" "}
-          <br /> */}
-          Last Name:{" "}
+          <br /> Last Name:{" "}
           <input
             type="text"
             value={this.state.lastname}
@@ -195,9 +188,13 @@ class Signup extends Component {
             value={this.state.social}
             onChange={e => this.handleInputChange("social", e)}
           />{" "}
-          <br /> */}
+          <br />
           <button
-          disabled={!this.isEmailCorrect() || !this.isPasswordStrong()} onClick={e => this.handleClick(e)}>Signup</button>
+            disabled={!this.isEmailCorrect() || !this.isPasswordStrong()}
+            onClick={e => this.handleClick(e)}
+          >
+            Signup
+          </button>
         </form>
         {this.state.message && (
           <div className="info info-danger">{this.state.message}</div>

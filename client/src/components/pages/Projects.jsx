@@ -25,20 +25,19 @@ class Projects extends Component {
     }));
   }
 
-  deleteProject(_creator){
-    api.deleteProject(_creator)
-      .then(data => {
+  deleteProject(_creator) {
+    api.deleteProject(_creator).then(data => {
+      this.setState({
+        _creator: this.state._creator.filter(c => c._id !== _creator),
+        message: data.message
+      });
+      // Remove the message after 3 seconds
+      setTimeout(() => {
         this.setState({
-          _creator: this.state._creator.filter(c => c._id !== _creator),
-          message: data.message
-        })
-        // Remove the message after 3 seconds
-        setTimeout(() => {
-          this.setState({
-            message: null
-          })
-        }, 3000)
-      })
+          message: null
+        });
+      }, 3000);
+    });
   }
 
   handleInputChange(e) {
@@ -57,7 +56,7 @@ class Projects extends Component {
     let colorIndex = this.state.nbOfLikes % this.colors.length;
 
     let lowerSearch = this.state.search.toLowerCase();
-    let uppersearch = this.state.search.toUpperCase()
+    let uppersearch = this.state.search.toUpperCase();
     let filteredProjects = this.state.projects;
 
     return (
@@ -73,20 +72,24 @@ class Projects extends Component {
           <ul className="d-flex col-md-18 mb-12 flex-wrap card-group">
             {filteredProjects
               .filter((project, i) => {
-                if (project.name.toLowerCase().includes(lowerSearch, uppersearch))
+                if (
+                  project.name.toLowerCase().includes(lowerSearch, uppersearch)
+                )
                   return true;
                 for (let i = 0; i < project.technologyused.length; i++) {
-                  if (project.technologyused[i].includes(lowerSearch, uppersearch))
+                  if (
+                    project.technologyused[i].includes(lowerSearch, uppersearch)
+                  )
                     return true;
                 }
                 return false;
               })
               .map((p, i) => (
                 <div className="d-flex ">
-                  <div className="card flex-md-grow-0 mr-2 m-2 shadow-lg p-3 mb-5 bg-white rounded">
-                    <li key={p.i}>
+                  <div className="card mr-2 m-2 shadow-lg p-3 mb-5 bg-white rounded">
+                    <li key={p.i} className="">
                       <img
-                        className=""
+                        className="grow"
                         src={p.projectimage}
                         width="100px"
                         height="100px"
@@ -95,35 +98,34 @@ class Projects extends Component {
                       <div className="card-body">
                         <strong>
                           {" "}
-                          <h6 className="card-title"> {p.name}</h6>
+                          <h6 className="card-title font-weight-bold">
+                            {" "}
+                            {p.name}
+                          </h6>
                         </strong>
                         <strong> Description: </strong>
-                        <p className="card-text">
+                        <pre className="card-text">
                           {" "}
                           <i> {p.description} </i>
-                        </p>
-                        <pre>
-                          <i>Technology Used: {p.technologyused}</i>{" "}
                         </pre>
+                        <strong className="font-weight-bold">
+                          Technology(s) used:
+                        </strong>{" "}
+                        <pre>{p.technologyused} </pre>
                         <a href={p.projectlink} target="_blank">
                           Demo Link{" "}
                         </a>
                         <br />
-                        <a href={p.githublink} target="_blank">
+                        <a href={p.githublink} target="_blank" className="grow">
                           Github
                         </a>
                         <br />
-                        <i>
-                          {" "}
-                          Creator: <h5 className="card-title">
-                            {" "}
-                            {p.username}
-                          </h5>{" "}
-                        </i>{" "}
+                        <strong>Creator:</strong>{" "}
+                        <h6 className="card-title"> {p.username}</h6>{" "}
                         <pre>
                           {" "}
                           <Link to={"/profile/" + p.username}>
-                            Contact Info
+                            About Me
                           </Link>{" "}
                         </pre>
                         <pre>
@@ -133,6 +135,7 @@ class Projects extends Component {
                           </i>
                         </pre>
                       </div>
+                      <i class="fas fa-code" /> <i class="fas fa-laptop-code" />
                       <button
                         className="rounded"
                         onClick={this.handleClick}
@@ -144,7 +147,7 @@ class Projects extends Component {
                         {this.state.nbOfLikes} Like
                         {this.state.nbOfLikes !== 1 && "s"}
                       </button>
-                      <Link to={"/edit-project/"+p._id}>Edit Project</Link>
+                      <Link to={"/edit-project/" + p._id}>Edit Project</Link>
                     </li>
                   </div>
                 </div>

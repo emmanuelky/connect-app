@@ -49,14 +49,12 @@ export default {
       .catch(errHandler);
   },
 
-  getConnectedProfile(){
-    return service
-      .get("connected-profile")
-      .then(res => {
-        let user = res.data
-        localStorage.setItem('user', JSON.stringify(user))
-        return user
-      })
+  getConnectedProfile() {
+    return service.get("connected-profile").then(res => {
+      let user = res.data;
+      localStorage.setItem("user", JSON.stringify(user));
+      return user;
+    });
   },
 
   getProfile() {
@@ -80,9 +78,9 @@ export default {
 
   getProjectsbyProfile() {
     return service
-      .get('/projects/byprofile')
+      .get("/projects/byprofile")
       .then(res => res.data)
-      .catch(errHandler)
+      .catch(errHandler);
   },
 
   addProjects(formData) {
@@ -105,47 +103,44 @@ export default {
 
   getProject(projectId) {
     return service
-      .get('/projects/'+projectId)
+      .get("/projects/" + projectId)
       .then(res => res.data)
       .catch(errHandler);
   },
 
   getProjectDetail(projectId) {
     return service
-      .get('/edit-project/'+projectId)
+      .get("/edit-project/" + projectId)
       .then(res => res.data)
       .catch(errHandler);
   },
 
   editProject(id, body) {
     return service
-      .put('/projects/'+ id, body)
+      .put("/projects/" + id, body)
       .then(res => res.data)
-      .catch(errHandler)
+      .catch(errHandler);
   },
 
   deleteProject(projectId) {
     return service
-      .delete('/projects/'+projectId)
+      .delete("/projects/" + projectId)
       .then(res => res.data)
-      .catch(errHandler)
+      .catch(errHandler);
   },
 
   getProjectDetail(id) {
     return service
-      .get('/'+id)
+      .get("/" + id)
       .then(res => res.data)
-      .catch(errHandler)
+      .catch(errHandler);
   },
-
-
-
 
   getProfileWithUsername(username) {
     return service
-      .get('/profile/'+username)
+      .get("/profile/" + username)
       .then(res => res.data)
-      .catch(errHandler)
+      .catch(errHandler);
   },
 
   getSecret() {
@@ -166,13 +161,5 @@ export default {
       })
       .then(res => res.data)
       .catch(errHandler);
-  },
-
-
-  deleteProject(projectId) {
-    return service
-      .delete('/projects/'+projectId)
-      .then(res => res.data)
-      .catch(errHandler)
-  },
+  }
 };

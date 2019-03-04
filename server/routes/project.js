@@ -12,6 +12,7 @@ router.use((req, res, next) => {
 
 // Route to get all projects
 router.get("/", (req, res, next) => {
+  console.log("I am listing all the projects");
   Project.find()
     .sort({ date: -1 })
     .then(projects => {
@@ -81,7 +82,6 @@ router.get("/byprofile", (req, res, next) => {
 router.post("/edit-project", (req, res, next) => {
   let projectId = req.user._id;
   let {
-    username,
     name,
     projectlink,
     githublink,
@@ -91,7 +91,6 @@ router.post("/edit-project", (req, res, next) => {
   } = req.body;
 
   Project.update({
-    username,
     name,
     projectlink,
     githublink,
@@ -100,12 +99,12 @@ router.post("/edit-project", (req, res, next) => {
     technologyused
   })
 
-    .then(user => {
+    .then(project => {
       res.json({
         success: true,
-        user
+        project
       });
-      response.redirect("/");
+      response.redirect("/projects");
     })
     .catch(err => next(err));
 
@@ -198,34 +197,37 @@ router.post(
 
 router.post("/edit-project", (req, res, next) => {
   let projectsId = req.user._id;
-  let {name,
+  let {
+    name,
     projectlink,
     projectimage,
     description,
     technologyused,
-    date} = req.body
+    date
+  } = req.body;
 
-    Project.update({firstname,
-      name,
-      projectlink,
-      projectimage,
-      description,
-      technologyused,
-      date})
+  Project.update({
+    firstname,
+    name,
+    projectlink,
+    projectimage,
+    description,
+    technologyused,
+    date
+  })
 
-      .then(project => {
-        res.json({
-          success: true,
-          project
-        });
-        response.redirect('/projects');
-      })
-      .catch(err => next(err))
+    .then(project => {
+      res.json({
+        success: true,
+        project
+      });
+      response.redirect("/projects");
+    })
+    .catch(err => next(err));
 
   console.log("project id is", projectsId);
   console.log("project body is", req.body);
 });
-
 
 // Route to delete a project
 router.delete("/:id", (req, res, next) => {
@@ -234,10 +236,10 @@ router.delete("/:id", (req, res, next) => {
       res.json({
         message: "The projects was deleted",
         projects: projects // The deleted projects are sent
-      })
+      });
     })
-    .catch(err => next(err))
-})
+    .catch(err => next(err));
+});
 // router.delete("/:id", (req, res, next) => {
 
 //   Project.findById(req.params.id)
@@ -246,22 +248,26 @@ router.delete("/:id", (req, res, next) => {
 // });
 
 // The route is PUT /api/projects/:id
-router.put('/:id', (req,res,next)=>{
-  Project.findByIdAndUpdate(req.params.id, {
-    name: req.body.name,
-    projectlink: req.body.projectlink,
-    description: req.body.description,
-    technologyused: req.body.technologyused,
-    date: req.body.date,
-  }, { new: true }) // To access the updated project (and not the old project)
+router.put("/:id", (req, res, next) => {
+  Project.findByIdAndUpdate(
+    req.params.id,
+    {
+      name: req.body.name,
+      projectlink: req.body.projectlink,
+      description: req.body.description,
+      technologyused: req.body.technologyused,
+      date: req.body.date
+    },
+    { new: true }
+  ) // To access the updated project (and not the old project)
     .then(projects => {
       res.json({
         message: "The project has been updated",
         projects: projects
-      })
+      });
     })
-    .catch(err => next(err))
-})
+    .catch(err => next(err));
+});
 
 router.get("/projects", (req, res, next) => {
   console.log("HELLO FROM PROJECTS");
@@ -269,7 +275,7 @@ router.get("/projects", (req, res, next) => {
   res.json({ test: "test" });
 });
 
-router.delete("/projects/:projectId", (req, res, next) => {
+router.delete("/:projectId", (req, res, next) => {
   Project.findById(req.params.projectId)
     .then(project => project.remove().then(() => res.json({ success: true })))
     .catch(err => res.status(404).json({ success: false }));
