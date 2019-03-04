@@ -45,7 +45,6 @@ class App extends Component {
             <NavLink to="/projects"> Projects</NavLink>
           </button>
 
-          {/* The NavLink "Add country" is displayed only when the user is connected */}
           {api.isLoggedIn() && (
             <button className="btn btn-outline-primary border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
               {" "}

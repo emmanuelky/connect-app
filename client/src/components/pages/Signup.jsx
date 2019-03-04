@@ -46,17 +46,17 @@ class Signup extends Component {
       username: this.state.username,
       password: this.state.password,
       email: this.state.email,
-      // profileimage: this.state.profileimage,
-      // unversity: this.state.university,
-      // institute: this.state.institute,
-      // country: this.state.country,
-      // state: this.state.state,
-      // city: this.state.city,
-      // specialization: this.state.specialization,
-      // status: this.state.status,
-      // age: this.state.age,
-      // gender: this.state.gender,
-      // social: this.state.social
+      profileimage: this.state.profileimage,
+      unversity: this.state.university,
+      institute: this.state.institute,
+      country: this.state.country,
+      state: this.state.state,
+      city: this.state.city,
+      specialization: this.state.specialization,
+      status: this.state.status,
+      age: this.state.age,
+      gender: this.state.gender,
+      social: this.state.social
     };
     api
       .signup(data)

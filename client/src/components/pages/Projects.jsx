@@ -75,13 +75,15 @@ class Projects extends Component {
               .filter((project, i) => {
                 if (project.name.toLowerCase().includes(lowerSearch, uppersearch))
                   return true;
-                if (project.technologyused[0].includes(lowerSearch, uppersearch))
-                  return true;
+                for (let i = 0; i < project.technologyused.length; i++) {
+                  if (project.technologyused[i].includes(lowerSearch, uppersearch))
+                    return true;
+                }
                 return false;
               })
               .map((p, i) => (
                 <div className="d-flex ">
-                  <div className="card flex-md-{grow|shrink}-0 mr-2 m-2 shadow-lg p-3 mb-5 bg-white rounded">
+                  <div className="card flex-md-grow-0 mr-2 m-2 shadow-lg p-3 mb-5 bg-white rounded">
                     <li key={p.i}>
                       <img
                         className=""
