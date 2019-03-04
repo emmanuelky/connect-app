@@ -82,7 +82,7 @@ router.get("/byprofile", (req, res, next) => {
 router.post("/edit-project", (req, res, next) => {
   let projectId = req.user._id;
   let {
-    username,
+  
     name,
     projectlink,
     githublink,
@@ -92,7 +92,7 @@ router.post("/edit-project", (req, res, next) => {
   } = req.body;
 
   Project.update({
-    username,
+    
     name,
     projectlink,
     githublink,
@@ -101,12 +101,12 @@ router.post("/edit-project", (req, res, next) => {
     technologyused
   })
 
-    .then(user => {
+    .then(project => {
       res.json({
         success: true,
-        user
+        project
       });
-      response.redirect("/");
+      response.redirect("/projects");
     })
     .catch(err => next(err));
 

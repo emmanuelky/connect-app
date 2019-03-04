@@ -93,9 +93,9 @@ export default {
       .catch(errHandler);
   },
 
-  editProject(body) {
+  editProject(id, body) {
     return service
-      .post("/edit-project/", body)
+      .put("/projects/"+ id, body)
       .then(res => res.data)
       .catch(errHandler);
   },

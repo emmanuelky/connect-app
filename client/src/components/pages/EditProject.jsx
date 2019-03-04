@@ -111,4 +111,18 @@ export default class EditProject extends Component {
       </div>
     );
   }
+
+  componentDidMount(){
+    api.getProject(this.props.match.params.projectId)
+      .then(project => {
+        this.setState({
+          name: project.name,
+          projectlink: project.projectlink,
+          technologyused: project.technologyused,
+          projectimage: project.projectimage,
+          description: project.description,
+        })
+      })
+    }
+
 }

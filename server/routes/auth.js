@@ -168,6 +168,39 @@ router.get("/project", (req, res, next) => {
   res.json(req.user);
 });
 
+router.post("/edit-project", (req, res, next) => {
+  var projectId = req.user._id;
+  let {
+    
+    name,
+    projectlink,
+    projectimage,
+    description,
+    technologyused,
+    date
+  } = req.body;
+
+  Project.update({
+    
+    name,
+    projectlink,
+    projectimage,
+    description,
+    technologyused,
+    date
+  })
+    .then(project => {
+      res.json({
+        success: true,
+        project
+      });
+      response.redirect("/edit-project");
+    })
+    .catch(err => next(err));
+  console.log("project id is", projectId);
+  console.log("project body is", req.body);
+});
+
 /*profile.updateOne(userId, updatedProfile)
 .then(function(success){
   console.log("update")
