@@ -5,11 +5,11 @@ const userSchema = new Schema(
   {
     firstname: {
       type: String,
-      required: true
+      required: false
     },
     lastname: {
       type: String,
-      required: true
+      required: false
     },
     username: {
       type: String,
@@ -23,7 +23,7 @@ const userSchema = new Schema(
     },
     profileimage: {
       type: String,
-      required: true
+      required: false
     },
     email: {
       type: String, 
@@ -33,27 +33,27 @@ const userSchema = new Schema(
     },
     university: {
       type: String,
-      required: true
+      required: false
     },
     institute: {
       type: String,
-      required: true
+      required: false
     },
     country: {
       type: String,
-      required: true
+      required: false
     },
     state: {
       type: String,
-      required: true
+      required: false
     },
     city: {
       type: String,
-      required: true
+      required: false
     },
     specialization: {
       type: String,
-      required: true
+      required: false
     },
     status: {
         type: String,
@@ -61,7 +61,7 @@ const userSchema = new Schema(
       },
     age: {
       type: Number,
-      required: true
+      required: false
     },
     gender: {
         type: String,
