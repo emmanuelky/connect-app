@@ -91,10 +91,11 @@ class Login extends Component {
                 Login 
               </Button>
               {''} <br/>
-              <Button color="linkedin" className="Linkedin-Login mt-2">
+              
+        </Form>
+        <Button color="primary" className="Linkedin-Login mt-2">
          <a href="http://localhost:5000/api/login/linkedin">Login with Linkedin</a>
          </Button>
-        </Form>
       </Container>
         {/* <h2>Login</h2>
         <form>
