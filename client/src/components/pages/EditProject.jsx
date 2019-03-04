@@ -10,11 +10,10 @@ export default class EditProject extends Component {
       projectimage: "",
       description: "",
       technologyused: "",
-      message: null
+      date: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleClick = this.handleClick.bind(this)
   }
 
   handleInputChange(stateKey, event) {
@@ -24,14 +23,14 @@ export default class EditProject extends Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault(); // To not not submit the form and redirect the user to another page
-
+    e.preventDefault();
     let {
       name,
       projectlink,
       projectimage,
       description,
-      technologyused
+      technologyused,
+      date
     } = this.state;
 
     api
@@ -40,7 +39,8 @@ export default class EditProject extends Component {
         projectlink,
         projectimage,
         description,
-        technologyused
+        technologyused,
+        date
       })
       .then(data => {
         console.log("I could do it", data);
@@ -111,18 +111,17 @@ export default class EditProject extends Component {
       </div>
     );
   }
-
-  componentDidMount(){
-    api.getProject(this.props.match.params.projectId)
-      .then(project => {
-        this.setState({
-          name: project.name,
-          projectlink: project.projectlink,
-          technologyused: project.technologyused,
-          projectimage: project.projectimage,
-          description: project.description,
-        })
-      })
-    }
-
+  componentDidMount() {
+    api.getProject(this.props.match.params.projectId).then(project => {
+      this.setState({
+        name: project.name,
+        projectlink: project.projectlink,
+        technologyused: project.technologyused,
+        projectimage: project.projectimage,
+        description: project.description,
+        email: project.email,
+        date: project.date.slice(0, 10)
+      });
+    });
+  }
 }

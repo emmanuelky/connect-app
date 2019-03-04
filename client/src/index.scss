@@ -1,6 +1,10 @@
 // --------------------
 // Definition of variables
 $primary: #4d9de0;
+$linkedin: #0077B5;
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+
 
 // ----------------------------------------
 // To install Boostrap:
@@ -22,6 +26,15 @@ body {
 .App {
   text-align: center;
 }
+
+.Linkedin-Login {
+  background-color: $linkedin
+}
+.Linkedin-Login > a {
+  color: white;
+  text-decoration: none;
+}
+
 
 // --------------------
 // Style for Home component

@@ -8,11 +8,11 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import EditProject from "./pages/EditProject";
 import Signup from "./pages/Signup";
-// import CountryDetail from './pages/CountryDetail';
 import EditProfile from "./pages/EditProfile";
 import api from "../api";
 import logo from "../logo.png";
 import ProfileUsername from "./pages/ProfileUsername";
+import SuccessLogin from "./pages/SuccessLogin";
 
 class App extends Component {
   constructor(props) {
@@ -82,7 +82,7 @@ class App extends Component {
               <button className="btn btn-outline-primary border-bottom-0 navbar-brand my-2 my-sm-0 d-flex justify-content-end shadow-lg p-3 mb-5 bg-white rounded">
                 {" "}
                 <Link to="/" onClick={e => this.handleLogoutClick(e)}>
-                  Logout <i className="fas fa-sign-out-alt"></i>
+                  Logout <i className="fas fa-sign-out-alt" />
                 </Link>
               </button>
             )}
@@ -100,13 +100,17 @@ class App extends Component {
                 path="/profile/:username"
                 component={ProfileUsername}
               />
-              {/* <Route exact path="/countries/:countryId" component={CountryDetail} /> */}
               <Route exact path="/edit-profile" component={EditProfile} />
-              <Route exact path="/edit-project/:projectId" component={EditProject} />
+              <Route
+                exact
+                path="/edit-project/:projectId"
+                component={EditProject}
+              />
               <Route exact path="/add-project" component={AddProjects} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/secret" component={Secret} />
+              <Route exact path="/success-login" component={SuccessLogin} />
               <Route render={() => <h2>404</h2>} />
             </Switch>
             <footer className="container col-md-8 mb-10">

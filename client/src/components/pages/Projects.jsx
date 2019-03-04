@@ -25,6 +25,21 @@ class Projects extends Component {
     }));
   }
 
+  deleteProject(_creator) {
+    api.deleteProject(_creator).then(data => {
+      this.setState({
+        _creator: this.state._creator.filter(c => c._id !== _creator),
+        message: data.message
+      });
+      // Remove the message after 3 seconds
+      setTimeout(() => {
+        this.setState({
+          message: null
+        });
+      }, 3000);
+    });
+  }
+
   handleInputChange(e) {
     this.setState({
       [e.target.name]: e.target.value.substr(0, 20)
@@ -102,7 +117,7 @@ class Projects extends Component {
                         <a href={p.githublink} target="_blank" className="grow">
                           Github
                         </a>
-                        <br /> 
+                        <br />
                         <strong>Creator:</strong>{" "}
                         <h6 className="card-title"> {p.username}</h6>{" "}
                         <pre>
@@ -119,6 +134,18 @@ class Projects extends Component {
                         </pre>
                       </div>
                       <i class="fas fa-code" /> <i class="fas fa-laptop-code" />
+                      <button
+                        className="rounded"
+                        onClick={this.handleClick}
+                        style={{
+                          backgroundColor: this.colors[colorIndex],
+                          color: "white"
+                        }}
+                      >
+                        {this.state.nbOfLikes} Like
+                        {this.state.nbOfLikes !== 1 && "s"}
+                      </button>
+                      <Link to={"/edit-project/" + p._id}>Edit Project</Link>
                     </li>
                   </div>
                 </div>
