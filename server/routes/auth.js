@@ -4,8 +4,6 @@ const router = express.Router();
 const User = require("../models/User");
 const Project = require("../models/Project");
 
-
-
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
@@ -113,7 +111,8 @@ router.get("/profile", (req, res, next) => {
 
 router.post("/edit-profile", (req, res, next) => {
   let userId = req.user._id;
-  let {firstname,
+  let {
+    firstname,
     lastname,
     email,
     profileimage,
@@ -125,41 +124,49 @@ router.post("/edit-profile", (req, res, next) => {
     status,
     age,
     gender,
-    social} = req.body
+    social
+  } = req.body;
 
-    User.update({firstname,
-      lastname,
-      email,
-      profileimage,
-      university,
-      institute,
-      country,
-      city,
-      specialization,
-      status,
-      age,
-      gender,
-      social})
+  User.update({
+    firstname,
+    lastname,
+    email,
+    profileimage,
+    university,
+    institute,
+    country,
+    city,
+    specialization,
+    status,
+    age,
+    gender,
+    social
+  })
 
-      .then(user => {
-        res.json({
-          success: true,
-          user
-        });
-        response.redirect('/');
-      })
-      .catch(err => next(err))
+    .then(user => {
+      res.json({
+        success: true,
+        user
+      });
+      response.redirect("/");
+    })
+    .catch(err => next(err));
 
   console.log("user id is", userId);
   console.log("user body is", req.body);
 });
 
+router.get("/profile/:username", (req, res, next) => {
+  User.findOne({ username: req.params.username })
+    .then(user => {
+      res.json(user);
+    })
+    .catch(err => next(err));
+});
+
 router.get("/project", (req, res, next) => {
   res.json(req.user);
 });
-
-
-
 
 /*profile.updateOne(userId, updatedProfile)
 .then(function(success){

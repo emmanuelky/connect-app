@@ -41,6 +41,7 @@ class Projects extends Component {
     let colorIndex = this.state.nbOfLikes % this.colors.length;
 
     let lowerSearch = this.state.search.toLowerCase();
+    let uppersearch = this.state.search.toUpperCase()
     let filteredProjects = this.state.projects;
 
     return (
@@ -55,9 +56,13 @@ class Projects extends Component {
         <div className="projects col-md-18 mb-12 border border-white rounded-left shadow p-3 mb-5 bg-white rounded">
           <ul className="d-flex col-md-18 mb-12 flex-wrap card-group">
             {filteredProjects
-              .filter((project, i) =>
-                project.name.toLowerCase().includes(lowerSearch)
-              )
+              .filter((project, i) => {
+                if (project.name.toLowerCase().includes(lowerSearch, uppersearch))
+                  return true;
+                if (project.technologyused[0].includes(lowerSearch, uppersearch))
+                  return true;
+                return false;
+              })
               .map((p, i) => (
                 <div className="d-flex ">
                   <div className="card flex-md-{grow|shrink}-0 mr-2 m-2 shadow-lg p-3 mb-5 bg-white rounded">

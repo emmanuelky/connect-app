@@ -197,24 +197,10 @@ router.post(
 );
 
 // Route to delete a project
-router.delete("/:id", (req, res, next) => {
-  Project.findById(req.params.id)
+router.delete("/projects/:projectId", (req, res, next) => {
+  Project.findById(req.params.ProjectId)
     .then(project => project.remove().then(() => res.json({ success: true })))
     .catch(err => res.status(404).json({ success: false }));
 });
-
-router.get("/profile/:username", (req, res, next) => {
-  Project.find()
-    .then(projects => {
-      res.json(projects);
-    })
-    .catch(err => next(err));
-});
-
-
-
-
-
-
 
 module.exports = router;

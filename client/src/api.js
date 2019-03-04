@@ -107,12 +107,18 @@ export default {
       .catch(errHandler)
   },
 
+
+
+
   getProfileWithUsername(username) {
     return service
-      .get('/profile'+username)
+      .get('/profile/'+username)
       .then(res => res.data)
       .catch(errHandler)
   },
+
+
+
 
   getSecret() {
     return service
@@ -137,7 +143,7 @@ export default {
 
   deleteProject(projectId) {
     return service
-      .delete('/profile/'+projectId)
+      .delete('/projects/'+projectId)
       .then(res => res.data)
       .catch(errHandler)
   },

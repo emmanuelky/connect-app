@@ -10,7 +10,7 @@ class Search extends Component {
         className="Search col-md-8 mb-4"
         value={this.props.value}
         onChange={e => this.props.onSearch(e.target.value)}
-        placeholder="Search... by technology e.g React, Vue, GraphQL, Python, R, SQL etc..."
+        placeholder="SEARCH....react, vue, graphQL, python, r, sql etc..."
         
       />
       </div>

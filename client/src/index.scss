@@ -1,7 +1,6 @@
 // --------------------
 // Definition of variables
-$primary: #4D9DE0;
-
+$primary: #4d9de0;
 
 // ----------------------------------------
 // To install Boostrap:
@@ -9,7 +8,6 @@ $primary: #4D9DE0;
 // 2) Import bootstrap with the following line
 // @import 'bootstrap/scss/bootstrap';
 // ----------------------------------------
-
 
 // --------------------
 // Style reusable for all components
@@ -19,48 +17,10 @@ body {
   font-family: sans-serif;
 }
 
-.info {
-  margin: 20px;
-  padding: 10px 20px;
-  border-radius: 10px;
-  display: inline-block;
-  background-color: #5776e9;
-  color: white;
-}
-
-.info.info-danger {
-  background-color: #e73f3f;
-}
-
 // --------------------
 // Style for App component
 .App {
   text-align: center;
-
-  .App-logo {
-    height: 80px;
-    border-radius: 10px
-  }
-
-  
-
-  .App-title {
-    font-size: 1.5em;
-  }
-
-  .App-intro {
-    font-size: large;
-  }
-
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(360deg);
-    }
-  }
 }
 
 // --------------------
@@ -81,7 +41,7 @@ body {
   list-style: none;
 }
 
-.container1{
+.container1 {
   background-image: url("./image1.jpeg");
   width: 90vw;
   height: 100vh;
@@ -91,41 +51,42 @@ body {
   text-align: center;
   justify-content: space-evenly;
 }
-.container1 h1{
-  -webkit-transform: rotate(0deg); 
+.container1 h1 {
+  -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   padding: 40px;
   margin: 3px;
 }
 
-.container1 h2{
-  -webkit-transform: rotate(-15deg); 
+.container1 h2 {
+  -webkit-transform: rotate(-15deg);
   -moz-transform: rotate(15deg);
   padding: 40px;
   margin: 3px;
 }
 
-.container1 h3{
-  -webkit-transform: rotate(-30deg); 
+.container1 h3 {
+  -webkit-transform: rotate(-30deg);
   -moz-transform: rotate(30deg);
   padding: 40px;
   margin: 3px;
+  transition: ease-in-out;
 }
 
-.container1 h4{
-  -webkit-transform: rotate(-45deg); 
+.container1 h4 {
+  -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(45deg);
   padding: 40px;
   margin: 3px;
 }
-.container1 h5{
-  -webkit-transform: rotate(-60deg); 
-  -moz-transform: rotate(60deg);
+.container1 h5 {
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
   padding: 40px;
   margin: 3px;
 }
-.container1 h6{
-  -webkit-transform: rotate(0deg); 
+.container1 h6 {
+  -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   padding: 40px;
   margin: 3px;
@@ -146,11 +107,11 @@ body {
   height: 100px;
 }
 
-.profile ul{
-list-style: none;
+.profile ul {
+  list-style: none;
 }
 
-.Search{
+.Search {
   font-size: 1rem;
   padding: 15px 5px;
   width: 600px;
@@ -159,14 +120,13 @@ list-style: none;
   text-align: center;
 }
 
-.home-section-two{
+.home-section-two {
   background-image: url("../src/image1.jpeg");
   height: 700px;
   background-repeat: no-repeat;
 }
 
-
-footer{
+footer {
   background-image: url("./image4.jpeg");
   background-repeat: no-repeat;
   padding: 50px;

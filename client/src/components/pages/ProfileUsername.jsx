@@ -1,15 +1,28 @@
 import React, { Component } from "react";
 import api from "../../api";
-import { Link } from "react-router-dom";
-
-import React, { Component } from 'react'
 
 export default class ProfileUsername extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      profile: {}
+    };
+  }
+  componentDidMount() {
+    api
+      .getProfileWithUsername(this.props.match.params.username)
+      .then(user => {
+        console.log(user);
+        this.setState({
+          profile: user
+        });
+      })
+      .catch(err => console.log(err));
+  }
   render() {
     return (
-      <div>
-        
-      </div>
-    )
+     <div></div>
+    );
   }
 }
