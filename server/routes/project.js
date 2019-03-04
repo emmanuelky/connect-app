@@ -270,7 +270,7 @@ router.get("/projects", (req, res, next) => {
 });
 
 router.delete("/projects/:projectId", (req, res, next) => {
-  Project.findById(req.params.ProjectId)
+  Project.findById(req.params.projectId)
     .then(project => project.remove().then(() => res.json({ success: true })))
     .catch(err => res.status(404).json({ success: false }));
 });

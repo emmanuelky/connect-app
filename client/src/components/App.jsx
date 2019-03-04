@@ -8,11 +8,12 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import EditProject from "./pages/EditProject";
 import Signup from "./pages/Signup";
-// import CountryDetail from './pages/CountryDetail';
 import EditProfile from "./pages/EditProfile";
 import api from "../api";
 import logo from "../logo.png";
 import ProfileUsername from "./pages/ProfileUsername";
+import SuccessLogin from './pages/SuccessLogin';
+
 
 class App extends Component {
   constructor(props) {
@@ -96,13 +97,13 @@ class App extends Component {
               <Route exact path="/projects" component={Projects} />
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/profile/:username" component={ProfileUsername} />
-              {/* <Route exact path="/countries/:countryId" component={CountryDetail} /> */}
               <Route exact path="/edit-profile" component={EditProfile} />
               <Route exact path="/edit-project/:projectId" component={EditProject} />
               <Route exact path="/add-project" component={AddProjects} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/secret" component={Secret} />
+              <Route exact path="/success-login" component={SuccessLogin} />
               <Route render={() => <h2>404</h2>} />
             </Switch>
             <footer className="container col-md-8 mb-10">

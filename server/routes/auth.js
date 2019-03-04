@@ -21,7 +21,8 @@ passport.use(
       profileFields: ['id', 'first-name', 'last-name', 'email-address', 'headline']
     },
     function(accessToken, refreshToken, profile, done) {
-			console.log('TCL: profile', profile)
+      console.log('TCL: profile', profile)
+      // TODO: take values from the profile and save them in the database
       let email = profile.emails[0].value
       User.findOne({email})
       .then(user => {
@@ -52,7 +53,7 @@ router.get(
 router.get(
   "/login/linkedin/callback",
   passport.authenticate("linkedin", {
-    successRedirect: process.env.FRONTEND_URI + "/success-login",
+    successRedirect: process.env.FRONTEND_URI + '/success-login', // this is probably incorrect
     failureRedirect: "/login"
   })
 );
