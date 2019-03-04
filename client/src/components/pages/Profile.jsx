@@ -56,7 +56,7 @@ class Profile extends Component {
                 <h5>Name: {p.name}</h5>
                 <h5>Date: {p.date}</h5>
                 <h5>Technology Used: {p.technologyused}</h5>
-                <Link to={"/edit-project/"}>Edit Project</Link> <br />
+                <Link to={"/edit-project/"+p._id}>Edit Project</Link> <br />
                 <button onClick={() => this.deleteProject(p._id)}>
                   Delete Project
                 </button>

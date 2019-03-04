@@ -98,7 +98,7 @@ class App extends Component {
               <Route exact path="/profile/:username" component={ProfileUsername} />
               {/* <Route exact path="/countries/:countryId" component={CountryDetail} /> */}
               <Route exact path="/edit-profile" component={EditProfile} />
-              <Route exact path="/edit-project" component={EditProject} />
+              <Route exact path="/edit-project/:projectId" component={EditProject} />
               <Route exact path="/add-project" component={AddProjects} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/login" component={Login} />

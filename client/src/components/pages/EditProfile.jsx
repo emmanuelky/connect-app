@@ -202,13 +202,10 @@ export default class EditProfile extends Component {
     );
   }
   //   componentDidMount(){
-  //     api.getCountryDetail(this.props.match.params.countryId)
-  //       .then(country => {
+  //     api.getCountryProject(this.props.match.params.projectId)
+  //       .then(project => {
   //         this.setState({
-  //           name: country.name,
-  //           capitals: country.capitals,
-  //           area: country.area,
-  //           description: country.description,
+  //           
   //         })
   //       })
   //   }
