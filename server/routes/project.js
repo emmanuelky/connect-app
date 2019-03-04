@@ -203,10 +203,18 @@ router.delete("/:id", (req, res, next) => {
     .catch(err => res.status(404).json({ success: false }));
 });
 
-router.get("/projects", (req, res, next) => {
-  console.log("HELLO FROM PROJECTS");
-  console.log("HELOOOOOOO");
-  res.json({ test: "test" });
+router.get("/profile/:username", (req, res, next) => {
+  Project.find()
+    .then(projects => {
+      res.json(projects);
+    })
+    .catch(err => next(err));
 });
+
+
+
+
+
+
 
 module.exports = router;

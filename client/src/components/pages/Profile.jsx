@@ -28,7 +28,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="profile">
+      <div className="container col-md-18 mb-12 profile">
         <h2>My Profile</h2>
         <div>
           <h5>
@@ -47,14 +47,14 @@ class Profile extends Component {
         </div>
         <Link to={"/edit-profile/"}>Edit</Link> <br />
         <br />
-        <div className="myProjects">
           <h2>My Projects</h2>
+        <div>
           <ul>
             {this.state.projects.map(p => (
-              <li key={p._id}>
+              <li key={p._id} >
                 <img className="projectImage" src={p.projectimage} />
                 <h5>Name: {p.name}</h5>
-                <h5>Date Added: {p.date}</h5>
+                <h5>Date: {p.date}</h5>
                 <h5>Technology Used: {p.technologyused}</h5>
                 <Link to={"/edit-project/"}>Edit Project</Link> <br />
                 <button onClick={() => this.deleteProject(p._id)}>

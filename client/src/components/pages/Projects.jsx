@@ -3,7 +3,6 @@ import api from "../../api";
 import Search from "./Search";
 import { Link } from "react-router-dom";
 
-
 class Projects extends Component {
   constructor(props) {
     super(props);
@@ -45,7 +44,7 @@ class Projects extends Component {
     let filteredProjects = this.state.projects;
 
     return (
-      <div>
+      <div className="container col-md-18 mb-12">
         <div>
           <h2 className="m-5 p-3 mb-2 bg-dark text-white rounded">
             View All Projects
@@ -53,21 +52,21 @@ class Projects extends Component {
           <Search value={this.state.search} onSearch={this.handleSearch} />
           <hr />
         </div>
-        <div className="projects border border-white rounded-left shadow p-3 mb-5 bg-white rounded">
-          <ul className="d-flex flex-wrap card-group">
+        <div className="projects col-md-18 mb-12 border border-white rounded-left shadow p-3 mb-5 bg-white rounded">
+          <ul className="d-flex col-md-18 mb-12 flex-wrap card-group">
             {filteredProjects
               .filter((project, i) =>
                 project.name.toLowerCase().includes(lowerSearch)
               )
               .map((p, i) => (
-                <div className="d-flex flex-wrap">
-                  <div className="card mr-5 m-1 shadow-lg p-3 mb-5 bg-white rounded">
+                <div className="d-flex ">
+                  <div className="card flex-md-{grow|shrink}-0 mr-2 m-2 shadow-lg p-3 mb-5 bg-white rounded">
                     <li key={p.i}>
                       <img
                         className=""
                         src={p.projectimage}
-                        width="244px"
-                        height="180px"
+                        width="100px"
+                        height="100px"
                       />{" "}
                       <br />
                       <div className="card-body">
@@ -93,9 +92,17 @@ class Projects extends Component {
                         <br />
                         <i>
                           {" "}
-                         Creator: <h5 className="card-title"> {p.username}</h5>{" "}
+                          Creator: <h5 className="card-title">
+                            {" "}
+                            {p.username}
+                          </h5>{" "}
                         </i>{" "}
-                        <pre> <Link to ="/profile" >Contact Info</Link> </pre>
+                        <pre>
+                          {" "}
+                          <Link to={"/profile/" + p.username}>
+                            Contact Info
+                          </Link>{" "}
+                        </pre>
                         <pre>
                           <i>
                             {" "}
@@ -111,7 +118,7 @@ class Projects extends Component {
                           color: "white"
                         }}
                       >
-                        {this.state.nbOfLikes} Like 
+                        {this.state.nbOfLikes} Like
                         {this.state.nbOfLikes !== 1 && "s"}
                       </button>
                     </li>
