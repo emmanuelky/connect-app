@@ -22,6 +22,9 @@ class Signup extends Component {
       gender: "",
       social: []
     };
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+
   }
 
   handleInputChange(stateFieldName, event) {
@@ -57,6 +60,15 @@ class Signup extends Component {
         this.props.history.push("/"); // Redirect to the home page
       })
       .catch(err => this.setState({ message: err.toString() }));
+  }
+
+  isEmailCorrect() {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(this.state.email).toLowerCase());
+  }
+
+  isPasswordStrong(){
+    return this.state.password.length >= 6
   }
 
   render() {
@@ -176,7 +188,8 @@ class Signup extends Component {
             onChange={e => this.handleInputChange("social", e)}
           />{" "}
           <br />
-          <button onClick={e => this.handleClick(e)}>Signup</button>
+          <button
+          disabled={!this.isEmailCorrect() || !this.isPasswordStrong()} onClick={e => this.handleClick(e)}>Signup</button>
         </form>
         {this.state.message && (
           <div className="info info-danger">{this.state.message}</div>

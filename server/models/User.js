@@ -33,11 +33,11 @@ const userSchema = new Schema(
     },
     university: {
       type: String,
-      required: false
+      required: true
     },
     institute: {
       type: String,
-      required: false
+      required: true
     },
     country: {
       type: String,
