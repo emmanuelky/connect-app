@@ -29,36 +29,40 @@ class Home extends Component {
     return (
       <div className="container flex-lg-wrap col-md-10 mb-10 Home p-3 mb-2 bg-dark text-white rounded-top ">
         <div className="container1 flex-sm-wrap col-md-12 mb-14 justify-content-sm-center d-flex align-content-center flex-wrap justify-content-between m-2 p-5">
-          <h1 className="grow">Are you a Software Developer???</h1> <br />
-          <h2 className="grow">Do you have a project to show???</h2> <br />
-          <h3 className="grow">Are you into Tech???</h3> <br />
-          <h4 className="grow">Do you want Employers to notice you???</h4>{" "}
-          <br />
-          <h5 className="grow">Do you want your skills known???</h5> <br />
-          <br />
-          <h6 className="grow">Do you have the imposter symdrone???</h6>
-          <hr />
-        <h1 className="grow">
-            <i className="fas fa-code" />
-            Then you are in the right place!!!
-            <i className="fas fa-code" />
+          <h1 className="grow text-center text-sm-left">
+            Are you a Software Developer???
           </h1>
-          
+          <h2 className="grow text-center text-sm-left">
+            Do you have a project to show???
+          </h2>
+          <h3 className="grow text-center text-sm-left">
+            Are you into Tech???
+          </h3>
+          <h4 className="grow text-center" text-sm-left>
+            Do you want Employers to notice you???
+          </h4>{" "}
+          <h5 className="grow text-center text-sm-left">
+            Do you want your skills known???
+          </h5>
+          <h6 className="grow text-center text-sm-left">
+            Do you have the imposter symdrone???
+          </h6>
         </div>
         <div className="container border-bottom-8 border border-primary shadow-lg p-3 mb-8 bg-dark rounded">
           <h1 className="p-5 text-monospace font-weight-bold shadow-lg p-3 mb-5 bg-dark rounded">
-            EXPLORE AND CONNECT
+            <i className="fas fa-code" /> EXPLORE AND CONNECT{" "}
+            <i className="fas fa-code" />
           </h1>
           <hr />
           <i>
             {" "}
             <h6 className="text-monospace shadow-lg p-3 mb-5 bg-dark rounded">
-              Get discovered by millions of employers all over the World
+              Get discovered by millions of employers around the World
             </h6>
           </i>
           <i>
             {" "}
-            <h4 className="text-monospace shadow-lg p-3 mb-5 bg-dark rounded">
+            <h4 className="text-monospace glow shadow-lg p-3 mb-5 bg-dark rounded">
               Top 12 Recent Projects
             </h4>
           </i>
@@ -73,7 +77,7 @@ class Home extends Component {
                   <hr />
                   <img className="projectImage" src={p.projectimage} /> <br />
                   <h6>
-                    <i>Creator: {p.username} </i>{" "}
+                    <i>creator: {p.username} </i>{" "}
                   </h6>
                   <a href={p.projectlink} target="_blank">
                     Demo{" "}

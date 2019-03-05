@@ -116,7 +116,7 @@ class Signup extends Component {
           <br />
           Profile Image:{" "}
           <input
-            type="text"
+            type="file"
             value={this.state.profileimage}
             onChange={e => this.handleInputChange("profileimage", e)}
           />{" "}

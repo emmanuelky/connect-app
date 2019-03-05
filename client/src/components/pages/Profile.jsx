@@ -29,8 +29,8 @@ class Profile extends Component {
   render() {
     return (
       <div className="container col-md-18 mb-12 profile">
-        <div className="rounded border m-5 font-italic myprofile border-dark shadow p-3 mb-5 bg-white rounded">
-        <i class="fas fa-user-circle"></i>
+        <div className="rounded border m-5 font-italic myprofile glow border-light shadow p-3 mb-5 bg-white rounded ">
+        <i className="fas fa-user-circle"></i>
           <h2>My Profile</h2>
           
           <hr />
@@ -39,7 +39,7 @@ class Profile extends Component {
             Full Name: {this.state.profile.firstname} {this.state.profile.lastname} (
             {this.state.profile.gender}, {this.state.profile.age})
           </h5>
-          Username: {this.state.profile.username}
+          <h5>Username: {this.state.profile.username}</h5>
           <h5>Email: {this.state.profile.email}</h5>
           <hr />
           <hr />
@@ -60,20 +60,21 @@ class Profile extends Component {
           <br />
         </div>
         <br />
+        
         <h2>My Projects</h2>
-        <div className="rounded border m-10 myproject d-flex flex-wrap d-flex flex-row bd-highlight mb-3 border-dark shadow p-3 mb-5 bg-white rounded">
-          <ul className="d-flex flex-wrap font-italic ">
+        <br />
+        
+        <div className="rounded border m-10 myproject d-flex flex-wrap d-flex flex-row bd-highlight mb-3 border-light shadow p-3 mb-5 bg-white rounded p-10 ml-5">
+          <ul className="d-flex flex-wrap font-italic m-5 d-flex justify-content-around">
             {this.state.projects.map(p => (
               <li key={p._id}>
                 <img className="projectImage grow" src={p.projectimage} />
                 <h5>{p.name}</h5>
-                <h5>{p.date}</h5>
-                <h5>Technology Used: {p.technologyused}</h5>
 
-                <button type="button" className="btn btn-light mr-5 text-white"><Link to={"/edit-project/"+p._id}>Edit Project</Link></button>
-               
+                <button type="button" className="btn btn-light text-white m-5"><Link to={"/edit-project/"+p._id}>Edit</Link></button>
+               <br />
                 <button className="btn btn-danger" onClick={() => this.deleteProject(p._id)}>
-                  Delete Project
+                  Delete
                 </button>
               </li>
             ))}

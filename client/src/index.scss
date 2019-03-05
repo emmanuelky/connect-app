@@ -1,24 +1,14 @@
 // --------------------
 // Definition of variables
 $primary: #4d9de0;
-$linkedin: #0077B5;
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
-
-
-
-// ----------------------------------------
-// To install Boostrap:
-// 1) Run in the client folder: $ npm i bootstrap
-// 2) Import bootstrap with the following line
-// @import 'bootstrap/scss/bootstrap';
-// ----------------------------------------
+$linkedin: #0077b5;
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 // --------------------
 // Style reusable for all components
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
 
 // --------------------
@@ -28,13 +18,12 @@ body {
 }
 
 .Linkedin-Login {
-  background-color: $linkedin
+  background-color: $linkedin;
 }
 .Linkedin-Login > a {
   color: white;
   text-decoration: none;
 }
-
 
 // --------------------
 // Style for Home component
@@ -63,7 +52,7 @@ body {
   justify-content: center;
   text-align: center;
   justify-content: space-evenly;
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Permanent Marker", cursive;
   color: rgb(199, 212, 216);
 }
 .container1 h1 {
@@ -73,11 +62,11 @@ body {
   margin: 3px;
 }
 
-.container1 h1:hover{
+.container1 h1:hover {
   -webkit-stroke-width: 10.3px;
-    -webkit-stroke-color: #FFFFFF;
-    -webkit-fill-color: #FFFFFF;
-    text-shadow: 1px 0px 20px #2BD69B;
+  -webkit-stroke-color: #ffffff;
+  -webkit-fill-color: #ffffff;
+  text-shadow: 1px 0px 20px #2bd69b;
 }
 
 .container1 h2 {
@@ -87,11 +76,11 @@ body {
   margin: 3px;
 }
 
-.container1 h2:hover{
+.container1 h2:hover {
   -webkit-stroke-width: 10.3px;
-    -webkit-stroke-color: #FFFFFF;
-    -webkit-fill-color: #FFFFFF;
-    text-shadow: 1px 0px 20px #2BD69B;
+  -webkit-stroke-color: #ffffff;
+  -webkit-fill-color: #ffffff;
+  text-shadow: 1px 0px 20px #2bd69b;
 }
 
 .container1 h3 {
@@ -102,11 +91,11 @@ body {
   transition: ease-in-out;
 }
 
-.container1 h3:hover{
+.container1 h3:hover {
   -webkit-stroke-width: 10.3px;
-    -webkit-stroke-color: #FFFFFF;
-    -webkit-fill-color: #FFFFFF;
-    text-shadow: 1px 0px 20px #2BD69B;
+  -webkit-stroke-color: #ffffff;
+  -webkit-fill-color: #ffffff;
+  text-shadow: 1px 0px 20px #2bd69b;
 }
 
 .container1 h4 {
@@ -115,11 +104,11 @@ body {
   padding: 40px;
   margin: 3px;
 }
-.container1 h4:hover{
+.container1 h4:hover {
   -webkit-stroke-width: 10.3px;
-    -webkit-stroke-color: #FFFFFF;
-    -webkit-fill-color: #FFFFFF;
-    text-shadow: 1px 0px 20px #2BD69B;
+  -webkit-stroke-color: #ffffff;
+  -webkit-fill-color: #ffffff;
+  text-shadow: 1px 0px 20px #2bd69b;
 }
 
 .container1 h5 {
@@ -128,11 +117,11 @@ body {
   padding: 40px;
   margin: 3px;
 }
-.container1 h5:hover{
+.container1 h5:hover {
   -webkit-stroke-width: 10.3px;
-    -webkit-stroke-color: #FFFFFF;
-    -webkit-fill-color: #FFFFFF;
-    text-shadow: 1px 0px 20px #2BD69B;
+  -webkit-stroke-color: #ffffff;
+  -webkit-fill-color: #ffffff;
+  text-shadow: 1px 0px 20px #2bd69b;
 }
 .container1 h6 {
   -webkit-transform: rotate(0deg);
@@ -140,15 +129,19 @@ body {
   padding: 40px;
   margin: 3px;
 }
-.container1 h6:hover{
+.container1 h6:hover {
   -webkit-stroke-width: 10.3px;
-    -webkit-stroke-color: #FFFFFF;
-    -webkit-fill-color: #FFFFFF;
-    text-shadow: 1px 0px 20px #2BD69B;
+  -webkit-stroke-color: #ffffff;
+  -webkit-fill-color: #ffffff;
+  text-shadow: 1px 0px 20px #2bd69b;
 }
 
-.grow { transition: all .2s ease-in-out; }
-.grow:hover { transform: scale(1.5); }
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.5);
+}
 
 // --------------------
 // Style for Secret component
@@ -178,13 +171,12 @@ body {
   text-align: center;
 }
 
-
 .SearchUser {
   font-size: 1rem;
   padding: 15px 5px;
   width: 600px;
   border-radius: 20px;
-  border: solid 5px #2E9BDB;
+  border: solid 5px #2e9bdb;
   text-align: center;
 }
 
@@ -202,18 +194,64 @@ footer {
   justify-content: center;
 }
 
-.myprofile{
-background-image: url("./image3.jpeg");
-background-repeat: no-repeat;
-background-image: cover;
-color: rgb(18, 8, 99);
-font-weight: bolder
+.myprofile {
+  background-image: url("./image3.jpeg");
+  background-repeat: no-repeat;
+  background-image: cover;
+  color: #0f1320;
+  font-weight: bolder;
 }
 
-.myproject{
+.myproject {
   background-image: url("./image2.jpeg");
   background-repeat: no-repeat;
   color: wheat;
   background-image: cover;
-  height: 100vh;;
+  height: 100vh;
+  background-size: contain;
+}
+
+.profileUserPage {
+  background-image: url("./image5.jpeg");
+  background-repeat: no-repeat;
+  color: rgb(13, 11, 34);
+  background-image: cover;
+  height: 100vh;
+  background-size: contain;
+  justify-content: center;
+}
+
+.profileUser {
+  background-color: whitesmoke;
+}
+
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 1px #fff, 0 0 3px rgb(48, 44, 59), 0 0 5px #161341,
+      0 0 7px #241891, 0 0 9px #0b092c, 0 0 11px #040314, 0 0 13px #000008;
   }
+  to {
+    text-shadow: 0 0 1px #fff, 0 0 3px #040407, 0 0 5px #0d111f, 0 0 8px #1b1631,
+      0 0 10px #110f1a, 0 0 12px #0c0c16, 0 0 14px #040307;
+  }
+}
+
+.result-output {
+  position: fixed;
+  top: 100px;
+  background: white;
+
+  .result-item {
+    border: 1px solid black;
+    padding: 10px 40px;
+  }
+}
