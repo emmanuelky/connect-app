@@ -13,7 +13,7 @@ import api from "../api";
 import logo from "../logo.png";
 import ProfileUsername from "./pages/ProfileUsername";
 import SuccessLogin from "./pages/SuccessLogin";
-import Search from "./pages/Search";
+import SearchUser from "./pages/SearchUser";
 
 class App extends Component {
   constructor(props) {
@@ -72,7 +72,7 @@ class App extends Component {
           </button>
 
           {api.isLoggedIn() && (
-            <Search />
+            <SearchUser />
           )}
 
           <ul className="nav navbar-nav justify-content-end ml-auto">

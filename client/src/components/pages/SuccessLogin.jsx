@@ -5,8 +5,9 @@ export default class SuccessLogin extends Component {
   render() {
     return (
       <div>
-        <h1>Success!</h1>
-        <p>You are being redirected to your profile in a second</p>
+        <h1>Success!!!</h1>
+        <h2>Welcome Back</h2>
+        <p>You will be redirected to your profile in 5 seconds</p>
       </div>
     )
   }
@@ -16,7 +17,7 @@ export default class SuccessLogin extends Component {
         setTimeout(() => {
           // Redirect the user the "/profile"
           this.props.history.push('/profile')
-        }, 2000)
+        }, 5000)
       })
   }
 }
