@@ -30,14 +30,15 @@ class Profile extends Component {
     return (
       <div className="container col-md-18 mb-12 profile">
         <div className="rounded border m-5 font-italic myprofile border-dark shadow p-3 mb-5 bg-white rounded">
-        <i class="fas fa-user-circle"></i>
+          <i class="fas fa-user-circle" />
           <h2>My Profile</h2>
-          
+          <img src={this.state.profile.profileimage} />
           <hr />
           <hr />
           <h5>
-            Full Name: {this.state.profile.firstname} {this.state.profile.lastname} (
-            {this.state.profile.gender}, {this.state.profile.age})
+            Full Name: {this.state.profile.firstname}{" "}
+            {this.state.profile.lastname} ({this.state.profile.gender},{" "}
+            {this.state.profile.age})
           </h5>
           Username: {this.state.profile.username}
           <h5>Email: {this.state.profile.email}</h5>
@@ -54,9 +55,12 @@ class Profile extends Component {
           </h5>
           <h5>Social Network: {this.state.profile.social}</h5>
           <hr />
-            <hr />
-            <Link to={"/edit-profile/"} ><button type="button" class="btn btn-dark m-10">Edit</button></Link>
-          
+          <hr />
+          <Link to={"/edit-profile/"}>
+            <button type="button" class="btn btn-dark m-10">
+              Edit
+            </button>
+          </Link>
           <br />
         </div>
         <br />
@@ -70,9 +74,14 @@ class Profile extends Component {
                 <h5>{p.date}</h5>
                 <h5>Technology Used: {p.technologyused}</h5>
 
-                <button type="button" className="btn btn-light mr-5 text-white"><Link to={"/edit-project/"+p._id}>Edit Project</Link></button>
-               
-                <button className="btn btn-danger" onClick={() => this.deleteProject(p._id)}>
+                <button type="button" className="btn btn-light mr-5 text-white">
+                  <Link to={"/edit-project/" + p._id}>Edit Project</Link>
+                </button>
+
+                <button
+                  className="btn btn-danger"
+                  onClick={() => this.deleteProject(p._id)}
+                >
                   Delete Project
                 </button>
               </li>

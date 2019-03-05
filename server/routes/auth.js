@@ -66,7 +66,6 @@ router.get(
     failureRedirect: "/login"
   })
 );
-console.log;
 router.post(
   "/signup",
   isLoggedIn,
