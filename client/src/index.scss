@@ -64,7 +64,7 @@ body {
   text-align: center;
   justify-content: space-evenly;
   font-family: 'Permanent Marker', cursive;
-  color: #E9F1F7;
+  color: rgb(199, 212, 216);
 }
 .container1 h1 {
   -webkit-transform: rotate(0deg);
@@ -73,11 +73,25 @@ body {
   margin: 3px;
 }
 
+.container1 h1:hover{
+  -webkit-stroke-width: 10.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px #2BD69B;
+}
+
 .container1 h2 {
   -webkit-transform: rotate(-15deg);
   -moz-transform: rotate(15deg);
   padding: 40px;
   margin: 3px;
+}
+
+.container1 h2:hover{
+  -webkit-stroke-width: 10.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px #2BD69B;
 }
 
 .container1 h3 {
@@ -88,23 +102,49 @@ body {
   transition: ease-in-out;
 }
 
+.container1 h3:hover{
+  -webkit-stroke-width: 10.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px #2BD69B;
+}
+
 .container1 h4 {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(45deg);
   padding: 40px;
   margin: 3px;
 }
+.container1 h4:hover{
+  -webkit-stroke-width: 10.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px #2BD69B;
+}
+
 .container1 h5 {
   -webkit-transform: rotate(5deg);
   -moz-transform: rotate(5deg);
   padding: 40px;
   margin: 3px;
 }
+.container1 h5:hover{
+  -webkit-stroke-width: 10.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px #2BD69B;
+}
 .container1 h6 {
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   padding: 40px;
   margin: 3px;
+}
+.container1 h6:hover{
+  -webkit-stroke-width: 10.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    text-shadow: 1px 0px 20px #2BD69B;
 }
 
 .grow { transition: all .2s ease-in-out; }

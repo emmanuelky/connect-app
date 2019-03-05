@@ -38,11 +38,12 @@ class Home extends Component {
           <br />
           <h6 className="grow">Do you have the imposter symdrone???</h6>
           <hr />
-          <h1 className="grow">
+        <h1 className="grow">
             <i className="fas fa-code" />
             Then you are in the right place!!!
             <i className="fas fa-code" />
           </h1>
+          
         </div>
         <div className="container border-bottom-8 border border-primary shadow-lg p-3 mb-8 bg-dark rounded">
           <h1 className="p-5 text-monospace font-weight-bold shadow-lg p-3 mb-5 bg-dark rounded">
@@ -72,7 +73,7 @@ class Home extends Component {
                   <hr />
                   <img className="projectImage" src={p.projectimage} /> <br />
                   <h6>
-                    <i>{p.name} </i>{" "}
+                    <i>Creator: {p.username} </i>{" "}
                   </h6>
                   <a href={p.projectlink} target="_blank">
                     Demo{" "}
