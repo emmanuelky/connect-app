@@ -129,23 +129,12 @@ class Projects extends Component {
                         <pre>
                           <i>
                             {" "}
-                            <p className="card-text"> {p.date}</p>{" "}
+                            <span className="card-text"> {p.date}</span>{" "}
                           </i>
                         </pre>
                       </div>
                       <i class="fas fa-code" /> <i class="fas fa-laptop-code" />
-                      <button
-                        className="rounded"
-                        onClick={this.handleClick}
-                        style={{
-                          backgroundColor: this.colors[colorIndex],
-                          color: "white"
-                        }}
-                      >
-                        {this.state.nbOfLikes} Like
-                        {this.state.nbOfLikes !== 1 && "s"}
-                      </button>
-                      <Link to={"/edit-project/" + p._id}>Edit Project</Link>
+                      
                     </li>
                   </div>
                 </div>

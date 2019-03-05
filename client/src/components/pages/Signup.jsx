@@ -10,33 +10,28 @@ class Signup extends Component {
       username: "",
       email: "",
       password: "hashPass",
-      
-      // profileimage: "",
-      // university: "",
-      // institute: "",
-      // country: "",
-      // state: "",
-      // city: "",
-      // specialization: "",
-      // status: "",
-      // age: "",
-      // gender: "",
-      // social: []
+      profileimage: "",
+      university: "",
+      institute: "",
+      country: "",
+      state: "",
+      city: "",
+      specialization: "",
+      status: "",
+      age: "",
+      gender: "",
+      social: []
     };
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
-  // handleInputChange(stateFieldName, event) {
-  //   this.setState({
-  //     [stateFieldName]: event.target.value
-  //   });
-  // }
-
-  handleInputChange(event) {
+  handleInputChange(stateFieldName, event) {
     this.setState({
-      [event.target.name]: event.target.value
-    })
+      [stateFieldName]: event.target.value
+    });
   }
+
+  
 
   handleClick(e) {
     e.preventDefault();
@@ -46,17 +41,17 @@ class Signup extends Component {
       username: this.state.username,
       password: this.state.password,
       email: this.state.email,
-      // profileimage: this.state.profileimage,
-      // unversity: this.state.university,
-      // institute: this.state.institute,
-      // country: this.state.country,
-      // state: this.state.state,
-      // city: this.state.city,
-      // specialization: this.state.specialization,
-      // status: this.state.status,
-      // age: this.state.age,
-      // gender: this.state.gender,
-      // social: this.state.social
+      profileimage: this.state.profileimage,
+      unversity: this.state.university,
+      institute: this.state.institute,
+      country: this.state.country,
+      state: this.state.state,
+      city: this.state.city,
+      specialization: this.state.specialization,
+      status: this.state.status,
+      age: this.state.age,
+      gender: this.state.gender,
+      social: this.state.social
     };
     api
       .signup(data)
@@ -87,7 +82,7 @@ class Signup extends Component {
             value={this.state.firstname}
             onChange={e => this.handleInputChange("firstname", e)}
           />{" "}
-          <br /> */}
+          <br /> 
           Last Name:{" "}
           <input
             type="text"
@@ -195,7 +190,7 @@ class Signup extends Component {
             value={this.state.social}
             onChange={e => this.handleInputChange("social", e)}
           />{" "}
-          <br /> */}
+          <br /> 
           <button
           disabled={!this.isEmailCorrect() || !this.isPasswordStrong()} onClick={e => this.handleClick(e)}>Signup</button>
         </form>

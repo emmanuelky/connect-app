@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import api from "../../api";
 import { Link } from "react-router-dom";
-import ControlledCarousel from "./ControlledCarousel";
 import image1 from "../../image1.jpeg";
+import Signup from './Signup';
 
 class Home extends Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class Home extends Component {
 <hr />
 
         <h1 className="grow"><i class="fas fa-code"></i>Then you are in the right place!!!<i class="fas fa-code"></i></h1>
-          <ControlledCarousel />
+         
           
         </div>
 
@@ -47,6 +47,8 @@ class Home extends Component {
           <h1 className="p-5 text-monospace font-weight-bold shadow-lg p-3 mb-5 bg-dark rounded">EXPLORE AND CONNECT</h1>
           <hr />
          <i> <h4 className="text-monospace shadow-lg p-3 mb-5 bg-dark rounded">Top 10 Recent Projects</h4></i>
+         <i> <h6 className="text-monospace shadow-lg p-3 mb-5 bg-dark rounded">Get discoverd by million of employers around the world</h6></i>
+         <i> <h6 className="text-monospace shadow-lg p-3 mb-5 bg-dark rounded">Signup or Login to Get STARTED ! ! !</h6></i>
         </div>
 
         <ul className="d-flex flex-wrap card-group shadow-lg p-3 mb-5 bg-dark rounded">

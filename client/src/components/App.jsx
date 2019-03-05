@@ -13,6 +13,7 @@ import api from "../api";
 import logo from "../logo.png";
 import ProfileUsername from "./pages/ProfileUsername";
 import SuccessLogin from "./pages/SuccessLogin";
+import Search from "./pages/Search";
 
 class App extends Component {
   constructor(props) {
@@ -40,11 +41,20 @@ class App extends Component {
               height="150px"
             />
           </NavLink>
-          <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
+          
+
+          {/* The NavLink is displayed only when the user is connected */}
+          
+
+
+
+
+          {api.isLoggedIn() && (
+            <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
             <NavLink to="/projects"> Projects</NavLink>
           </button>
-
-          {/* The NavLink "Add country" is displayed only when the user is connected */}
+          )}
+        
           {api.isLoggedIn() && (
             <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
               {" "}
@@ -60,6 +70,10 @@ class App extends Component {
           <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
             <NavLink to="/secret">Jobs</NavLink>
           </button>
+
+          {api.isLoggedIn() && (
+            <Search />
+          )}
 
           <ul className="nav navbar-nav justify-content-end ml-auto">
             {!api.isLoggedIn() && (

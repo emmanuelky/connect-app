@@ -62,15 +62,17 @@ class Profile extends Component {
         <br />
         <h2>My Projects</h2>
         <div className="rounded border m-10 myproject d-flex flex-wrap d-flex flex-row bd-highlight mb-3 border-dark shadow p-3 mb-5 bg-white rounded">
-          <ul className="d-flex flex-wrap ">
+          <ul className="d-flex flex-wrap font-italic ">
             {this.state.projects.map(p => (
               <li key={p._id}>
-                <img className="projectImage" src={p.projectimage} />
+                <img className="projectImage grow" src={p.projectimage} />
                 <h5>{p.name}</h5>
                 <h5>{p.date}</h5>
                 <h5>Technology Used: {p.technologyused}</h5>
-                <Link to={"/edit-project/"+p._id}>Edit Project</Link> <br />
-                <button onClick={() => this.deleteProject(p._id)}>
+
+                <button type="button" className="btn btn-light mr-5 text-white"><Link to={"/edit-project/"+p._id}>Edit Project</Link></button>
+               
+                <button className="btn btn-danger" onClick={() => this.deleteProject(p._id)}>
                   Delete Project
                 </button>
               </li>
