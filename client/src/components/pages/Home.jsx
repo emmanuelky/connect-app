@@ -39,8 +39,9 @@ class Home extends Component {
           <h6 className="grow">Do you have the imposter symdrone???</h6>
           <hr />
           <h1 className="grow">
-            <i class="fas fa-code" />Then you are in the right place!!!
-            <i class="fas fa-code" />
+            <i className="fas fa-code" />
+            Then you are in the right place!!!
+            <i className="fas fa-code" />
           </h1>
         </div>
         <div className="container border-bottom-8 border border-primary shadow-lg p-3 mb-8 bg-dark rounded">

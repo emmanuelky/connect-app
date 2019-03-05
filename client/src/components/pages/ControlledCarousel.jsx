@@ -28,75 +28,51 @@ class ControlledCarousel extends Component {
     const { index, direction } = this.state;
 
     return (
+      <div />
 
-
-<div></div>
-    
-    
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      // <Carousel
-      //   activeIndex={index}
-      //   direction={direction}
-      //   onSelect={this.handleSelect}
-      // >
-      //   <Carousel.Item>
-      //     <img
-      //       className="d-block w-100"
-      //       src={image1}
-      //       alt=""
-      //       style={{
-      //         width: "100vw",
-      //         height: "100vh"
-      //       }}
-      //     />
-      //     <Carousel.Caption>
-      //       <h3>First slide label</h3>
-      //       <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-      //     </Carousel.Caption>
-      //   </Carousel.Item>
-      //   <Carousel.Item>
-      //     <img
-      //       className="d-block w-100"
-      //       src={image2}
-      //       alt=""
-      //       style={{
-      //         width: "100vw",
-      //         height: "100vh"
-      //       }}
-      //     />
-      //   </Carousel.Item>
-      //   <Carousel.Item>
-      //     <img
-      //       className="d-block w-100"
-      //       src={image3}
-      //       alt=""
-      //       style={{
-      //         width: "100vw",
-      //         height: "100vh"
-      //       }}
-      //     />
-      //   </Carousel.Item>
-      // </Carousel>
+      <Carousel
+        activeIndex={index}
+        direction={direction}
+        onSelect={this.handleSelect}
+      >
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={image1}
+            alt=""
+            style={{
+              width: "100vw",
+              height: "100vh"
+            }}
+          />
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={image2}
+            alt=""
+            style={{
+              width: "100vw",
+              height: "100vh"
+            }}
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={image3}
+            alt=""
+            style={{
+              width: "100vw",
+              height: "100vh"
+            }}
+          />
+        </Carousel.Item>
+      </Carousel>
     );
   }
 }

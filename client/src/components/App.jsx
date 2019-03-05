@@ -5,6 +5,7 @@ import Projects from "./pages/Projects";
 import AddProjects from "./pages/AddProject";
 import Secret from "./pages/Secret";
 import Login from "./pages/Login";
+import Search from "./pages/Search";
 import Profile from "./pages/Profile";
 import EditProject from "./pages/EditProject";
 import Signup from "./pages/Signup";
@@ -41,20 +42,15 @@ class App extends Component {
               height="150px"
             />
           </NavLink>
-          
 
           {/* The NavLink is displayed only when the user is connected */}
-          
-
-
-
 
           {api.isLoggedIn() && (
             <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
-            <NavLink to="/projects"> Projects</NavLink>
-          </button>
+              <NavLink to="/projects"> Projects</NavLink>
+            </button>
           )}
-        
+
           {api.isLoggedIn() && (
             <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
               {" "}
@@ -71,9 +67,7 @@ class App extends Component {
             <NavLink to="/secret">Jobs</NavLink>
           </button>
 
-          {api.isLoggedIn() && (
-            <SearchUser />
-          )}
+          {api.isLoggedIn() && <SearchUser />}
 
           <ul className="nav navbar-nav justify-content-end ml-auto">
             {!api.isLoggedIn() && (

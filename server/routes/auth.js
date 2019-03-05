@@ -23,7 +23,11 @@ passport.use(
         "first-name",
         "last-name",
         "email-address",
-        "headline"
+        "headline",
+        "positions",
+        "location",
+        "picture-url",
+        "picture-urls"
       ]
     },
     function(accessToken, refreshToken, profile, done) {
@@ -36,7 +40,8 @@ passport.use(
         } else {
           User.create({
             email,
-            name: profile.displayName
+            name: profile.displayName,
+            profileimage: profile._json.pictureUrl
           }).then(profile => {
             done(null, profile);
           });
@@ -164,6 +169,18 @@ router.get("/connected-profile", isLoggedIn, (req, res, next) => {
 
 router.get("/profile", (req, res, next) => {
   res.json(req.user);
+});
+
+router.get("/search-profile", (req, res, next) => {
+  res.json(req.user);
+});
+
+router.get("/search-profile/:firstname", (req, res, next) => {
+  User.findOne({ firstname: req.params.firstname })
+    .then(user => {
+      res.json(user);
+    })
+    .catch(err => next(err));
 });
 
 router.post("/edit-profile", (req, res, next) => {

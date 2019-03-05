@@ -76,10 +76,12 @@ class Projects extends Component {
                   project.name.toLowerCase().includes(lowerSearch, uppersearch)
                 )
                   return true;
-                if (
-                  project.technologyused[0].includes(lowerSearch, uppersearch)
-                )
-                  return true;
+                for (let i = 0; i < project.technologyused.length; i++) {
+                  if (
+                    project.technologyused[i].includes(lowerSearch, uppersearch)
+                  )
+                    return true;
+                }
                 return false;
               })
               .map((p, i) => (
