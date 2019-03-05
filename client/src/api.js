@@ -69,12 +69,12 @@ export default {
     return service.get("/logout");
   },
 
-  getProjects() {
-    return service
-      .get("/projects")
-      .then(res => res.data)
-      .catch(errHandler);
-  },
+  // getProjects() {
+  //   return service
+  //     .get("/projects")
+  //     .then(res => res.data)
+  //     .catch(errHandler);
+  // },
 
   getProjectsbyProfile() {
     return service
@@ -90,6 +90,13 @@ export default {
           "Content-Type": "multipart/form-data"
         }
       })
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
+  getProfiles(body) {
+    return service
+      .get("/search-profile/" + body)
       .then(res => res.data)
       .catch(errHandler);
   },
@@ -129,12 +136,12 @@ export default {
       .catch(errHandler);
   },
 
-  getProjectDetail(id) {
-    return service
-      .get("/" + id)
-      .then(res => res.data)
-      .catch(errHandler);
-  },
+  // getProjectDetail(id) {
+  //   return service
+  //     .get("/" + id)
+  //     .then(res => res.data)
+  //     .catch(errHandler);
+  // },
 
   getProfileWithUsername(username) {
     return service

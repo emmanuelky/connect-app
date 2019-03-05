@@ -171,6 +171,18 @@ router.get("/profile", (req, res, next) => {
   res.json(req.user);
 });
 
+router.get("/search-profile", (req, res, next) => {
+  res.json(req.user);
+});
+
+router.get("/search-profile/:firstname", (req, res, next) => {
+  User.findOne({ firstname: req.params.firstname })
+    .then(user => {
+      res.json(user);
+    })
+    .catch(err => next(err));
+});
+
 router.post("/edit-profile", (req, res, next) => {
   let userId = req.user._id;
   let {

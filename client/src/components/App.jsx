@@ -63,7 +63,7 @@ class App extends Component {
 
           {api.isLoggedIn() && (
             <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
-              <NavLink to="/profile"> Search</NavLink>
+              <NavLink to="/search-profile"> Search</NavLink>
             </button>
           )}
 
@@ -101,7 +101,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/projects" component={Projects} />
               <Route exact path="/profile" component={Profile} />
-              <Route exact path="/searchprofile" component={SearchProfile} />
+              <Route exact path="/search-profile" component={SearchProfile} />
 
               <Route
                 exact
