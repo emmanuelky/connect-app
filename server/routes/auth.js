@@ -4,6 +4,7 @@ const router = express.Router();
 const User = require("../models/User");
 const Project = require("../models/Project");
 const { isLoggedIn } = require("../middlewares");
+const parser = require("../configs/cloudinary");
 var LinkedInStrategy = require("passport-linkedin").Strategy;
 
 // Bcrypt to encrypt passwords
@@ -65,70 +66,122 @@ router.get(
     failureRedirect: "/login"
   })
 );
+console.log;
+router.post(
+  "/signup",
+  isLoggedIn,
+  parser.single("profileimage"),
+  (req, res, next) => {
+    let {
+      username,
+      password,
+      firstname,
+      lastname,
+      email,
+      profileimage,
+      university,
+      institute,
+      country,
+      state,
+      city,
+      specialization,
+      status,
+      age,
+      gender,
+      social
+    } = req.body;
+    profileimage = req.file.url;
+    if (!username || !password) {
+      res.status(400).json({ message: "Indicate username and password" });
+      return;
+    }
 
-router.post("/signup", (req, res, next) => {
-  const {
-    username,
-    password,
-    firstname,
-    lastname,
-    email,
-    profileimage,
-    university,
-    institute,
-    country,
-    state,
-    city,
-    specialization,
-    status,
-    age,
-    gender,
-    social
-  } = req.body;
-  if (!username || !password) {
-    res.status(400).json({ message: "Indicate username and password" });
-    return;
+    console.log({
+      username,
+      password,
+      firstname,
+      lastname,
+      email,
+      profileimage,
+      university,
+      institute,
+      country,
+      state,
+      city,
+      specialization,
+      status,
+      age,
+      gender,
+      social
+    });
+
+    User.create({
+      username,
+      password,
+      firstname,
+      lastname,
+      email,
+      profileimage,
+      university,
+      institute,
+      country,
+      state,
+      city,
+      specialization,
+      status,
+      age,
+      gender,
+      social
+    })
+      .then(profile => {
+        res.json({
+          success: true,
+          profile
+        });
+      })
+      .catch(err => next(err));
+
+    User.findOne({ username })
+      .then(userDoc => {
+        if (userDoc !== null) {
+          res.status(409).json({ message: "The username already exists" });
+          return;
+        }
+        const salt = bcrypt.genSaltSync(bcryptSalt);
+        const hashPass = bcrypt.hashSync(password, salt);
+        const newUser = new User({
+          username,
+          password: hashPass,
+          firstname,
+          lastname,
+          email,
+          profileimage,
+          university,
+          institute,
+          country,
+          state,
+          city,
+          specialization,
+          status,
+          age,
+          gender,
+          social
+        });
+        return newUser.save();
+      })
+      .then(userSaved => {
+        // LOG IN THIS USER
+        // "req.logIn()" is a Passport method that calls "serializeUser()"
+        // (that saves the USER ID in the session)
+        req.logIn(userSaved, () => {
+          // hide "encryptedPassword" before sending the JSON (it's a security risk)
+          userSaved.password = undefined;
+          res.json(userSaved);
+        });
+      })
+      .catch(err => next(err));
   }
-  User.findOne({ username })
-    .then(userDoc => {
-      if (userDoc !== null) {
-        res.status(409).json({ message: "The username already exists" });
-        return;
-      }
-      const salt = bcrypt.genSaltSync(bcryptSalt);
-      const hashPass = bcrypt.hashSync(password, salt);
-      const newUser = new User({
-        username,
-        password: hashPass,
-        firstname,
-        lastname,
-        email,
-        profileimage,
-        university,
-        institute,
-        country,
-        state,
-        city,
-        specialization,
-        status,
-        age,
-        gender,
-        social
-      });
-      return newUser.save();
-    })
-    .then(userSaved => {
-      // LOG IN THIS USER
-      // "req.logIn()" is a Passport method that calls "serializeUser()"
-      // (that saves the USER ID in the session)
-      req.logIn(userSaved, () => {
-        // hide "encryptedPassword" before sending the JSON (it's a security risk)
-        userSaved.password = undefined;
-        res.json(userSaved);
-      });
-    })
-    .catch(err => next(err));
-});
+);
 
 router.post("/login", (req, res, next) => {
   const { email, password } = req.body;

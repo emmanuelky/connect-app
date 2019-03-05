@@ -94,13 +94,6 @@ export default {
       .catch(errHandler);
   },
 
-  getProfiles(body) {
-    return service
-      .get("/search-profile/" + body)
-      .then(res => res.data)
-      .catch(errHandler);
-  },
-
   editProfile(body) {
     return service
       .post("/edit-profile", body)
@@ -136,12 +129,12 @@ export default {
       .catch(errHandler);
   },
 
-  // getProjectDetail(id) {
-  //   return service
-  //     .get("/" + id)
-  //     .then(res => res.data)
-  //     .catch(errHandler);
-  // },
+  getProjectDetail(id) {
+    return service
+      .get("/" + id)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
 
   getProfileWithUsername(username) {
     return service

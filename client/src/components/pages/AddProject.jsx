@@ -13,11 +13,11 @@ class AddProject extends Component {
       technologyused: "",
       projectimage: null,
       message: null
-    }
+    };
 
-    this.handleClick = this.handleClick.bind(this)
-    this.handleInputChange = this.handleInputChange.bind(this)
-    this.handleFileChange = this.handleFileChange.bind(this)
+    this.handleClick = this.handleClick.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFileChange = this.handleFileChange.bind(this);
   }
 
   handleInputChange(stateFieldName, event) {
@@ -30,12 +30,6 @@ class AddProject extends Component {
   handleClick(e) {
     e.preventDefault();
     console.log(this.state.name, this.state.description);
-    // let data = {
-    //   name: this.state.name,
-    //   capitals: this.state.capitals,
-    //   area: this.state.area,
-    //   description: this.state.description,
-    // }
 
     let formData = new FormData();
     formData.append("username", this.state.username);
@@ -58,7 +52,7 @@ class AddProject extends Component {
           projectimage: "",
           technologyUsed: "",
           message: `Your project '${this.state.name}' has been created`
-        })
+        });
         setTimeout(() => {
           this.setState({
             message: null
