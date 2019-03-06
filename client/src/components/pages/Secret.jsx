@@ -20,7 +20,7 @@ class Secret extends Component {
           <h4>
             Get Your Developer Job Search Started with the Following Links
           </h4>
-          <h6><i>*Note* you will be redirected to the following job link</i></h6>
+          <h6><i>**Note** you will be redirected to the following job link</i></h6>
           <hr />
           <ol>
             <li>

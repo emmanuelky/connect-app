@@ -32,7 +32,7 @@ class Profile extends Component {
         <div className="rounded border m-5 font-italic myprofile glow border-light shadow p-3 mb-5 bg-white rounded ">
         <i className="fas fa-user-circle"></i>
           <h2>My Profile</h2>
-          <img src={this.state.profile.profileimage} />
+          <img src={this.state.profile.profileimage} width="100px" height="100px" />
           <hr />
           <hr />
 
