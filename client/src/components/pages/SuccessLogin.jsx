@@ -17,7 +17,7 @@ export default class SuccessLogin extends Component {
         setTimeout(() => {
           // Redirect the user the "/profile"
           this.props.history.push('/profile')
-        }, 5000)
+        }, 3000)
       })
   }
 }

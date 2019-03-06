@@ -11,7 +11,7 @@ class Search extends Component {
         value={this.props.value}
         onChange={e => this.props.onSearch(e.target.value)}
         placeholder="Search projects... e.g react, vue, graphQL, python, r, sql etc..."
-        
+        autocomplete="off"
       />
       </div>
     );

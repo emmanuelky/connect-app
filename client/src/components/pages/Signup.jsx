@@ -1,5 +1,15 @@
 import React, { Component } from "react";
 import api from "../../api";
+import {
+  Col,
+  Row,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormText
+} from "reactstrap";
 
 class Signup extends Component {
   constructor(props) {
@@ -131,16 +141,231 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className="Signup">
+      <div className="Signup p-5">
         <h2>Signup</h2>
+        <br />
+        <br />
         <img
+          className="rounded-circle"
           id="myimage"
           src={
             this.state.test ||
-            "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            "https://images.unsplash.com/photo-1545670723-196ed0954986?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80"
           }
+          width="150px"
+          height="150px"
         />
-        <form>
+        <br />
+        <br />
+        <div>
+          <Form>
+            <Row form>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="firstname">First Name* </Label>
+                  <input
+                    type="text"
+                    value={this.state.firstname}
+                    onChange={e => this.handleInputChange("firstname", e)}
+                  />{" "}
+                </FormGroup>
+              </Col>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="lastname">Last Name* </Label>
+                  <input
+                    type="text"
+                    value={this.state.lastname}
+                    onChange={e => this.handleInputChange("lastname", e)}
+                  />{" "}
+                </FormGroup>
+              </Col>
+            </Row>
+            {/* <FormGroup>
+          <Label for="exampleAddress">Address</Label>
+          <Input type="text" name="address" id="exampleAddress" placeholder="1234 Main St"/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="exampleAddress2">Address 2</Label>
+          <Input type="text" name="address2" id="exampleAddress2" placeholder="Apartment, studio, or floor"/>
+        </FormGroup> */}
+            <Row form>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="username">Username*</Label>
+                  <input
+                    type="text"
+                    value={this.state.username}
+                    onChange={e => this.handleInputChange("username", e)}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="password">Password*</Label>
+                  <input
+                    type="password"
+                    value={this.state.password}
+                    onChange={e => this.handleInputChange("password", e)}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="email">Email*</Label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={this.state.email}
+                    onChange={e => this.handleInputChange("email", e)}
+                    valid={this.isEmailCorrect()}
+                    invalid={
+                      this.state.email.length > 0 && !this.isEmailCorrect()
+                    }
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+
+            <Row form>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="university">University</Label>
+                  <input
+                    type="text"
+                    value={this.state.university}
+                    onChange={e => this.handleInputChange("university", e)}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="email">Institute</Label>
+
+                  <input
+                    type="text"
+                    value={this.state.institute}
+                    onChange={e => this.handleInputChange("institute", e)}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+
+            <Row form>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="country">Country*</Label>
+                  <input
+                    type="text"
+                    value={this.state.country}
+                    onChange={e => this.handleInputChange("country", e)}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="state">State*</Label>
+                  <input
+                    type="text"
+                    value={this.state.state}
+                    onChange={e => this.handleInputChange("state", e)}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="city">City*</Label>
+                  <input
+                    type="text"
+                    value={this.state.city}
+                    onChange={e => this.handleInputChange("city", e)}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+
+            <Row form>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="Specialization">Specialization*</Label>
+                  <input
+                    placeholder="Backend developer"
+                    type="text"
+                    value={this.state.specialization}
+                    onChange={e => this.handleInputChange("specialization", e)}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="status">Status*</Label>
+                  <input
+                    placeholder="student, alumni or employer"
+                    type="text"
+                    value={this.state.status}
+                    onChange={e => this.handleInputChange("status", e)}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="age">Age</Label>
+                  <input
+                    type="text"
+                    value={this.state.age}
+                    onChange={e => this.handleInputChange("age", e)}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+
+            <Row form>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="Gender">Gender*</Label>
+                  <input
+                    placeholder="male or female"
+                    type="text"
+                    value={this.state.gender}
+                    onChange={e => this.handleInputChange("gender", e)}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="social">Social Network Link*</Label>
+                  <input
+                    placeholder="linkedin or xing"
+                    type="text"
+                    value={this.state.social}
+                    onChange={e => this.handleInputChange("social", e)}
+                  />
+                </FormGroup>
+              </Col>
+
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="profileimage">Profile Image*</Label>
+                  <input type="file" onChange={e => this.handleFileChange(e)} />
+                </FormGroup>
+              </Col>
+            </Row>
+            <h6>
+              <i>field* are required</i>{" "}
+            </h6>
+            <Button
+              disabled={!this.isEmailCorrect() || !this.isPasswordStrong()}
+              onClick={e => this.handleClick(e)}
+            >
+              Signup
+            </Button>
+
+            {this.state.message && (
+              <button className="info info-danger">{this.state.message}</button>
+            )}
+          </Form>
+
+          {/* <form>
           First Name:{" "}
           <input
             type="text"
@@ -260,7 +485,8 @@ class Signup extends Component {
         </form>
         {this.state.message && (
           <div className="info info-danger">{this.state.message}</div>
-        )}
+        )} */}
+        </div>
       </div>
     );
   }
