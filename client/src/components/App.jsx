@@ -7,6 +7,8 @@ import Secret from "./pages/Secret";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
 import Profile from "./pages/Profile";
+import Comment from "./pages/Comment";
+
 import EditProject from "./pages/EditProject";
 import Signup from "./pages/Signup";
 import EditProfile from "./pages/EditProfile";
@@ -67,6 +69,10 @@ class App extends Component {
             <NavLink to="/secret">Jobs</NavLink>
           </button>
 
+          <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
+            <NavLink to="/projects/detailed">Comment</NavLink>
+          </button>
+
           {api.isLoggedIn() && <SearchUser />}
 
           <ul className="nav navbar-nav justify-content-end ml-auto">
@@ -103,6 +109,7 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/projects" component={Projects} />
               <Route exact path="/profile" component={Profile} />
+
               <Route
                 exact
                 path="/profile/:username"
@@ -114,6 +121,7 @@ class App extends Component {
                 path="/edit-project/:projectId"
                 component={EditProject}
               />
+              <Route exact path="/projects/detailed/" component={Comment} />
               <Route exact path="/add-project" component={AddProjects} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/login" component={Login} />

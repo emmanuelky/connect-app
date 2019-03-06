@@ -1,5 +1,6 @@
 const express = require("express");
 const Project = require("../models/Project");
+const Comment = require("../models/Comment");
 const parser = require("../configs/cloudinary");
 const { isLoggedIn } = require("../middlewares");
 const router = express.Router();
@@ -31,6 +32,16 @@ router.get("/byprofile", (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
+// router.post("/project", (req, res) => {
+//   var comment = new Comment();
+//   comment._commentcreator = req.body._commentcreator;
+//   comment.text = req.body.text;
+//   comment.save(function(err) {
+//     if (err) res.send(err);
+//     res.json({ message: "Comment successfully added!" });
+//   });
+// });
 
 router.get("/:id", (req, res, next) => {
   // console.log("I m in here");
@@ -111,37 +122,6 @@ router.post("/edit-project", (req, res, next) => {
   console.log("user id is", projectId);
   console.log("user body is", req.body);
 });
-
-// Route to add a project
-// router.post('/', isLoggedIn, parser.single('projectimage'), (req, res, next) => {
-//   let {
-//     name,
-//     projectlink,
-//     description,
-//     projectimage,
-//     technologyused,
-//     date
-//   } = req.body;
-
-//   let _creator = req.user._id // req.user contains information about the connected user
-// let projectimage = req.file.url
-//   Project.create({
-//     name,
-//     projectlink,
-//     description,
-//     projectimage,
-//     technologyused,
-//     _creator,
-//     date
-//   })
-//     .then(projects => {
-//       res.json({
-//         success: true,
-//         projects
-//       });
-//     })
-//     .catch(err => next(err));
-// });
 
 // Route to add a project
 router.post(
@@ -225,7 +205,7 @@ router.post("/edit-project", (req, res, next) => {
     })
     .catch(err => next(err));
 
-  console.log("project id is", projectsId);
+  console.log("project id is", projectId);
   console.log("project body is", req.body);
 });
 
@@ -280,5 +260,59 @@ router.delete("/:projectId", (req, res, next) => {
     .then(project => project.remove().then(() => res.json({ success: true })))
     .catch(err => res.status(404).json({ success: false }));
 });
+
+/* // Route Get
+router.get("/:projectId/comments", (req, res, next) => {
+  // console.log("I m in here");
+  Project.findById(req.params.id)
+    .populate("_project", "_creator") // Just populate the username and the _id (default) of the creator
+    .then(comments => {
+      res.json(comments);
+    })
+    .catch(err => next(err));
+}); */
+
+router.get("/:projectId/comments", (req, res, next) => {
+  console.log("YOU ARE NOW IN PROJECTID/COMMENT ROUTE");
+  console.log("this", req.params);
+  Comment.find({
+    _project: req.params.projectId
+    /* text: req.body.text */
+  })
+    .then(comments => {
+      console.log("comment", comments);
+      res.json(comments);
+    })
+    .catch(err => next(err));
+});
+
+// Route POST /api/projects/:projectId/comments => add a comment
+router.post(
+  "/:projectId/comments",
+  /* isLoggedIn, */ (req, res, next) => {
+    Comment.create({
+      _project: req.params.projectId,
+      _creator: req.user._id,
+      text: req.body.text
+    })
+      .then(result => {
+        res.json("added comment");
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).json({ error: error });
+      });
+  }
+);
+
+// router.post("/project", (req, res) => {
+//   var comment = new Comment();
+//   comment._commentcreator = req.body._commentcreator;
+//   comment.text = req.body.text;
+//   comment.save(function(err) {
+//     if (err) res.send(err);
+//     res.json({ message: "Comment successfully added!" });
+//   });
+// });
 
 module.exports = router;

@@ -105,7 +105,7 @@ class Signup extends Component {
   }
 
   handleFileChange(e) {
-    // takes care of image preview
+    // image preview
     var selectedFile = e.target.files[0];
     var reader = new FileReader();
     var imgtag = document.getElementById("myimage");

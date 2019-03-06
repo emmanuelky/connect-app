@@ -136,7 +136,6 @@ class Projects extends Component {
                         </pre>
                       </div>
                       <i class="fas fa-code" /> <i class="fas fa-laptop-code" />
-                      
                     </li>
                   </div>
                 </div>
