@@ -18,7 +18,7 @@ passport.use(
     {
       consumerKey: process.env.LINKEDIN_KEY,
       consumerSecret: process.env.LINKEDIN_SECRET,
-      callbackURL: "http://localhost:5000/api/login/linkedin/callback",
+      callbackURL: process.env.BACKEND_URI + "/api/login/linkedin/callback",
       profileFields: [
         "id",
         "first-name",
