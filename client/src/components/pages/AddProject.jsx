@@ -95,15 +95,18 @@ class AddProject extends Component {
             }}
           />{" "}
           <br />
-          Description:{" "}
+         Brief Description:{" "}
           <textarea
             value={this.state.description}
+            placeholder="Describe your project in three words...."
+            maxlength="20"
             cols="30"
             rows="10"
             onChange={e => {
               this.handleInputChange("description", e);
             }}
-          />{" "}
+          />
+          {" "}
           <br />
           Technology Used:{" "}
           <input

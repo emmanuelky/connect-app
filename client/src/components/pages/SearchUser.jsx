@@ -48,7 +48,7 @@ class SearchUser extends Component {
           className="navbar d-flex justify-content-between sticky-top navbar-expand-md navbar-light bg-light col-md-8 mb-4 SearchUser d-flex align-items-start "
           value={this.state.search}
           onChange={e => this.onSearch(e)}
-          placeholder="Search users..."
+          placeholder="Search...."
           autocomplete="off"
         />
 

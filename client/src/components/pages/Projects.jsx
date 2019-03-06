@@ -103,7 +103,7 @@ class Projects extends Component {
                             {p.name}
                           </h6>
                         </strong>
-                        <strong> Description: </strong>
+                        <strong>Brief Description: </strong>
                         <pre className="card-text">
                           {" "}
                           <i> {p.description} </i>
