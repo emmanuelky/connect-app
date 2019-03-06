@@ -35,6 +35,8 @@ class Profile extends Component {
           
           <hr />
           <hr />
+
+          
           <h5>
             Full Name: {this.state.profile.firstname} {this.state.profile.lastname} (
             {this.state.profile.gender}, {this.state.profile.age})

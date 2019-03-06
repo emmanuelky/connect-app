@@ -73,7 +73,7 @@ class App extends Component {
             {!api.isLoggedIn() && (
               <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
                 <NavLink to="/signup">
-                  <i class="fas fa-user-plus"> Signup</i>
+                  <i classnName="fas fa-user-plus"> Signup</i>
                 </NavLink>
               </button>
             )}
