@@ -143,12 +143,12 @@ export default {
       .catch(errHandler);
   },
 
-  // getProjectDetail(id) {
-  //   return service
-  //     .get("/" + id)
-  //     .then(res => res.data)
-  //     .catch(errHandler);
-  // },
+  getProjectDetail(id) {
+    return service
+      .get("/" + id)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
 
   getProfileWithUsername(username) {
     return service

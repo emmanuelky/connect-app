@@ -10,7 +10,7 @@ class Signup extends Component {
       username: "",
       email: "",
       password: "hashPass",
-      profileimage: "",
+      profileimage: null,
       university: "",
       institute: "",
       country: "",
@@ -24,6 +24,7 @@ class Signup extends Component {
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleFileChange = this.handleFileChange.bind(this);
   }
   handleInputChange(stateFieldName, event) {
     this.setState({
@@ -31,35 +32,92 @@ class Signup extends Component {
     });
   }
 
-  
-
   handleClick(e) {
     e.preventDefault();
-    let data = {
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      username: this.state.username,
-      password: this.state.password,
-      email: this.state.email,
-      profileimage: this.state.profileimage,
-      unversity: this.state.university,
-      institute: this.state.institute,
-      country: this.state.country,
-      state: this.state.state,
-      city: this.state.city,
-      specialization: this.state.specialization,
-      status: this.state.status,
-      age: this.state.age,
-      gender: this.state.gender,
-      social: this.state.social
-    };
+    console.log(this.state.firstname, this.state.description);
+
+    // let data = {
+    //   firstname: this.state.firstname,
+    //   lastname: this.state.lastname,
+    //   username: this.state.username,
+    //   password: this.state.password,
+    //   email: this.state.email,
+    //   profileimage: this.state.profileimage,
+    //   university: this.state.university,
+    //   institute: this.state.institute,
+    //   country: this.state.country,
+    //   state: this.state.state,
+    //   city: this.state.city,
+    //   specialization: this.state.specialization,
+    //   status: this.state.status,
+    //   age: this.state.age,
+    //   gender: this.state.gender,
+    //   social: this.state.social
+    // };
+    let formData = new FormData();
+    formData.append("firstname", this.state.firstname);
+    formData.append("lastname", this.state.lastname);
+    formData.append("username", this.state.username);
+    formData.append("password", this.state.password);
+    formData.append("email", this.state.email);
+    formData.append("profileimage", this.state.profileimage);
+    formData.append("university", this.state.university);
+    formData.append("institute", this.state.institute);
+    formData.append("country", this.state.country);
+    formData.append("state", this.state.state);
+    formData.append("city", this.state.city);
+    formData.append("specialization", this.state.specialization);
+    formData.append("status", this.state.status);
+    formData.append("age", this.state.age);
+    formData.append("gender", this.state.gender);
+    formData.append("social", this.state.social);
     api
-      .signup(data)
+      .signup(formData)
       .then(result => {
         console.log("SUCCESS!");
         this.props.history.push("/"); // Redirect to the home page
+        this.setState({
+          firstname: "",
+          lastname: "",
+          username: "",
+          password: "",
+          email: "",
+          profileimage: "",
+          university: "",
+          institute: "",
+          country: "",
+          state: "",
+          city: "",
+          specialization: "",
+          status: "",
+          age: "",
+          gender: "",
+          social: "",
+          message: `Your profile '${this.state.username}' has been created`
+        });
+        setTimeout(() => {
+          this.setState({
+            message: null
+          });
+        }, 2000);
       })
       .catch(err => this.setState({ message: err.toString() }));
+  }
+
+  handleFileChange(e) {
+    // takes care of image preview
+    var selectedFile = e.target.files[0];
+    var reader = new FileReader();
+    var imgtag = document.getElementById("myimage");
+    imgtag.title = selectedFile.name;
+    reader.onload = function(e) {
+      imgtag.src = e.target.result;
+    };
+    reader.readAsDataURL(selectedFile);
+    // end of preview function
+    this.setState({
+      profileimage: e.target.files[0]
+    });
   }
 
   isEmailCorrect() {
@@ -75,6 +133,13 @@ class Signup extends Component {
     return (
       <div className="Signup">
         <h2>Signup</h2>
+        <img
+          id="myimage"
+          src={
+            this.state.test ||
+            "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          }
+        />
         <form>
           First Name:{" "}
           <input
@@ -82,7 +147,7 @@ class Signup extends Component {
             value={this.state.firstname}
             onChange={e => this.handleInputChange("firstname", e)}
           />{" "}
-          <br /> 
+          <br />
           Last Name:{" "}
           <input
             type="text"
@@ -114,13 +179,8 @@ class Signup extends Component {
             invalid={this.state.email.length > 0 && !this.isEmailCorrect()}
           />{" "}
           <br />
-          Profile Image:{" "}
-          <input
-            type="file"
-            value={this.state.profileimage}
-            onChange={e => this.handleInputChange("profileimage", e)}
-          />{" "}
-          <br />
+          Profile Image:{"/profile/"}
+          <input type="file" onChange={e => this.handleFileChange(e)} /> <br />
           University:{" "}
           <input
             type="text"
@@ -190,7 +250,7 @@ class Signup extends Component {
             value={this.state.social}
             onChange={e => this.handleInputChange("social", e)}
           />{" "}
-          <br /> 
+          <br />
           <button
             disabled={!this.isEmailCorrect() || !this.isPasswordStrong()}
             onClick={e => this.handleClick(e)}

@@ -32,14 +32,15 @@ class Profile extends Component {
         <div className="rounded border m-5 font-italic myprofile glow border-light shadow p-3 mb-5 bg-white rounded ">
         <i className="fas fa-user-circle"></i>
           <h2>My Profile</h2>
-          
+          <img src={this.state.profile.profileimage} />
           <hr />
           <hr />
 
           
           <h5>
-            Full Name: {this.state.profile.firstname} {this.state.profile.lastname} (
-            {this.state.profile.gender}, {this.state.profile.age})
+            Full Name: {this.state.profile.firstname}{" "}
+            {this.state.profile.lastname} ({this.state.profile.gender},{" "}
+            {this.state.profile.age})
           </h5>
           <h5>Username: {this.state.profile.username}</h5>
           <h5>Email: {this.state.profile.email}</h5>
@@ -56,9 +57,12 @@ class Profile extends Component {
           </h5>
           <h5>Social Network: {this.state.profile.social}</h5>
           <hr />
-            <hr />
-            <Link to={"/edit-profile/"} ><button type="button" class="btn btn-dark m-10">Edit</button></Link>
-          
+          <hr />
+          <Link to={"/edit-profile/"}>
+            <button type="button" class="btn btn-dark m-10">
+              Edit
+            </button>
+          </Link>
           <br />
         </div>
         <br />

@@ -4,6 +4,7 @@ const router = express.Router();
 const User = require("../models/User");
 const Project = require("../models/Project");
 const { isLoggedIn } = require("../middlewares");
+const parser = require("../configs/cloudinary");
 var LinkedInStrategy = require("passport-linkedin").Strategy;
 
 // Bcrypt to encrypt passwords
@@ -65,9 +66,8 @@ router.get(
     failureRedirect: "/login"
   })
 );
-
-router.post("/signup", (req, res, next) => {
-  const {
+router.post("/signup", parser.single("profileimage"), (req, res, next) => {
+  let {
     username,
     password,
     firstname,
@@ -85,10 +85,31 @@ router.post("/signup", (req, res, next) => {
     gender,
     social
   } = req.body;
+  profileimage = req.file.url;
   if (!username || !password) {
     res.status(400).json({ message: "Indicate username and password" });
     return;
   }
+
+  console.log({
+    username,
+    password,
+    firstname,
+    lastname,
+    email,
+    profileimage,
+    university,
+    institute,
+    country,
+    state,
+    city,
+    specialization,
+    status,
+    age,
+    gender,
+    social
+  });
+
   User.findOne({ username })
     .then(userDoc => {
       if (userDoc !== null) {
