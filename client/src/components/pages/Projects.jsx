@@ -24,6 +24,11 @@ class Projects extends Component {
     this.setState(prevState => ({
       nbOfLikes: prevState.nbOfLikes + 1
     }));
+
+    // handleClick(e) {
+    //   e.preventDefault();
+    //   console.log(this.state.comments);
+    // }
   }
 
   deleteProject(_creator) {
@@ -104,7 +109,7 @@ class Projects extends Component {
                             {p.name}
                           </h6>
                         </strong>
-                        <strong>Brief Description: </strong>
+                        <strong> Description: </strong>
                         <pre className="card-text">
                           {" "}
                           <i> {p.description} </i>
