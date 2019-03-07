@@ -9,7 +9,7 @@ export default class SuccessLogin extends Component {
         <br />
         <h2>Go Grap A Cup Of Coffee</h2>
         <br />
-        <p>You will be redirected to your profile in 5 seconds</p>
+        <p>You will be redirected to your profile in 2 seconds</p>
       </div>
     );
   }
@@ -18,7 +18,7 @@ export default class SuccessLogin extends Component {
       setTimeout(() => {
         // Redirect the user the "/profile"
         this.props.history.push("/profile");
-      }, 4000);
+      }, 2000);
     });
   }
 }

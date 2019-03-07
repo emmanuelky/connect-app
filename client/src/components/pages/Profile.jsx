@@ -92,13 +92,13 @@ class Profile extends Component {
                     <h6>{p.name}</h6>
                     <button type="button" className="btn btn-light text-white">
                       <Link to={"/edit-project/" + p._id}>Edit</Link>
-                    </button>{" "}
-                    <button
+                    </button>{" "}  <button
                       className="btn btn-danger"
                       onClick={() => this.deleteProject(p._id)}
                     >
                       Delete
                     </button>
+                   
                   </div>
                 </div>
               ))}
