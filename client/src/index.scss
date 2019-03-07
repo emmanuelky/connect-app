@@ -163,6 +163,7 @@ body {
   height: 100px;
 }
 
+
 .profile ul {
   list-style: none;
 
@@ -200,20 +201,21 @@ footer {
   border-radius: 20px;
 }
 
-.myprofile {
+.profile .myprofile {
   background-image: url("./image7.jpeg");
   background-repeat: no-repeat;
   background-image: cover;
   background-size: contain;
-  color: #0f1320;
+  color: #fff;
   font-weight: bolder;
+  height: 100vh;
   
 }
 
 .myproject {
   background-image: url("./image2.jpeg");
   background-repeat: no-repeat;
-  color: wheat;
+  color: rgb(255, 255, 255);
   background-image: cover;
   height: 100vh;
   background-size: contain;
@@ -311,6 +313,13 @@ textarea {
   border-bottom-right-radius: 450px;
 }
 
-.Home ul li{
+.successlogin{
+  background-image: url("./image1.jpeg");
+  color: #fff;
   border-radius: 50px;
+  border-bottom-left-radius: 450px;
+  border-top-left-radius: 450px;
+  border-top-right-radius: 450px;
+  border-bottom-right-radius: 450px;
+  padding: 50px;
 }

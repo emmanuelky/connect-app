@@ -72,7 +72,7 @@ export default class EditProfile extends Component {
   }
   render() {
     return (
-      <div className="editProfile">
+      <div className="container editProfile Signup">
         <h1>Edit Profile</h1>
         <form onSubmit={this.handleSubmit}>
           First Name:{" "}

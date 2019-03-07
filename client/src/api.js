@@ -83,16 +83,6 @@ export default {
       .catch(errHandler);
   },
 
-  getComment() {
-    return (
-      service
-        .get("/:projectId/comments")
-        /* .get("/:projectId/:creator") */
-        .then(res => res.data)
-        .catch(errHandler)
-    );
-  },
-
   addProjects(formData) {
     return service
       .post("/projects", formData, {

@@ -71,14 +71,19 @@ class AddProject extends Component {
 
   render() {
     return (
-      <div className="AddProject">
+      <div className="container Login AddProject">
         <h2>Add Projects</h2>
+        <br />
         <form>
-          Project Image:{" "}
+          Upload Project Image*{" "}
           <input type="file" onChange={e => this.handleFileChange(e)} />
           <br />
-          Username:{" "}
+          <br />
+          Username*{" "} <br/>
           <input
+          placeholder="Enter your username"
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.username}
             onChange={e => {
@@ -86,19 +91,26 @@ class AddProject extends Component {
             }}
           />{" "}
           <br />
-          Project Name:{" "}
+          <br />
+          Your Project Name*{" "} <br />
           <input
+          placeholder="Enter your project name"
+          className="text-center"
             type="text"
+            size="35"
             value={this.state.name}
             onChange={e => {
               this.handleInputChange("name", e);
             }}
           />{" "}
           <br />
-         Brief Description:{" "}
-          <textarea
+          <br />
+         Brief Description*{" "} <br />
+          <input
             value={this.state.description}
-            placeholder="Describe your project in three words...."
+            placeholder="maximum 20 characters"
+            size="35"
+          className="text-center"
             maxlength="20"
             cols="30"
             rows="10"
@@ -108,8 +120,12 @@ class AddProject extends Component {
           />
           {" "}
           <br />
-          Technology Used:{" "}
+          <br />
+          Technology Used*{" "} <br />
           <input
+          placeholder="e.g react, vue, graphql, sql"
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.technologyused}
             onChange={e => {
@@ -117,8 +133,12 @@ class AddProject extends Component {
             }}
           />{" "}
           <br />
-          Demo Link:{" "}
+          <br />
+          Demo Link*{" "} <br />
           <input
+          placeholder="Enter a demo link"
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.projectlink}
             onChange={e => {
@@ -126,8 +146,12 @@ class AddProject extends Component {
             }}
           />{" "}
           <br />
-          Github Link:{" "}
+          <br />
+          Github Link*{" "} <br />
           <input
+          placeholder="Enter a link to your project"
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.githublink}
             onChange={e => {
@@ -135,6 +159,12 @@ class AddProject extends Component {
             }}
           />{" "}
           <br />
+          
+          <br />
+          <h6>
+              <i>Fields marked* are required</i>{" "}
+            </h6>
+            <br />
           <button onClick={e => this.handleClick(e)}>Add Project</button>
         </form>
         {this.state.message && <div className="info">{this.state.message}</div>}
