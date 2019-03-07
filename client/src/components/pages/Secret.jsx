@@ -18,10 +18,10 @@ class Secret extends Component {
         <div className="result">
           <br />
           <h4>
-            Get Your Job Search Started With The Following Links...
+            Start your job search here... <i>use the links below</i> 
           </h4>
           <br />
-          <h6><i>**Note** (you will be redirected to the following website to apply)</i></h6>
+          <h6><i>**Note**... (you will be redirected to the following websites)</i></h6>
           <br />
           <br />
           <ol>

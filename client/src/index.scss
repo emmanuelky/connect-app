@@ -273,10 +273,12 @@ footer {
   position: fixed;
   top: 100px;
   background: white;
+  border: 1px solid rgb(58, 173, 226);
+  border-radius: 45px;
 
   .result-item {
-    border: 1px solid black;
-    padding: 10px 40px;
+   
+    padding: 10px 20px;
   }
 }
 
@@ -286,4 +288,29 @@ textarea {
   box-sizing: border-box;
 
   width: 20%;
+}
+
+.Login{
+  padding: 150px;
+  background-image: url("./image1.jpeg");
+  color: #fff;
+  border-radius: 50px;
+  border-bottom-left-radius: 450px;
+  border-top-left-radius: 450px;
+  border-top-right-radius: 450px;
+  border-bottom-right-radius: 450px;
+}
+
+.Signup{
+  background-image: url("./image1.jpeg");
+  color: #fff;
+  border-radius: 50px;
+  border-bottom-left-radius: 450px;
+  border-top-left-radius: 450px;
+  border-top-right-radius: 450px;
+  border-bottom-right-radius: 450px;
+}
+
+.Home ul li{
+  border-radius: 50px;
 }

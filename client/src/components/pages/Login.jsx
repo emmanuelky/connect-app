@@ -62,17 +62,20 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="Login">
+      <div className="container Login">
+      <h2>Login</h2> <br />
         <Container>
           <Form>
             <FormGroup>
-              <Label for="email">Email</Label>
-              <Input
+              <Label for="email">Email</Label> <br />
+              <input
                 value={this.state.email}
                 onChange={this.handleInputChange}
                 valid={this.isEmailCorrect()}
                 invalid={this.state.email.length > 0 && !this.isEmailCorrect()}
                 type="email"
+                size="65"
+                className="text-center"
                 name="email"
                 id="exampleEmail"
                 placeholder="alice@gmail.com"
@@ -82,9 +85,11 @@ class Login extends Component {
               {/* The feedback is displayed when the input is invalid */}
               <FormFeedback>This is not a valid email</FormFeedback>
             </FormGroup>
+            <br />
             <FormGroup>
-              <Label for="password">Password</Label>
-              <Input
+              <Label for="password">Password</Label> <br />
+              <input
+
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 valid={this.isPasswordStrong()}
@@ -93,12 +98,15 @@ class Login extends Component {
                 }
                 type="password"
                 name="password"
+                size="45"
+                className="text-center"
               />
               {/* The feedback is displayed when the input is valid */}
               <FormFeedback valid />
               {/* The feedback is displayed when the input is invalid */}
               <FormFeedback>Password is too short</FormFeedback>
             </FormGroup>
+            <br />
             <Button
               color="primary"
               disabled={!this.isEmailCorrect() || !this.isPasswordStrong()}
@@ -106,7 +114,7 @@ class Login extends Component {
             >
               Login
             </Button>
-            {""} <br />
+            {""} <br /><br />or<br /><br />
           </Form>
           <Button color="primary" className="Linkedin-Login mt-2">
             <a href={api.service.defaults.baseURL + "/login/linkedin"}>
