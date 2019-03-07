@@ -1,6 +1,5 @@
 const express = require("express");
 const Project = require("../models/Project");
-const Comment = require("../models/Comment");
 const parser = require("../configs/cloudinary");
 const { isLoggedIn } = require("../middlewares");
 const router = express.Router();
@@ -272,38 +271,9 @@ router.get("/:projectId/comments", (req, res, next) => {
     .catch(err => next(err));
 }); */
 
-router.get("/:projectId/comments", (req, res, next) => {
-  console.log("YOU ARE NOW IN PROJECTID/COMMENT ROUTE");
-  console.log("this", req.params);
-  Comment.find({
-    _project: req.params.projectId
-    /* text: req.body.text */
-  })
-    .then(comments => {
-      console.log("comment", comments);
-      res.json(comments);
-    })
-    .catch(err => next(err));
-});
 
 // Route POST /api/projects/:projectId/comments => add a comment
-router.post(
-  "/:projectId/comments",
-  /* isLoggedIn, */ (req, res, next) => {
-    Comment.create({
-      _project: req.params.projectId,
-      _creator: req.user._id,
-      text: req.body.text
-    })
-      .then(result => {
-        res.json("added comment");
-      })
-      .catch(error => {
-        console.log(error);
-        res.status(500).json({ error: error });
-      });
-  }
-);
+
 
 // router.post("/project", (req, res) => {
 //   var comment = new Comment();
