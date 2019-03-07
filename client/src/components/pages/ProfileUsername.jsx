@@ -23,7 +23,7 @@ export default class ProfileUsername extends Component {
   render() {
     return (
       <div className="container glow expand-md profileUserPage ">
-        <div className="profileUser expand-sm ">
+        <div className=" expand-sm ">
           <hr />
           <hr />
           <hr />

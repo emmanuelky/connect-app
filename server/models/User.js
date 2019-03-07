@@ -57,7 +57,7 @@ const userSchema = new Schema(
     },
     status: {
       type: String,
-      enum: ["alumni", "student", "employer"]
+      enum: ["alumni", "student", "employer", "Student", "Alumni"]
     },
     age: {
       type: Number,
@@ -65,7 +65,7 @@ const userSchema = new Schema(
     },
     gender: {
       type: String,
-      enum: ["male", "female"]
+      enum: ["male", "female", "Male", "Female"]
     },
     social: {
       type: [String],

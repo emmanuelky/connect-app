@@ -57,7 +57,7 @@ export default class EditProject extends Component {
   }
   render() {
     return (
-      <div className="editProject">
+      <div className="container editProject Login">
         <h1>Edit Project</h1>
         <form onSubmit={this.handleSubmit}>
           Project Name:{" "}
@@ -104,6 +104,10 @@ export default class EditProject extends Component {
               this.handleInputChange("technologyused", e);
             }}
           />{" "}
+
+<h6>
+              <i>Fields marked* are required</i>{" "}
+            </h6>
           <br />
           <button>Edit Profile</button>
         </form>

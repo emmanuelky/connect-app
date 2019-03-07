@@ -27,7 +27,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="container flex-lg-wrap col-md-10 mb-10 Home p-3 mb-2 bg-dark text-white rounded-top ">
+      <div className="container justify-content-center col-md-8 mb-14 Home p-3 mb-2 bg-dark text-white rounded-top ">
         <div className="container1 flex-sm-wrap col-md-12 mb-14 justify-content-sm-center d-flex align-content-center flex-wrap justify-content-between m-2 p-5">
           <h1 className="grow text-center text-sm-left">
             Are you a Software Developer???
@@ -63,14 +63,14 @@ class Home extends Component {
           <i>
             {" "}
             <h4 className="text-monospace glow shadow-lg p-3 mb-5 bg-dark rounded">
-              Top 12 Recent Projects
+              View Recent Projects below...
             </h4>
           </i>
         </div>
 
         <ul className="d-flex flex-wrap card-group shadow-lg p-3 mb-5 bg-dark rounded">
           {this.state.projects
-            .filter((p, i) => i <= 11)
+            .filter((p, i) => i <= 13)
             .map((p, i) => (
               <div className="d-flex flex-wrap p-4 shadow-lg p-3 mb-5 bg-dark rounded">
                 <li key={p.i} className="grow">

@@ -11,7 +11,7 @@ class Projects extends Component {
       projects: [],
       nbOfLikes: 0,
       search: "",
-      comments: ""
+      
     };
     this.colors = ["blue", "green"];
 
@@ -134,21 +134,7 @@ class Projects extends Component {
                             About Me
                           </Link>{" "}
                         </pre>
-                        <pre>
-                          {" "}
-                          <Link to={"/projectId/comments/" + p.comments}>
-                            Comments
-                          </Link>{" "}
-                        </pre>
-                        Comments:{" "}
-                        <textarea
-                          value={this.state.comments}
-                          cols="30"
-                          rows="10"
-                          onChange={e => {
-                            this.handleInputChange("comments", e);
-                          }}
-                        />{" "}
+                        
                         <br />
                         <pre>
                           <i>
@@ -157,9 +143,7 @@ class Projects extends Component {
                           </i>
                         </pre>
                         <br />
-                        <button onClick={e => this.handleClick(e)}>
-                          Comment
-                        </button>
+                        
                       </div>
                       <i class="fas fa-code" /> <i class="fas fa-laptop-code" />
                     </li>
