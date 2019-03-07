@@ -140,7 +140,7 @@ class Projects extends Component {
                         <br />
                         
                       </div>
-                      <i class="fas fa-code" /> <i class="fas fa-laptop-code" />
+                      <i class="fas fa-code" /> <i class="fas fa-laptop-code" /> <i class="fas fa-code" />
                     </li>
                   </div>
                 </div>

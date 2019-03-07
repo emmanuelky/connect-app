@@ -87,7 +87,7 @@ class Home extends Component {
                   <pre>
                           <i>
                             {" "}
-                            <span className="card-text"> {p.date.slice(0,10)}</span>{" "}
+                            <span className="card-text text-light"> {p.date.slice(0,10)}</span>{" "}
                           </i>
                         </pre>
                 </li>
