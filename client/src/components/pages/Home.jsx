@@ -70,7 +70,7 @@ class Home extends Component {
 
         <ul className="d-flex flex-wrap card-group shadow-lg p-3 mb-5 bg-dark rounded">
           {this.state.projects
-            .filter((p, i) => i <= 19)
+            .filter((p, i) => i <= 9)
             .map((p, i) => (
               <div className="d-flex flex-wrap p-4 shadow-lg p-3 mb-5 bg-dark rounded">
                 <li key={p.i} className="grow">
