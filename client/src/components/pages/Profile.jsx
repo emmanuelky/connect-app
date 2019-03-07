@@ -70,7 +70,9 @@ class Profile extends Component {
         <h2>My Projects</h2>
         <br />
         
-        {/* <div className="rounded border myproject d-flex flex-wrap d-flex flex-row bd-highlight border-light shadow bg-white rounded"> */}
+
+
+       
           <ul className="d-flex flex-wrap card-group shadow-lg p-3 mb-5 rounded">
             {this.state.projects.map(p => (
               <div className="d-flex flex-wrap p-4 shadow-lg p-3 mb-5 bg-dark rounded m-3">
