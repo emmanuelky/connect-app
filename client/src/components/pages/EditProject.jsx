@@ -72,7 +72,8 @@ export default class EditProject extends Component {
               this.handleInputChange("name", e);
             }}
           />{" "}
-          <br /><br />
+          <br />
+          <br />
           Github Link* <br />
           <input
             placeholder="Enter a github link to your project"
@@ -84,7 +85,8 @@ export default class EditProject extends Component {
               this.handleInputChange("projectlink", e);
             }}
           />{" "}
-          <br /><br />
+          <br />
+          <br />
           Brief Description* <br />
           <input
             placeholder="maximum 20 characters"
@@ -96,7 +98,8 @@ export default class EditProject extends Component {
               this.handleInputChange("description", e);
             }}
           />{" "}
-          <br /><br />
+          <br />
+          <br />
           Technology Used* <br />
           <input
             placeholder="e.g react, vue, graphql"
@@ -122,14 +125,15 @@ export default class EditProject extends Component {
   }
   componentDidMount() {
     api.getProject(this.props.match.params.projectId).then(project => {
+      console.log("DEBUG date", project.date);
       this.setState({
         name: project.name,
         projectlink: project.projectlink,
         technologyused: project.technologyused,
         projectimage: project.projectimage,
         description: project.description,
-        email: project.email,
-        date: project.date.slice(0, 10)
+        email: project.email
+        // date: project.date.slice(0, 10)
       });
     });
   }

@@ -10,8 +10,7 @@ class Projects extends Component {
       technologyused: "",
       projects: [],
       nbOfLikes: 0,
-      search: "",
-      
+      search: ""
     };
     this.colors = ["blue", "green"];
 
@@ -129,18 +128,19 @@ class Projects extends Component {
                             About Me
                           </Link>{" "}
                         </pre>
-                        
                         <br />
                         <pre>
                           <i>
                             {" "}
-                            <span className="card-text"> {p.date.slice(0,10)}</span>{" "}
+                            <span className="card-text">
+                              {p.date ? p.date.substring(0, 10) : ""}
+                            </span>
                           </i>
                         </pre>
                         <br />
-                        
                       </div>
-                      <i class="fas fa-code" /> <i class="fas fa-laptop-code" /> <i class="fas fa-code" />
+                      <i class="fas fa-code" /> <i class="fas fa-laptop-code" />{" "}
+                      <i class="fas fa-code" />
                     </li>
                   </div>
                 </div>
