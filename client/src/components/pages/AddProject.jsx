@@ -75,7 +75,7 @@ class AddProject extends Component {
         <h2>Add Projects</h2>
         <br />
         <form>
-          Upload Project Image*{" "}
+          Upload a project image*{" "}
           <input type="file" onChange={e => this.handleFileChange(e)} />
           <br />
           <br />

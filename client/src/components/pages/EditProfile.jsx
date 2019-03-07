@@ -72,11 +72,14 @@ export default class EditProfile extends Component {
   }
   render() {
     return (
-      <div className="container editProfile Signup">
+      <div className="container editProfile Signup p-5 m-3">
         <h1>Edit Profile</h1>
         <form onSubmit={this.handleSubmit}>
-          First Name:{" "}
+          First Name*{" "}<br /><br />
           <input
+          placeholder="Enter your firstname"
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.firstname}
             onChange={e => {
@@ -84,8 +87,11 @@ export default class EditProfile extends Component {
             }}
           />{" "}
           <br />
-          Last Name:{" "}
+          Last Name*{" "}<br /><br />
           <input
+          placeholder="Enter your lastname"
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.lastname}
             onChange={e => {
@@ -93,8 +99,11 @@ export default class EditProfile extends Component {
             }}
           />{" "}
           <br />
-          Email:{" "}
+          Email*{" "}<br /><br />
           <input
+          placeholder="Enter your email"
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.email}
             onChange={e => {
@@ -102,8 +111,11 @@ export default class EditProfile extends Component {
             }}
           />{" "}
           <br />
-          University:{" "}
+          University*{" "}<br /><br />
           <input
+          placeholder="e.g BTU "
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.university}
             onChange={e => {
@@ -111,8 +123,11 @@ export default class EditProfile extends Component {
             }}
           />{" "}
           <br />
-          Institute:{" "}
+          Institute*{" "}<br /><br />
           <input
+          placeholder="e.g Ironhack"
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.institute}
             onChange={e => {
@@ -120,8 +135,11 @@ export default class EditProfile extends Component {
             }}
           />{" "}
           <br />
-          Country:{" "}
+          Country*{" "}<br /><br />
           <input
+          placeholder=""
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.country}
             onChange={e => {
@@ -129,8 +147,11 @@ export default class EditProfile extends Component {
             }}
           />{" "}
           <br />
-          City:{" "}
+          City*{" "}<br /><br />
           <input
+          placeholder=""
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.city}
             onChange={e => {
@@ -138,8 +159,11 @@ export default class EditProfile extends Component {
             }}
           />{" "}
           <br />
-          Specialization:{" "}
+          Specialization*{" "}<br /><br />
           <input
+          placeholder="e.g fullstack developer"
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.specialization}
             onChange={e => {
@@ -147,8 +171,11 @@ export default class EditProfile extends Component {
             }}
           />{" "}
           <br />
-          Status:{" "}
+          Status*{" "}<br /><br />
           <input
+          placeholder=""
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.status}
             onChange={e => {
@@ -156,8 +183,11 @@ export default class EditProfile extends Component {
             }}
           />{" "}
           <br />
-          Age:{" "}
+          Age*{" "}<br /><br />
           <input
+          placeholder=""
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.age}
             onChange={e => {
@@ -165,17 +195,11 @@ export default class EditProfile extends Component {
             }}
           />{" "}
           <br />
-          Gender:{" "}
+          Social Network Link*{" "}<br /><br />
           <input
-            type="text"
-            value={this.state.gender}
-            onChange={e => {
-              this.handleInputChange("gender", e);
-            }}
-          />{" "}
-          <br />
-          Social:{" "}
-          <input
+          placeholder=""
+          size="35"
+          className="text-center"
             type="text"
             value={this.state.social}
             onChange={e => {
@@ -183,6 +207,13 @@ export default class EditProfile extends Component {
             }}
           />{" "}
           <br />
+          <br />
+          <br />
+          <h6>
+              <i>Fields marked* are required</i>{" "}
+            </h6>
+            <br />
+         
           <button>Edit Profile</button>
         </form>
         {this.state.message && <div className="info">{this.state.message}</div>}

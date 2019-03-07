@@ -97,7 +97,7 @@ class Login extends Component {
                 }
                 type="password"
                 name="password"
-                size="45"
+                size="65"
                 className="text-center"
               />
               {/* The feedback is displayed when the input is valid */}

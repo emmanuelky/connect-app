@@ -223,13 +223,16 @@ footer {
 }
 
 .profileUserPage {
-  background-image: url("./image7.jpeg");
+  background-color: #000000;
   background-repeat: no-repeat;
-  color: rgb(13, 11, 34);
   background-image: cover;
-  height: 100vh;
-  background-size: contain;
-  justify-content: center;
+  
+  color: #0f1320;
+  font-weight: bolder;
+  border-radius: 50px;
+  border-bottom-left-radius: 100px;
+  border-top-left-radius: 450px;
+  border-bottom-right-radius: 450px;
 }
 
 // url("./image1.jpeg")
@@ -322,4 +325,8 @@ textarea {
   border-top-right-radius: 450px;
   border-bottom-right-radius: 450px;
   padding: 50px;
+}
+
+.round-images{
+  border-radius: 50px;
 }

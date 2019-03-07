@@ -59,9 +59,13 @@ export default class EditProject extends Component {
     return (
       <div className="container editProject Login">
         <h1>Edit Project</h1>
+        <br />
         <form onSubmit={this.handleSubmit}>
-          Project Name:{" "}
+          Project Name* <br />
           <input
+            placeholder=""
+            size="35"
+            className="text-center"
             type="text"
             value={this.state.name}
             onChange={e => {
@@ -69,8 +73,11 @@ export default class EditProject extends Component {
             }}
           />{" "}
           <br />
-          Project Link:{" "}
+          Github Link* <br />
           <input
+            placeholder="Enter a github link to your project"
+            size="35"
+            className="text-center"
             type="text"
             value={this.state.projectlink}
             onChange={e => {
@@ -78,17 +85,11 @@ export default class EditProject extends Component {
             }}
           />{" "}
           <br />
-          Project Image:{" "}
+          Brief Description* <br />
           <input
-            type="text"
-            value={this.state.projectimage}
-            onChange={e => {
-              this.handleInputChange("projectimage", e);
-            }}
-          />{" "}
-          <br />
-          Description:{" "}
-          <input
+            placeholder="maximum 20 characters"
+            size="35"
+            className="text-center"
             type="text"
             value={this.state.description}
             onChange={e => {
@@ -96,20 +97,24 @@ export default class EditProject extends Component {
             }}
           />{" "}
           <br />
-          Technology Used:{" "}
+          Technology Used* <br />
           <input
+            placeholder="e.g react, vue, graphql"
+            size="35"
+            className="text-center"
             type="text"
             value={this.state.technologyused}
             onChange={e => {
               this.handleInputChange("technologyused", e);
             }}
           />{" "}
-
-<h6>
-              <i>Fields marked* are required</i>{" "}
-            </h6>
           <br />
-          <button>Edit Profile</button>
+          <br />
+          <h6>
+            <i>Fields marked* are required</i>{" "}
+          </h6>
+          <br />
+          <button>Edit Project</button>
         </form>
         {this.state.message && <div className="info">{this.state.message}</div>}
       </div>
