@@ -32,7 +32,7 @@ class Profile extends Component {
         <div className="rounded border m-5 font-italic myprofile glow border-light shadow p-3 mb-5 bg-white rounded ">
           
           <hr />
-          <img src={this.state.profile.profileimage} width="150px" height="150px" />
+          <img className="round-images" src={this.state.profile.profileimage} width="150px" height="150px" />
           <hr />
           <h5>
             {this.state.profile.firstname}{" "}
@@ -77,7 +77,8 @@ class Profile extends Component {
             {this.state.projects.map(p => (
               <div className="d-flex flex-wrap p-4 shadow-lg p-3 mb-5 bg-dark rounded m-3">
               <li key={p._id} className="m-3">
-                <img className="projectImage grow" src={p.projectimage} /> <br />
+                <img className="projectImage grow rounded-images" src={p.projectimage} /> <br />
+                <h6>{p.name}</h6>
                 <button type="button" className="btn btn-light text-white"><Link to={"/edit-project/"+p._id}>Edit</Link></button> <button className="btn btn-danger" onClick={() => this.deleteProject(p._id)}>
                   Delete
                 </button>

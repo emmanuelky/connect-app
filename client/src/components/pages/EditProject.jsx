@@ -72,7 +72,7 @@ export default class EditProject extends Component {
               this.handleInputChange("name", e);
             }}
           />{" "}
-          <br />
+          <br /><br />
           Github Link* <br />
           <input
             placeholder="Enter a github link to your project"
@@ -84,7 +84,7 @@ export default class EditProject extends Component {
               this.handleInputChange("projectlink", e);
             }}
           />{" "}
-          <br />
+          <br /><br />
           Brief Description* <br />
           <input
             placeholder="maximum 20 characters"
@@ -96,7 +96,7 @@ export default class EditProject extends Component {
               this.handleInputChange("description", e);
             }}
           />{" "}
-          <br />
+          <br /><br />
           Technology Used* <br />
           <input
             placeholder="e.g react, vue, graphql"

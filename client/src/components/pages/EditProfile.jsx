@@ -86,8 +86,8 @@ export default class EditProfile extends Component {
               this.handleInputChange("firstname", e);
             }}
           />{" "}
-          <br />
-          Last Name*{" "}<br /><br />
+          <br /><br />
+          Last Name*{" "}<br />
           <input
           placeholder="Enter your lastname"
           size="35"
@@ -98,8 +98,8 @@ export default class EditProfile extends Component {
               this.handleInputChange("lastname", e);
             }}
           />{" "}
-          <br />
-          Email*{" "}<br /><br />
+          <br /><br />
+          Email*{" "}<br />
           <input
           placeholder="Enter your email"
           size="35"
@@ -110,8 +110,8 @@ export default class EditProfile extends Component {
               this.handleInputChange("email", e);
             }}
           />{" "}
-          <br />
-          University*{" "}<br /><br />
+          <br /><br />
+          University*{" "}<br />
           <input
           placeholder="e.g BTU "
           size="35"
@@ -122,8 +122,8 @@ export default class EditProfile extends Component {
               this.handleInputChange("university", e);
             }}
           />{" "}
-          <br />
-          Institute*{" "}<br /><br />
+          <br /><br />
+          Institute*{" "}<br />
           <input
           placeholder="e.g Ironhack"
           size="35"
@@ -134,8 +134,8 @@ export default class EditProfile extends Component {
               this.handleInputChange("institute", e);
             }}
           />{" "}
-          <br />
-          Country*{" "}<br /><br />
+          <br /><br />
+          Country*{" "}<br />
           <input
           placeholder=""
           size="35"
@@ -146,8 +146,8 @@ export default class EditProfile extends Component {
               this.handleInputChange("country", e);
             }}
           />{" "}
-          <br />
-          City*{" "}<br /><br />
+          <br /><br />
+          City*{" "}<br />
           <input
           placeholder=""
           size="35"
@@ -158,8 +158,8 @@ export default class EditProfile extends Component {
               this.handleInputChange("city", e);
             }}
           />{" "}
-          <br />
-          Specialization*{" "}<br /><br />
+          <br /><br />
+          Specialization*{" "}<br />
           <input
           placeholder="e.g fullstack developer"
           size="35"
@@ -170,8 +170,8 @@ export default class EditProfile extends Component {
               this.handleInputChange("specialization", e);
             }}
           />{" "}
-          <br />
-          Status*{" "}<br /><br />
+          <br /><br />
+          Status*{" "}<br />
           <input
           placeholder=""
           size="35"
@@ -182,8 +182,8 @@ export default class EditProfile extends Component {
               this.handleInputChange("status", e);
             }}
           />{" "}
-          <br />
-          Age*{" "}<br /><br />
+          <br /><br />
+          Age*{" "}<br />
           <input
           placeholder=""
           size="35"
@@ -194,8 +194,8 @@ export default class EditProfile extends Component {
               this.handleInputChange("age", e);
             }}
           />{" "}
-          <br />
-          Social Network Link*{" "}<br /><br />
+          <br /><br />
+          Social Network Link*{" "}<br />
           <input
           placeholder=""
           size="35"

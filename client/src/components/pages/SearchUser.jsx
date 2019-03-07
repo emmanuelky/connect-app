@@ -57,7 +57,7 @@ class SearchUser extends Component {
             <div className="result-item">
             <button>
 
-           <img src= {user.profileimage} width="50px" height="50px" /> {user.firstname} {user.lastname} 
+           <img className="round-images" src= {user.profileimage} width="50px" height="50px" /> {user.firstname} {user.lastname} 
             </button>
             </div>
           ))}

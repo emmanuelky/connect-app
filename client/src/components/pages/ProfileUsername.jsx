@@ -50,7 +50,7 @@ export default class ProfileUsername extends Component {
           <h5>Institute: {this.state.profile.institute}</h5>
           <h5>Status: {this.state.profile.status}</h5>
           <h5 className="mb-5">
-            Location: {this.state.profile.city} {this.state.profile.country}
+            Location: {this.state.profile.city}, {this.state.profile.country}
           </h5>
         </div>
       

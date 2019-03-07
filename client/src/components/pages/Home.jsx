@@ -70,7 +70,7 @@ class Home extends Component {
 
         <ul className="d-flex flex-wrap card-group shadow-lg p-3 mb-5 bg-dark rounded">
           {this.state.projects
-            .filter((p, i) => i <= 13)
+            .filter((p, i) => i <= 19)
             .map((p, i) => (
               <div className="d-flex flex-wrap p-4 shadow-lg p-3 mb-5 bg-dark rounded">
                 <li key={p.i} className="grow">
@@ -84,6 +84,12 @@ class Home extends Component {
                   </a>{" "}
                   <br />
                   <hr />
+                  <pre>
+                          <i>
+                            {" "}
+                            <span className="card-text"> {p.date.slice(0,10)}</span>{" "}
+                          </i>
+                        </pre>
                 </li>
               </div>
             ))}
