@@ -69,7 +69,7 @@ class Projects extends Component {
           <hr />
         </div>
         <div className="projects col-md-18 mb-12 border border-white rounded-left shadow p-3 mb-5 bg-white rounded">
-          <ul className="d-flex col-md-18 mb-12 flex-wrap card-group">
+          <div className="row">
             {filteredProjects
               .filter((project, i) => {
                 if (
@@ -85,67 +85,63 @@ class Projects extends Component {
                 return false;
               })
               .map((p, i) => (
-                <div className="d-flex ">
+                <div class="col-sm-4">
                   <div className="card mr-2 m-2 shadow-lg p-3 mb-5 bg-white rounded">
-                    <li key={p.i} className="">
-                      <img
-                        className="grow"
-                        src={p.projectimage}
-                        width="100px"
-                        height="100px"
-                      />{" "}
+                    <img
+                      className="grow"
+                      src={p.projectimage}
+                      width="100px"
+                      height="100px"
+                    />{" "}
+                    <br />
+                    <div className="card-body">
+                      <strong>
+                        {" "}
+                        <h6 className="card-title font-weight-bold">
+                          {" "}
+                          {p.name}
+                        </h6>
+                      </strong>
+                      <strong>Brief Description: </strong>
+                      <pre className="card-text">
+                        {" "}
+                        <i> {p.description} </i>
+                      </pre>
+                      <strong className="font-weight-bold">
+                        Technology(s) used:
+                      </strong>{" "}
+                      <pre>{p.technologyused} </pre>
+                      <a href={p.projectlink} target="_blank">
+                        Demo Link{" "}
+                      </a>
                       <br />
-                      <div className="card-body">
-                        <strong>
+                      <a href={p.githublink} target="_blank" className="grow">
+                        Github
+                      </a>
+                      <br />
+                      <strong>Creator:</strong>{" "}
+                      <h6 className="card-title"> {p.username}</h6>{" "}
+                      <pre>
+                        {" "}
+                        <Link to={"/profile/" + p.username}>About Me</Link>{" "}
+                      </pre>
+                      <br />
+                      <pre>
+                        <i>
                           {" "}
-                          <h6 className="card-title font-weight-bold">
-                            {" "}
-                            {p.name}
-                          </h6>
-                        </strong>
-                        <strong>Brief Description: </strong>
-                        <pre className="card-text">
-                          {" "}
-                          <i> {p.description} </i>
-                        </pre>
-                        <strong className="font-weight-bold">
-                          Technology(s) used:
-                        </strong>{" "}
-                        <pre>{p.technologyused} </pre>
-                        <a href={p.projectlink} target="_blank">
-                          Demo Link{" "}
-                        </a>
-                        <br />
-                        <a href={p.githublink} target="_blank" className="grow">
-                          Github
-                        </a>
-                        <br />
-                        <strong>Creator:</strong>{" "}
-                        <h6 className="card-title"> {p.username}</h6>{" "}
-                        <pre>
-                          {" "}
-                          <Link to={"/profile/" + p.username}>
-                            About Me
-                          </Link>{" "}
-                        </pre>
-                        <br />
-                        <pre>
-                          <i>
-                            {" "}
-                            <span className="card-text">
-                              {p.date ? p.date.substring(0, 10) : ""}
-                            </span>
-                          </i>
-                        </pre>
-                        <br />
-                      </div>
-                      <i class="fas fa-code" /> <i class="fas fa-laptop-code" />{" "}
-                      <i class="fas fa-code" />
-                    </li>
+                          <span className="card-text">
+                            {p.date ? p.date.substring(0, 10) : ""}
+                          </span>
+                        </i>
+                      </pre>
+                      <br />
+                    </div>
+                    <i class="fas fa-code" /> <i class="fas fa-laptop-code" />{" "}
+                    <i class="fas fa-code" />
                   </div>
                 </div>
               ))}
-          </ul>
+          </div>
         </div>
         {this.state.message && <div className="info">{this.state.message}</div>}
       </div>

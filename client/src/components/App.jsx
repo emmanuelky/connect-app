@@ -3,10 +3,9 @@ import { Route, Link, NavLink, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import AddProjects from "./pages/AddProject";
-import Secret from "./pages/Secret";
+import Jobs from "./pages/Jobs";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
-
 
 import EditProject from "./pages/EditProject";
 import Signup from "./pages/Signup";
@@ -64,11 +63,12 @@ class App extends Component {
             </button>
           )}
 
-          <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
-            <NavLink to="/secret">Jobs</NavLink>
-          </button>
-
-      
+          <Link
+            to="/jobs"
+            className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded"
+          >
+            Jobs
+          </Link>
 
           {api.isLoggedIn() && <SearchUser />}
 
@@ -121,7 +121,7 @@ class App extends Component {
               <Route exact path="/add-project" component={AddProjects} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/secret" component={Secret} />
+              <Route exact path="/jobs" component={Jobs} />
               <Route exact path="/success-login" component={SuccessLogin} />
               <Route render={() => <h2>404</h2>} />
             </Switch>

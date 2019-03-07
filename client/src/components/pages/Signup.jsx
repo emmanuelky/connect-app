@@ -154,28 +154,28 @@ class Signup extends Component {
           }
           width="150px"
           height="150px"
-        /> <br />
+        />{" "}
+        <br />
         <i>upload your picture</i>
-       
         <br />
         <br />
         <div className="container justify-content-center">
           <Form>
             <Row form>
-            <Col md={12}>
+              <Col md={12}>
                 <FormGroup>
                   <Label for="profileimage">Profile Image*</Label>
                   <input type="file" onChange={e => this.handleFileChange(e)} />
                 </FormGroup>
               </Col>
-              </Row> 
-              <Row form>
+            </Row>
+            <Row form>
               <Col md={3}>
                 <FormGroup>
                   <Label for="firstname">First Name* </Label>
                   <input
-                  className="text-center"
-                  size="25"
+                    className="text-center form-control"
+                    size="25"
                     type="text"
                     value={this.state.firstname}
                     onChange={e => this.handleInputChange("firstname", e)}
@@ -186,8 +186,8 @@ class Signup extends Component {
                 <FormGroup>
                   <Label for="lastname">Last Name* </Label>
                   <input
-                  className="text-center"
-                  size="25"
+                    className="text-center form-control"
+                    size="25"
                     type="text"
                     value={this.state.lastname}
                     onChange={e => this.handleInputChange("lastname", e)}
@@ -198,7 +198,7 @@ class Signup extends Component {
                 <FormGroup>
                   <Label for="email">Email* </Label> <br />
                   <input
-                  className="text-center"
+                    className="text-center form-control"
                     type="email"
                     name="email"
                     size="55"
@@ -225,8 +225,8 @@ class Signup extends Component {
                 <FormGroup>
                   <Label for="username">Username*</Label>
                   <input
-                  className="text-center"
-                  size="25"
+                    className="text-center form-control"
+                    size="25"
                     type="text"
                     value={this.state.username}
                     onChange={e => this.handleInputChange("username", e)}
@@ -237,16 +237,15 @@ class Signup extends Component {
                 <FormGroup>
                   <Label for="password">Password*</Label>
                   <input
-                  className="text-center"
-                  size="25"
+                    className="text-center form-control"
+                    size="25"
                     type="password"
                     value={this.state.password}
                     onChange={e => this.handleInputChange("password", e)}
-                  /> <br />
-                  (<i>atleast 6 characters</i>)
+                  />{" "}
+                  <br />(<i>atleast 6 characters</i>)
                 </FormGroup>
               </Col>
-              
             </Row>
 
             <Row form>
@@ -254,8 +253,8 @@ class Signup extends Component {
                 <FormGroup>
                   <Label for="university">University</Label>
                   <input
-                  className="text-center"
-                  placeholder="BTU cottbus"
+                    className="text-center form-control"
+                    placeholder="BTU cottbus"
                     size="25"
                     type="text"
                     value={this.state.university}
@@ -266,11 +265,11 @@ class Signup extends Component {
               <Col md={3}>
                 <FormGroup>
                   <Label for="email">Institute</Label>
-<br />
+                  <br />
                   <input
-                  className="text-center"
-                  size="25"
-                  placeholder="e.g ironhack"
+                    className="text-center form-control"
+                    size="25"
+                    placeholder="e.g ironhack"
                     type="text"
                     value={this.state.institute}
                     onChange={e => this.handleInputChange("institute", e)}
@@ -281,8 +280,8 @@ class Signup extends Component {
                 <FormGroup>
                   <Label for="Specialization">Specialization*</Label>
                   <input
-                  className="text-center"
-                  size="25"
+                    className="text-center form-control"
+                    size="25"
                     placeholder="Frontend Developer"
                     type="text"
                     value={this.state.specialization}
@@ -293,14 +292,14 @@ class Signup extends Component {
               <Col md={3}>
                 <FormGroup>
                   <Label for="status">Current Status*</Label> <br />
-                  <input
-                  className="text-center"
-                  size="25"
-                    placeholder="student or alumni"
-                    type="text"
-                    value={this.state.status}
+                  <select
+                    className="form-control"
                     onChange={e => this.handleInputChange("status", e)}
-                  />
+                  >
+                    <option value="alumni">Alumni</option>
+                    <option value="student">Student</option>
+                    <option value="employer">Employer</option>
+                  </select>
                 </FormGroup>
               </Col>
             </Row>
@@ -310,8 +309,8 @@ class Signup extends Component {
                 <FormGroup>
                   <Label for="country">Country*</Label>
                   <input
-                  className="text-center"
-                  size="25"
+                    className="text-center form-control"
+                    size="25"
                     type="text"
                     value={this.state.country}
                     onChange={e => this.handleInputChange("country", e)}
@@ -322,8 +321,8 @@ class Signup extends Component {
                 <FormGroup>
                   <Label for="state">State*</Label>
                   <input
-                  className="text-center"
-                  size="25"
+                    className="text-center form-control"
+                    size="25"
                     type="text"
                     value={this.state.state}
                     onChange={e => this.handleInputChange("state", e)}
@@ -334,8 +333,8 @@ class Signup extends Component {
                 <FormGroup>
                   <Label for="city">City*</Label>
                   <input
-                  className="text-center"
-                  size="25"
+                    className="text-center form-control"
+                    size="25"
                     type="text"
                     value={this.state.city}
                     onChange={e => this.handleInputChange("city", e)}
@@ -345,15 +344,13 @@ class Signup extends Component {
             </Row>
 
             <Row form>
-              
-              
               <Col md={3}>
                 <FormGroup>
                   <Label for="age">Age</Label> <br />
                   <input
-                  className="text-center"
-                  size="15"
-                    type="text"
+                    className="text-center form-control"
+                    size="15"
+                    type="number"
                     value={this.state.age}
                     onChange={e => this.handleInputChange("age", e)}
                   />
@@ -363,8 +360,8 @@ class Signup extends Component {
                 <FormGroup>
                   <Label for="Gender">Gender*</Label>
                   <input
-                  className="text-center"
-                  size="25"
+                    className="text-center form-control"
+                    size="25"
                     placeholder="male or female"
                     type="text"
                     value={this.state.gender}
@@ -376,8 +373,8 @@ class Signup extends Component {
                 <FormGroup>
                   <Label for="social">Social Network*</Label>
                   <input
-                  className="text-center"
-                  size="25"
+                    className="text-center form-control"
+                    size="25"
                     placeholder="linkedin or xing"
                     type="text"
                     value={this.state.social}
@@ -386,7 +383,7 @@ class Signup extends Component {
                 </FormGroup>
               </Col>
             </Row>
-                <br />
+            <br />
             <h6>
               <i>Fields marked* are required</i>{" "}
             </h6>

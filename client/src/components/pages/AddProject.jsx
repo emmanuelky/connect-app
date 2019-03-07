@@ -5,7 +5,6 @@ class AddProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
       name: "",
       projectlink: "",
       githublink: "",
@@ -32,7 +31,6 @@ class AddProject extends Component {
     console.log(this.state.name, this.state.description);
 
     let formData = new FormData();
-    formData.append("username", this.state.username);
     formData.append("name", this.state.name);
     formData.append("projectlink", this.state.projectlink);
     formData.append("githublink", this.state.githublink);
@@ -44,7 +42,6 @@ class AddProject extends Component {
       .then(result => {
         console.log("SUCCESS!", result);
         this.setState({
-          username: "",
           name: "",
           projectlink: "",
           githublink: "",
@@ -53,6 +50,8 @@ class AddProject extends Component {
           technologyUsed: "",
           message: `Your project '${this.state.name}' has been created`
         });
+        // Redirect the user the "/projects"
+        this.props.history.push("/projects");
         setTimeout(() => {
           this.setState({
             message: null
@@ -79,23 +78,10 @@ class AddProject extends Component {
           <input type="file" onChange={e => this.handleFileChange(e)} />
           <br />
           <br />
-          Username*{" "} <br/>
+          Your Project Name* <br />
           <input
-          placeholder="Enter your username"
-          size="35"
-          className="text-center"
-            type="text"
-            value={this.state.username}
-            onChange={e => {
-              this.handleInputChange("username", e);
-            }}
-          />{" "}
-          <br />
-          <br />
-          Your Project Name*{" "} <br />
-          <input
-          placeholder="Enter your project name"
-          className="text-center"
+            placeholder="Enter your project name"
+            className="text-center"
             type="text"
             size="35"
             value={this.state.name}
@@ -105,27 +91,26 @@ class AddProject extends Component {
           />{" "}
           <br />
           <br />
-         Brief Description*{" "} <br />
+          Brief Description* <br />
           <input
             value={this.state.description}
             placeholder="maximum 20 characters"
             size="35"
-          className="text-center"
+            className="text-center"
             maxlength="20"
             cols="30"
             rows="10"
             onChange={e => {
               this.handleInputChange("description", e);
             }}
-          />
-          {" "}
+          />{" "}
           <br />
           <br />
-          Technology Used*{" "} <br />
+          Technology Used* <br />
           <input
-          placeholder="e.g react, vue, graphql, sql"
-          size="35"
-          className="text-center"
+            placeholder="e.g react, vue, graphql, sql"
+            size="35"
+            className="text-center"
             type="text"
             value={this.state.technologyused}
             onChange={e => {
@@ -134,11 +119,11 @@ class AddProject extends Component {
           />{" "}
           <br />
           <br />
-          Demo Link*{" "} <br />
+          Demo Link* <br />
           <input
-          placeholder="Enter a demo link"
-          size="35"
-          className="text-center"
+            placeholder="Enter a demo link"
+            size="35"
+            className="text-center"
             type="text"
             value={this.state.projectlink}
             onChange={e => {
@@ -147,11 +132,11 @@ class AddProject extends Component {
           />{" "}
           <br />
           <br />
-          Github Link*{" "} <br />
+          Github Link* <br />
           <input
-          placeholder="Enter a link to your project"
-          size="35"
-          className="text-center"
+            placeholder="Enter a link to your project"
+            size="35"
+            className="text-center"
             type="text"
             value={this.state.githublink}
             onChange={e => {
@@ -159,12 +144,11 @@ class AddProject extends Component {
             }}
           />{" "}
           <br />
-          
           <br />
           <h6>
-              <i>Fields marked* are required</i>{" "}
-            </h6>
-            <br />
+            <i>Fields marked* are required</i>{" "}
+          </h6>
+          <br />
           <button onClick={e => this.handleClick(e)}>Add Project</button>
         </form>
         {this.state.message && <div className="info">{this.state.message}</div>}

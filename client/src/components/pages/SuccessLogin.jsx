@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import api from '../../api';
+import React, { Component } from "react";
+import api from "../../api";
 
 export default class SuccessLogin extends Component {
   render() {
@@ -11,15 +11,14 @@ export default class SuccessLogin extends Component {
         <br />
         <p>You will be redirected to your profile in 5 seconds</p>
       </div>
-    )
+    );
   }
-  componentDidMount() { 
-    api.getConnectedProfile()
-      .then(user => {
-        setTimeout(() => {
-          // Redirect the user the "/profile"
-          this.props.history.push('/profile')
-        }, 4000)
-      })
+  componentDidMount() {
+    api.getProfile().then(user => {
+      setTimeout(() => {
+        // Redirect the user the "/profile"
+        this.props.history.push("/profile");
+      }, 4000);
+    });
   }
 }

@@ -49,19 +49,12 @@ export default {
       .catch(errHandler);
   },
 
-  getConnectedProfile() {
-    return service.get("connected-profile").then(res => {
+  getProfile() {
+    return service.get("profile").then(res => {
       let user = res.data;
       localStorage.setItem("user", JSON.stringify(user));
       return user;
     });
-  },
-
-  getProfile() {
-    return service
-      .get("/profile")
-      .then(res => res.data)
-      .catch(errHandler);
   },
 
   logout() {
@@ -103,14 +96,14 @@ export default {
 
   getUsers() {
     return service
-      .get("/users/")
+      .get("/users")
       .then(res => res.data)
       .catch(errHandler);
   },
 
   editProfile(body) {
     return service
-      .post("/edit-profile", body)
+      .put("/profile", body)
       .then(res => res.data)
       .catch(errHandler);
   },
@@ -118,13 +111,6 @@ export default {
   getProject(projectId) {
     return service
       .get("/projects/" + projectId)
-      .then(res => res.data)
-      .catch(errHandler);
-  },
-
-  getProjectDetail(projectId) {
-    return service
-      .get("/edit-project/" + projectId)
       .then(res => res.data)
       .catch(errHandler);
   },
@@ -143,13 +129,6 @@ export default {
       .catch(errHandler);
   },
 
-  getProjectDetail(id) {
-    return service
-      .get("/" + id)
-      .then(res => res.data)
-      .catch(errHandler);
-  },
-
   getProfileWithUsername(username) {
     return service
       .get("/profile/" + username)
@@ -157,9 +136,9 @@ export default {
       .catch(errHandler);
   },
 
-  getSecret() {
+  getJobs() {
     return service
-      .get("/secret")
+      .get("/jobs")
       .then(res => res.data)
       .catch(errHandler);
   },

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import api from "../../api";
-import ProfileUsername from './ProfileUsername';
+import ProfileUsername from "./ProfileUsername";
+import { Link } from "react-router-dom";
 
 class SearchUser extends Component {
   constructor(props) {
@@ -16,7 +17,8 @@ class SearchUser extends Component {
     api.getUsers().then(users => {
       console.log(users);
       this.setState({
-        users: users
+        users: users,
+        isFocused: false
       });
     });
   }
@@ -26,6 +28,27 @@ class SearchUser extends Component {
 
     this.setState({
       search: e.target.value
+    });
+  };
+
+  handleInputFocus = () => {
+    this.setState({
+      isFocused: true
+    });
+  };
+
+  handleInputBlur = () => {
+    setTimeout(() => {
+      this.setState({
+        isFocused: false
+      });
+    }, 1000);
+  };
+
+  handleLinkClick = () => {
+    this.setState({
+      isFocused: false,
+      search: ""
     });
   };
 
@@ -50,20 +73,29 @@ class SearchUser extends Component {
           onChange={e => this.onSearch(e)}
           placeholder="Search...."
           autocomplete="off"
+          onFocus={this.handleInputFocus}
+          onBlur={this.handleInputBlur}
         />
 
-        {this.state.search !== "" && <div className="result-output">
-          {filteredUsers.map((user, i) => (
-            <div className="result-item">
-            <button>
-
-           <img className="round-images" src= {user.profileimage} width="50px" height="50px" /> {user.firstname} {user.lastname} 
-            </button>
-            </div>
-          ))}
-        </div> }
-
-        
+        {this.state.isFocused && this.state.search !== "" && (
+          <div className="result-output">
+            {filteredUsers.map((user, i) => (
+              <Link
+                to={"/profile/" + user.username}
+                className="result-item"
+                onClick={this.handleLinkClick}
+              >
+                <img
+                  className="round-images"
+                  src={user.profileimage}
+                  width="50px"
+                  height="50px"
+                />{" "}
+                {user.firstname} {user.lastname}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     );
   }

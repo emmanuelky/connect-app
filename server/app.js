@@ -52,7 +52,6 @@ app.use(
 );
 require("./passport")(app);
 
-app.use("/api", require("./routes/index"));
 app.use("/api", require("./routes/auth"));
 app.use("/api", require("./routes/users"));
 app.use("/api/projects", require("./routes/project"));

@@ -1,27 +1,29 @@
 import React, { Component } from "react";
 import api from "../../api";
 
-class Secret extends Component {
+class Jobs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      secret: null,
       message: null
     };
   }
   render() {
     return (
-      <div className="container Secret p-5">
+      <div className="container Jobs p-5">
         <h2>Job Search</h2>
-      
-  
+
         <div className="result">
           <br />
           <h4>
-            Start your job search... <i>use the links below</i> 
+            Start your job search... <i>use the links below</i>
           </h4>
           <br />
-          <h6><i>**Note**... (you will be redirected to the following websites)</i></h6>
+          <h6>
+            <i>
+              **Note**... (you will be redirected to the following websites)
+            </i>
+          </h6>
           <br />
           <br />
           <ol>
@@ -131,7 +133,10 @@ class Secret extends Component {
               </a>
             </li>
             <li>
-              <a href="https://www.darwinrecruitment.com/job-search" target="_blank">
+              <a
+                href="https://www.darwinrecruitment.com/job-search"
+                target="_blank"
+              >
                 {" "}
                 Darwin Recruitment
               </a>
@@ -143,7 +148,10 @@ class Secret extends Component {
               </a>
             </li>
             <li>
-              <a href="https://jobs.senacor.com/jobs?tms-area=area.softwareDevelopment" target="_blank">
+              <a
+                href="https://jobs.senacor.com/jobs?tms-area=area.softwareDevelopment"
+                target="_blank"
+              >
                 {" "}
                 Senacor
               </a>
@@ -155,7 +163,10 @@ class Secret extends Component {
               </a>
             </li>
             <li>
-              <a href="https://de.jobrapido.com/Developer-Jobs-in-Deutschland?shm=all" target="_blank">
+              <a
+                href="https://de.jobrapido.com/Developer-Jobs-in-Deutschland?shm=all"
+                target="_blank"
+              >
                 {" "}
                 Jobrapido
               </a>
@@ -163,7 +174,7 @@ class Secret extends Component {
             <li>
               <a href="https://www.jobware.de/" target="_blank">
                 {" "}
-              Jobware
+                Jobware
               </a>
             </li>
             <li>
@@ -173,7 +184,10 @@ class Secret extends Component {
               </a>
             </li>
             <li>
-              <a href="https://www.stellenangebote.de/stellenangebote/?src=2baaa5505476084b91012b2760bf798f#2355" target="_blank">
+              <a
+                href="https://www.stellenangebote.de/stellenangebote/?src=2baaa5505476084b91012b2760bf798f#2355"
+                target="_blank"
+              >
                 {" "}
                 stellenangebote
               </a>
@@ -197,7 +211,10 @@ class Secret extends Component {
               </a>
             </li>
             <li>
-              <a href="https://www.adzuna.de/search?partnerb=1&c=869854262&ag=46606663347&kw=%2Badzuna&dv=c&nw=g&geo=9041542&gclid=CjwKCAiA2fjjBRAjEiwAuewS_Rl50lU5GCzYK4qBI7hpYMRMZMJefBJBFPJ3qj67mrCKsbI8XJ8lxhoCLAgQAvD_BwE" target="_blank">
+              <a
+                href="https://www.adzuna.de/search?partnerb=1&c=869854262&ag=46606663347&kw=%2Badzuna&dv=c&nw=g&geo=9041542&gclid=CjwKCAiA2fjjBRAjEiwAuewS_Rl50lU5GCzYK4qBI7hpYMRMZMJefBJBFPJ3qj67mrCKsbI8XJ8lxhoCLAgQAvD_BwE"
+                target="_blank"
+              >
                 {" "}
                 adzuna
               </a>
@@ -247,13 +264,13 @@ class Secret extends Component {
             <li>
               <a href="http://www.techstartupjobs.com/" target="_blank">
                 {" "}
-                Tech Startup 
+                Tech Startup
               </a>
             </li>
             <li>
               <a href="https://expatjobseeker.de/" target="_blank">
                 {" "}
-               Expat job seeker
+                Expat job seeker
               </a>
             </li>
             <li>
@@ -265,31 +282,31 @@ class Secret extends Component {
             <li>
               <a href="https://jobbatical.com/jobs" target="_blank">
                 {" "}
-                Jobbatical 
+                Jobbatical
               </a>
             </li>
             <li>
               <a href="https://www.eurojobs.com/" target="_blank">
                 {" "}
-               Europe Jobs
+                Europe Jobs
               </a>
             </li>
             <li>
               <a href="https://www.randstad.de/" target="_blank">
                 {" "}
-              Randstad
+                Randstad
               </a>
             </li>
             <li>
               <a href="https://www.jobvector.de/" target="_blank">
                 {" "}
-                Job Vector 
+                Job Vector
               </a>
             </li>
             <li>
               <a href="https://www.jobworld.de/" target="_blank">
                 {" "}
-               Job World
+                Job World
               </a>
             </li>
             <li>
@@ -307,7 +324,7 @@ class Secret extends Component {
             <li>
               <a href="https://de.jooble.org/" target="_blank">
                 {" "}
-               Jooble
+                Jooble
               </a>
             </li>
             <li>
@@ -325,7 +342,7 @@ class Secret extends Component {
             <li>
               <a href="https://www.absolventa.de/" target="_blank">
                 {" "}
-               Absolventa
+                Absolventa
               </a>
             </li>
             <li>
@@ -340,13 +357,7 @@ class Secret extends Component {
                 Linkedin
               </a>
             </li>
-          
           </ol>
-
-        
-          
-          
-          {this.state.secret}
         </div>
 
         {this.state.message && (
@@ -355,12 +366,12 @@ class Secret extends Component {
       </div>
     );
   }
-  componentDidMount() {
-    api
-      .getSecret()
-      .then(data => this.setState({ secret: data.secret }))
-      .catch(err => this.setState({ message: err.toString() }));
-  }
+  // componentDidMount() {
+  //   api
+  //     .getJobs()
+  //     .then(data => this.setState({ jobs: data.jobs }))
+  //     .catch(err => this.setState({ message: err.toString() }));
+  // }
 }
 
-export default Secret;
+export default Jobs;
