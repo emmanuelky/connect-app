@@ -31,7 +31,7 @@ export default class ProfileUsername extends Component {
   }
   render() {
     return (
-      <div className="container justify-content-center profileUserPage glow p-5 m-3">
+      <div className="container justify-content-center profileUserPage text-light p-5 m-3">
         <h1 className="mt-5">You are welcome to my profile</h1>
         <h6>
           {" "}

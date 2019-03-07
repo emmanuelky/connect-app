@@ -49,9 +49,10 @@ class Home extends Component {
           </h6>
         </div>
         <div className="container border-bottom-8 border border-primary shadow-lg p-3 mb-8 bg-dark rounded">
-          <h1 className="p-5 text-monospace font-weight-bold shadow-lg p-3 mb-5 bg-dark rounded">
-            <i className="fas fa-code" /> EXPLORE AND CONNECT{" "}
-            <i className="fas fa-code" />
+          <h1 className="p-5 text-monospace glow font-weight-bold shadow-lg p-3 mb-5 bg-dark rounded">
+             EXPLORE 
+             <br /> & <br />CONNECT{" "}
+            
           </h1>
           <hr />
           <i>
@@ -62,42 +63,42 @@ class Home extends Component {
           </i>
           <i>
             {" "}
-            <h4 className="text-monospace glow shadow-lg p-3 mb-5 bg-dark rounded">
+            <h4 className="text-monospace shadow-lg p-3 mb-5 bg-dark rounded">
               View Recent Projects below...
             </h4>
           </i>
         </div>
 
-        <div className="d-flex flex-wrap card-group shadow-lg p-3 mb-5 bg-dark rounded">
-          <div className="row">
+        <div className="d-flex flex-wrap card-group shadow-lg p-2 mb-3 bg-dark rounded">
+          <div className="row justify-content-center">
             {this.state.projects
               .filter((p, i) => i <= 14)
               .map((p, i) => (
-                <div className="col-sm-4">
-                  <div className="d-flex flex-wrap grow p-4 shadow-lg p-3 mb-5 bg-dark rounded">
+                <div className="col-sm-4 justify-content-center">
+                  <div className="  p-4 shadow-lg p-3 mb-5 bg-dark rounded">
                     <hr />
                     <img
-                      className="projectImage "
+                      className="projectImage grow justify-content-center"
                       width="100px"
                       height="100px"
                       src={p.projectimage}
                     />{" "}
-                    <br />
+                    <hr />
                     <h6>
                       <i>creator: {p.username} </i>{" "}
                     </h6>
-                    <br />
-                    <br />
+                    <hr />
                     <a href={p.projectlink} target="_blank">
                       Demo{" "}
                     </a>{" "}
-                    <br />
                     <hr />
+                    
                     <pre>
                       <i>
-                        <pre>{p.date.toString().substring(0, 10)}</pre>
+                        <pre className="text-light">{p.date.toString().substring(0, 10)}</pre>
                       </i>
                     </pre>
+                    <hr />
                   </div>
                 </div>
               ))}
@@ -146,7 +147,7 @@ export default Home;
 
                     <img className="projectImage" src={p.projectimage} />{" "}
                   
-                  <br />
+                  <hr />
                   Project Name: {p.name} <br />
                   Technology Used: {p.technologyused} <br /> Date Added:{" "}
                   {p.date} <br />

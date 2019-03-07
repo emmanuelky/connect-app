@@ -68,8 +68,8 @@ class Projects extends Component {
           <Search value={this.state.search} onSearch={this.handleSearch} />
           <hr />
         </div>
-        <div className="projects col-md-18 mb-12 border border-white rounded-left shadow p-3 mb-5 bg-white rounded">
-          <div className="row">
+        <div className="projects d-flex flex-wrap card-group shadow-lg p-2 mb-3 bg-light rounded">
+          <div className="row justify-content-center">
             {filteredProjects
               .filter((project, i) => {
                 if (
@@ -85,8 +85,8 @@ class Projects extends Component {
                 return false;
               })
               .map((p, i) => (
-                <div className="col-sm-4 m-5">
-                  <div className="card mr-2 m-2 shadow-lg p-3 mb-5 bg-white rounded">
+                <div className="col-sm-4 justify-content-center">
+                  <div className="p-2 shadow-lg p-3 mb-5 bg-light rounded">
                     <img
                       className="grow"
                       src={p.projectimage}
@@ -125,7 +125,7 @@ class Projects extends Component {
                         {" "}
                         <Link to={"/profile/" + p.username}>About Me</Link>{" "}
                       </pre>
-                      <br />
+                      
                       <pre>
                         <i>
                           {" "}

@@ -29,7 +29,7 @@ class Profile extends Component {
   render() {
     return (
       <div className="container col-md-18 mb-12 profile">
-        <div className="rounded border m-5 font-italic myprofile glow border-light shadow p-3 mb-5 bg-white rounded ">
+        <div className="rounded border m-5 font-italic text-primary myprofile border-light shadow p-3 mb-5 bg-white rounded ">
           <hr />
           <img
             className="round-images"
@@ -75,33 +75,35 @@ class Profile extends Component {
         <br />
         <br />
 
-        <div className="myproject p-5">
-          <h2>My Projects</h2>
+        <div className="myproject p-3 mb-3">
+          <h2 className="mt-5">My Projects</h2>
           <br />
 
-          <ul className="d-flex flex-wrap card-group shadow-lg p-3 mb-5 rounded">
-            {this.state.projects.map(p => (
-              <div className="d-flex flex-wrap p-4 shadow-lg p-3 mb-5 bg-dark rounded m-3">
-                <li key={p._id} className="m-3">
-                  <img
-                    className="projectImage grow rounded-images"
-                    src={p.projectimage}
-                  />{" "}
-                  <br />
-                  <h6>{p.name}</h6>
-                  <button type="button" className="btn btn-light text-white">
-                    <Link to={"/edit-project/" + p._id}>Edit</Link>
-                  </button>{" "}
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => this.deleteProject(p._id)}
-                  >
-                    Delete
-                  </button>
-                </li>
-              </div>
-            ))}
-          </ul>
+          <div className="d-flex flex-wrap card-group shadow-lg p-2 mb-3 bg rounded">
+            <div className="row justify-content-center">
+              {this.state.projects.map(p => (
+                <div className="col-sm-3 justify-content-center">
+                  <div className="p-2 shadow-lg p-1 mb-2 bg rounded">
+                    <img
+                      className="projectImage grow rounded-images"
+                      src={p.projectimage}
+                    />{" "}
+                    <br />
+                    <h6>{p.name}</h6>
+                    <button type="button" className="btn btn-light text-white">
+                      <Link to={"/edit-project/" + p._id}>Edit</Link>
+                    </button>{" "}
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => this.deleteProject(p._id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     );

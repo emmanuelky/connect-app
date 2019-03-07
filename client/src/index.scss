@@ -222,6 +222,7 @@ footer {
   background-image: cover;
   height: 100vh;
   background-size: contain;
+  border-radius: 20px;
 }
 
 .profileUserPage {
@@ -266,12 +267,12 @@ footer {
 
 @-webkit-keyframes glow {
   from {
-    text-shadow: 0 0 1px #fff, 0 0 3px rgb(48, 44, 59), 0 0 50px #595596,
-      0 0 7px #241891, 0 0 9px #0b092c, 0 0 11px #040314, 0 0 50px #6e6ee4;
+    text-shadow: 0 0 5px #fff, 0 0 10px rgb(48, 44, 59), 0 0 20px #595596,
+      0 0 12px #241891, 0 0 14px #0b092c, 0 0 16px #040314, 0 0 25px #6e6ee4;
   }
   to {
-    text-shadow: 0 0 1px #fff, 0 0 3px #040407, 0 0 5px #0d111f,
-      0 0 50px #3d7bc2, 0 0 10px #110f1a, 0 0 12px #0c0c16, 0 0 14px #040307;
+    text-shadow: 0 0 10px #fff, 0 0 14px #040407, 0 0 15px #0d111f,
+      0 0 50px #3d7bc2, 0 0 18px #110f1a, 0 0 19px #0c0c16, 0 0 12px #040307;
   }
 }
 
