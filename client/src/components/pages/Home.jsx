@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import api from "../../api";
-import { Link } from "react-router-dom";
-import image1 from "../../image1.jpeg";
-import Signup from "./Signup";
+// import { Link } from "react-router-dom";
+// import image1 from "../../image1.jpeg";
+// import Signup from "./Signup";
 
 class Home extends Component {
   constructor(props) {
@@ -85,11 +85,10 @@ class Home extends Component {
                   <br />
                   <hr />
                   <pre>
-                          <i>
-                            {" "}
-                            <span className="card-text text-light"> {p.date.slice(0,10)}</span>{" "}
-                          </i>
-                        </pre>
+                    <i>
+                      <pre>{p.date.toString().substring(0, 10)}</pre>
+                    </i>
+                  </pre>
                 </li>
               </div>
             ))}

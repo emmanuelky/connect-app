@@ -37,10 +37,10 @@ const projectSchema = new mongoose.Schema({
     default: []
   },
   date: {
-    type: Date,
+    type: String,
     default: Date.now()
   },
-  nbOfLikes: { type: Number, default: 0 },
+  nbOfLikes: { type: Number, default: 0 }
 });
 
 const Project = mongoose.model("Project", projectSchema);
