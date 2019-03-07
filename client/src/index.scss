@@ -30,7 +30,7 @@ body {
 .Home {
   p {
     font-size: 1.2em;
-    background-image: url("../src/image1.jpeg");
+    background-image: url("../src/image6.jpeg");
     height: 700px;
     background-repeat: no-repeat;
   }
@@ -44,16 +44,21 @@ body {
 }
 
 .container1 {
-  background-image: url("./image1.jpeg");
-  width: 90vw;
+  background-image: url("./image6.jpeg");
+  width: 100vw;
   height: 100vh;
   background-image: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   justify-content: center;
   text-align: center;
   justify-content: space-evenly;
   font-family: "Permanent Marker", cursive;
   color: rgb(199, 212, 216);
+  border-radius: 50px;
+  border-bottom-left-radius: 100px;
+  border-top-left-radius: 450px;
+  border-bottom-right-radius: 450px;
 }
 .container1 h1 {
   -webkit-transform: rotate(0deg);
@@ -160,6 +165,7 @@ body {
 
 .profile ul {
   list-style: none;
+
 }
 
 .Search {
@@ -191,14 +197,17 @@ footer {
   padding: 50px;
   display: flex;
   justify-content: center;
+  border-radius: 20px;
 }
 
 .myprofile {
-  background-image: url("./image3.jpeg");
+  background-image: url("./image7.jpeg");
   background-repeat: no-repeat;
   background-image: cover;
+  background-size: contain;
   color: #0f1320;
   font-weight: bolder;
+  
 }
 
 .myproject {
@@ -208,10 +217,11 @@ footer {
   background-image: cover;
   height: 100vh;
   background-size: contain;
+  
 }
 
 .profileUserPage {
-  background-image: url("./image5.jpeg");
+  background-image: url("./image7.jpeg");
   background-repeat: no-repeat;
   color: rgb(13, 11, 34);
   background-image: cover;
@@ -220,9 +230,24 @@ footer {
   justify-content: center;
 }
 
-.profileUser {
-  background-color: whitesmoke;
+// url("./image1.jpeg")
+.Secret {
+  background-color: #0E0004 ;
+  background-repeat: no-repeat;
+  background-image: cover;
+  width: 100vw;
+  color: #0f1320;
+  font-weight: bolder;
+  border-radius: 50px;
+  border-bottom-left-radius: 100px;
+  border-top-left-radius: 450px;
+  border-bottom-right-radius: 450px;
 }
+
+.Secret h2{
+  color: white;
+}
+
 
 .glow {
   font-size: 80px;
@@ -235,11 +260,11 @@ footer {
 
 @-webkit-keyframes glow {
   from {
-    text-shadow: 0 0 1px #fff, 0 0 3px rgb(48, 44, 59), 0 0 5px #161341,
-      0 0 7px #241891, 0 0 9px #0b092c, 0 0 11px #040314, 0 0 13px #000008;
+    text-shadow: 0 0 1px #fff, 0 0 3px rgb(48, 44, 59), 0 0 50px #595596,
+      0 0 7px #241891, 0 0 9px #0b092c, 0 0 11px #040314, 0 0 50px #6e6ee4;
   }
   to {
-    text-shadow: 0 0 1px #fff, 0 0 3px #040407, 0 0 5px #0d111f, 0 0 8px #1b1631,
+    text-shadow: 0 0 1px #fff, 0 0 3px #040407, 0 0 5px #0d111f, 0 0 50px #3d7bc2,
       0 0 10px #110f1a, 0 0 12px #0c0c16, 0 0 14px #040307;
   }
 }

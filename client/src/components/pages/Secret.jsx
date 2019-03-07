@@ -11,17 +11,19 @@ class Secret extends Component {
   }
   render() {
     return (
-      <div className="Secret">
+      <div className="container Secret p-5">
         <h2>Job Search</h2>
-        <hr />
+      
   
         <div className="result">
-          <hr />
+          <br />
           <h4>
-            Get Your Developer Job Search Started with the Following Links
+            Get Your Job Search Started With The Following Links...
           </h4>
-          <h6><i>**Note** you will be redirected to the following job link</i></h6>
-          <hr />
+          <br />
+          <h6><i>**Note** (you will be redirected to the following website to apply)</i></h6>
+          <br />
+          <br />
           <ol>
             <li>
               <a href="https://authenticjobs.com/" target="_blank">
