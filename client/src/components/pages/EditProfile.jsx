@@ -8,7 +8,6 @@ export default class EditProfile extends Component {
       firstname: "",
       lastname: "",
       email: "",
-      profileimage: "",
       university: "",
       institute: "",
       country: "",
@@ -32,7 +31,6 @@ export default class EditProfile extends Component {
       firstname,
       lastname,
       email,
-      profileimage,
       university,
       institute,
       country,
@@ -45,11 +43,10 @@ export default class EditProfile extends Component {
     } = this.state;
 
     api
-      .editProfile(this.props.match.params.userId,{
+      .editProfile(this.props.match.params.userId, {
         firstname,
         lastname,
         email,
-        profileimage,
         university,
         institute,
         country,
@@ -102,15 +99,6 @@ export default class EditProfile extends Component {
             value={this.state.email}
             onChange={e => {
               this.handleInputChange("email", e);
-            }}
-          />{" "}
-          <br />
-          Profile Image:{" "}
-          <input
-            type="text"
-            value={this.state.profileimage}
-            onChange={e => {
-              this.handleInputChange("profileimage", e);
             }}
           />{" "}
           <br />
@@ -201,12 +189,4 @@ export default class EditProfile extends Component {
       </div>
     );
   }
-  //   componentDidMount(){
-  //     api.getCountryProject(this.props.match.params.projectId)
-  //       .then(project => {
-  //         this.setState({
-  //           
-  //         })
-  //       })
-  //   }
 }
