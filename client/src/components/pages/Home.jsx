@@ -68,31 +68,41 @@ class Home extends Component {
           </i>
         </div>
 
-        <ul className="d-flex flex-wrap card-group shadow-lg p-3 mb-5 bg-dark rounded">
-          {this.state.projects
-            .filter((p, i) => i <= 14)
-            .map((p, i) => (
-              <div className="d-flex flex-wrap p-4 shadow-lg p-3 mb-5 bg-dark rounded">
-                <li key={p.i} className="grow">
-                  <hr />
-                  <img className="projectImage" src={p.projectimage} /> <br />
-                  <h6>
-                    <i>creator: {p.username} </i>{" "}
-                  </h6>
-                  <a href={p.projectlink} target="_blank">
-                    Demo{" "}
-                  </a>{" "}
-                  <br />
-                  <hr />
-                  <pre>
-                    <i>
-                      <pre>{p.date.toString().substring(0, 10)}</pre>
-                    </i>
-                  </pre>
-                </li>
-              </div>
-            ))}
-        </ul>
+        <div className="d-flex flex-wrap card-group shadow-lg p-3 mb-5 bg-dark rounded">
+          <div className="row">
+            {this.state.projects
+              .filter((p, i) => i <= 14)
+              .map((p, i) => (
+                <div className="col-sm-4">
+                  <div className="d-flex flex-wrap grow p-4 shadow-lg p-3 mb-5 bg-dark rounded">
+                    <hr />
+                    <img
+                      className="projectImage "
+                      width="100px"
+                      height="100px"
+                      src={p.projectimage}
+                    />{" "}
+                    <br />
+                    <h6>
+                      <i>creator: {p.username} </i>{" "}
+                    </h6>
+                    <br />
+                    <br />
+                    <a href={p.projectlink} target="_blank">
+                      Demo{" "}
+                    </a>{" "}
+                    <br />
+                    <hr />
+                    <pre>
+                      <i>
+                        <pre>{p.date.toString().substring(0, 10)}</pre>
+                      </i>
+                    </pre>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
 
         {/* <div className="container home-section-two">second div</div> */}
       </div>

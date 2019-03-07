@@ -141,7 +141,7 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className=" container Signup p-5">
+      <div className=" container Signup p-5 mb-5">
         <h2>Signup</h2>
         <br />
         <br />
@@ -198,6 +198,7 @@ class Signup extends Component {
                 <FormGroup>
                   <Label for="email">Email* </Label> <br />
                   <input
+                  placeholder="maxence@gmail.com"
                     className="text-center form-control"
                     type="email"
                     name="email"
@@ -212,14 +213,7 @@ class Signup extends Component {
                 </FormGroup>
               </Col>
             </Row>
-            {/* <FormGroup>
-          <Label for="exampleAddress">Address</Label>
-          <Input type="text" name="address" id="exampleAddress" placeholder="1234 Main St"/>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleAddress2">Address 2</Label>
-          <Input type="text" name="address2" id="exampleAddress2" placeholder="Apartment, studio, or floor"/>
-        </FormGroup> */}
+          
             <Row form>
               <Col md={3}>
                 <FormGroup>
@@ -244,6 +238,19 @@ class Signup extends Component {
                     onChange={e => this.handleInputChange("password", e)}
                   />{" "}
                   <br />(<i>atleast 6 characters</i>)
+                </FormGroup>
+              </Col>
+              <Col md={3}>
+                <FormGroup>
+                  <Label for="Specialization">Specialization*</Label>
+                  <input
+                    className="text-center form-control"
+                    size="25"
+                    placeholder="Frontend Developer"
+                    type="text"
+                    value={this.state.specialization}
+                    onChange={e => this.handleInputChange("specialization", e)}
+                  />
                 </FormGroup>
               </Col>
             </Row>
@@ -276,19 +283,7 @@ class Signup extends Component {
                   />
                 </FormGroup>
               </Col>
-              <Col md={3}>
-                <FormGroup>
-                  <Label for="Specialization">Specialization*</Label>
-                  <input
-                    className="text-center form-control"
-                    size="25"
-                    placeholder="Frontend Developer"
-                    type="text"
-                    value={this.state.specialization}
-                    onChange={e => this.handleInputChange("specialization", e)}
-                  />
-                </FormGroup>
-              </Col>
+              
               <Col md={3}>
                 <FormGroup>
                   <Label for="status">Current Status*</Label> <br />
@@ -359,14 +354,14 @@ class Signup extends Component {
               <Col md={3}>
                 <FormGroup>
                   <Label for="Gender">Gender*</Label>
-                  <input
-                    className="text-center form-control"
-                    size="25"
-                    placeholder="male or female"
-                    type="text"
-                    value={this.state.gender}
+
+                  <select
+                    className="form-control"
                     onChange={e => this.handleInputChange("gender", e)}
-                  />
+                  >
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
                 </FormGroup>
               </Col>
               <Col md={3}>
@@ -385,7 +380,7 @@ class Signup extends Component {
             </Row>
             <br />
             <h6>
-              <i>Fields marked* are required</i>{" "}
+              <i>Please note the fields marked* are required</i>{" "}
             </h6>
             <br />
             <br />
@@ -401,127 +396,7 @@ class Signup extends Component {
             )}
           </Form>
 
-          {/* <form>
-          First Name:{" "}
-          <input
-            type="text"
-            value={this.state.firstname}
-            onChange={e => this.handleInputChange("firstname", e)}
-          />{" "}
-          <br />
-          Last Name:{" "}
-          <input
-            type="text"
-            value={this.state.lastname}
-            onChange={e => this.handleInputChange("lastname", e)}
-          />{" "}
-          <br />
-          Username:{" "}
-          <input
-            type="text"
-            value={this.state.username}
-            onChange={e => this.handleInputChange("username", e)}
-          />{" "}
-          <br />
-          Password:{" "}
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={e => this.handleInputChange("password", e)}
-          />{" "}
-          <br />
-          Email:{" "}
-          <input
-            type="email"
-            name="email"
-            value={this.state.email}
-            onChange={e => this.handleInputChange("email", e)}
-            valid={this.isEmailCorrect()}
-            invalid={this.state.email.length > 0 && !this.isEmailCorrect()}
-          />{" "}
-          <br />
-          Profile Image:{"/profile/"}
-          <input type="file" onChange={e => this.handleFileChange(e)} /> <br />
-          University:{" "}
-          <input
-            type="text"
-            value={this.state.university}
-            onChange={e => this.handleInputChange("university", e)}
-          />{" "}
-          <br />
-          Institute:{" "}
-          <input
-            type="text"
-            value={this.state.institute}
-            onChange={e => this.handleInputChange("institute", e)}
-          />{" "}
-          <br />
-          Country:{" "}
-          <input
-            type="text"
-            value={this.state.country}
-            onChange={e => this.handleInputChange("country", e)}
-          />{" "}
-          <br />
-          State:{" "}
-          <input
-            type="text"
-            value={this.state.state}
-            onChange={e => this.handleInputChange("state", e)}
-          />{" "}
-          <br />
-          City:{" "}
-          <input
-            type="text"
-            value={this.state.city}
-            onChange={e => this.handleInputChange("city", e)}
-          />{" "}
-          <br />
-          Specialization:{" "}
-          <input
-            type="text"
-            value={this.state.specialization}
-            onChange={e => this.handleInputChange("specialization", e)}
-          />{" "}
-          <br />
-          Status:{" "}
-          <input
-            type="text"
-            value={this.state.status}
-            onChange={e => this.handleInputChange("status", e)}
-          />{" "}
-          <br />
-          Age:{" "}
-          <input
-            type="text"
-            value={this.state.age}
-            onChange={e => this.handleInputChange("age", e)}
-          />{" "}
-          <br />
-          Gender:{" "}
-          <input
-            type="text"
-            value={this.state.gender}
-            onChange={e => this.handleInputChange("gender", e)}
-          />{" "}
-          <br />
-          Social:{" "}
-          <input
-            type="text"
-            value={this.state.social}
-            onChange={e => this.handleInputChange("social", e)}
-          />{" "}
-          <br />
-          <button
-            disabled={!this.isEmailCorrect() || !this.isPasswordStrong()}
-            onClick={e => this.handleClick(e)}
-          >
-            Signup
-          </button>
-        </form>
-        {this.state.message && (
-          <div className="info info-danger">{this.state.message}</div>
-        )} */}
+          
         </div>
       </div>
     );

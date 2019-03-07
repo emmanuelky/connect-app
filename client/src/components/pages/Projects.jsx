@@ -85,7 +85,7 @@ class Projects extends Component {
                 return false;
               })
               .map((p, i) => (
-                <div class="col-sm-4">
+                <div className="col-sm-4 m-5">
                   <div className="card mr-2 m-2 shadow-lg p-3 mb-5 bg-white rounded">
                     <img
                       className="grow"

@@ -39,6 +39,10 @@ body {
   list-style: none;
 }
 
+.Jobs ul {
+  list-style: none;
+}
+
 .projects ul {
   list-style: none;
 }
@@ -182,6 +186,8 @@ body {
   border-radius: 20px;
   border: solid 5px #2e9bdb;
   text-align: center;
+  margin-top: 16px;
+  height: 65px;
 }
 
 .home-section-two {
@@ -305,7 +311,7 @@ textarea {
   background-image: url("./image1.jpeg");
   color: #fff;
   border-radius: 50px;
-  border-bottom-left-radius: 450px;
+  border-bottom-left-radius: 250px;
   border-top-left-radius: 450px;
   border-top-right-radius: 450px;
   border-bottom-right-radius: 450px;

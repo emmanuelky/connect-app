@@ -68,7 +68,7 @@ const userSchema = new Schema(
       enum: ["male", "female", "Male", "Female"]
     },
     social: {
-      type: [String],
+      type: String,
       default: []
     }
   },

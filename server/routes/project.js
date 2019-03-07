@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 router.get("/", (req, res, next) => {
   console.log("I am listing all the projects");
   Project.find()
-    .sort({ date: -1 })
+    .sort({ date: 1 })
     .then(projects => {
       res.json(projects);
     })

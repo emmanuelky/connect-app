@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import api from "../../api";
+import { Link } from "react-router-dom";
 
 export default class ProfileUsername extends Component {
   constructor(props) {
@@ -60,7 +61,14 @@ export default class ProfileUsername extends Component {
         <hr />
         <h3>Contact Me On</h3>
         <h5>Email: {this.state.profile.email}</h5>
-        <h5>Social Network: {this.state.profile.social}</h5>
+        <h5>
+          {this.state.profile.social &&
+            this.state.profile.social.includes("http") && (
+              <a target="_blank" href={this.state.profile.social}>
+                Social Network
+              </a>
+            )}
+        </h5>
         <hr />
         <hr />
         <h3>Little About Me</h3>

@@ -26,7 +26,7 @@ class Jobs extends Component {
           </h6>
           <br />
           <br />
-          <ol>
+          <ul>
             <li>
               <a href="https://authenticjobs.com/" target="_blank">
                 {" "}
@@ -357,7 +357,7 @@ class Jobs extends Component {
                 Linkedin
               </a>
             </li>
-          </ol>
+          </ul>
         </div>
 
         {this.state.message && (
