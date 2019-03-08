@@ -72,10 +72,10 @@ class Projects extends Component {
           <div className=" row justify-content-center">
             {filteredProjects
               .filter((project, i) => {
-                if (
+                {/* if (
                   project.name.toLowerCase().includes(lowerSearch, uppersearch)
                 )
-                  return true;
+                  return true; */}
                 for (let i = 0; i < project.technologyused.length; i++) {
                   if (
                     project.technologyused[i].includes(lowerSearch, uppersearch)
