@@ -63,12 +63,9 @@ class App extends Component {
             </button>
           )}
 
-          <Link
-            to="/jobs"
-            className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded"
-          >
-            Jobs
-          </Link>
+          <button className="btn btn-outline-primary  border-bottom-0 navbar-brand my-2 my-sm-0 shadow-lg p-3 mb-5 bg-white rounded">
+            <NavLink to="/jobs"> Jobs</NavLink>
+          </button>
 
           {api.isLoggedIn() && <SearchUser />}
 

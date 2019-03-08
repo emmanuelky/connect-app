@@ -19,7 +19,8 @@ router.get("/", (req, res, next) => {
 router.get("/byprofile", isLoggedIn, (req, res, next) => {
   let mongoFilter = { _creator: mongoose.Types.ObjectId(req.user._id) };
   Project.find(mongoFilter)
-    .then(projects => {
+  .sort({ date: 1 })
+   .then(projects => {
       res.json(projects);
     })
     .catch(err => next(err));
