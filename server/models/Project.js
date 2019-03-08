@@ -37,7 +37,7 @@ const projectSchema = new mongoose.Schema({
     default: []
   },
   date: {
-    type: String,
+    type: Date,
     default: Date.now()
   },
   nbOfLikes: { type: Number, default: 0 }

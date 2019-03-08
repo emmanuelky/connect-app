@@ -136,7 +136,7 @@ class Projects extends Component {
                         <i>
                           {" "}
                           <span className="card-text">
-                            {p.date}
+                            {p.date ? p.date.slice(0, 10) : ""}
                           </span>
                         </i>
                       </pre>
