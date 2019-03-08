@@ -83,22 +83,23 @@ class Profile extends Component {
             <div className="row justify-content-center">
               {this.state.projects.map(p => (
                 <div className="col-sm-3 justify-content-center">
-                  <div className="p-2 shadow-lg p-1 mb-2 bg rounded">
+                  <div className="p-2 shadow-lg p-1 mb-2 bg rounded card ">
                     <img
-                      className="projectImage grow rounded-images"
+                      className="projectImage grow card-img-top rounded-images"
                       src={p.projectimage}
                     />{" "}
+                    <div className="card-body">
+                    <h6 className="card-text text-dark">{p.name}</h6>
                     <br />
-                    <h6>{p.name}</h6>
-                    <button type="button" className="btn btn-light text-white">
-                      <Link to={"/edit-project/" + p._id}>Edit</Link>
+                    <button type="button" className="btn btn-primary text-white card-text">
+                      <Link to={"/edit-project/" + p._id} className="text-white">Edit</Link>
                     </button>{" "}  <button
-                      className="btn btn-danger"
+                      className="btn btn-danger ml-4 card-text"
                       onClick={() => this.deleteProject(p._id)}
                     >
                       Delete
                     </button>
-                   
+                   </div>
                   </div>
                 </div>
               ))}

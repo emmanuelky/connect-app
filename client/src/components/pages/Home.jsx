@@ -75,30 +75,31 @@ class Home extends Component {
               .filter((p, i) => i <= 8)
               .map((p, i) => (
                 <div className="col-sm-4 justify-content-center">
-                  <div className="  p-4 shadow-lg p-3 mb-5 bg-dark rounded">
+                  <div className="  p-4 shadow-lg p-3 mb-5 bg-dark rounded card">
                     <hr />
                     <img
-                      className="projectImage grow justify-content-center"
-                      width="100px"
-                      height="100px"
+                      className="projectImage grow justify-content-center card-img-top"
+                      // width="100px"
+                      // height="100px"
                       src={p.projectimage}
                     />{" "}
-                    <hr />
-                    <h6>
+                    <div className="card-body">
+                    <h6 className="card-text">
                       <i>creator: {p.username} </i>{" "}
                     </h6>
                     <hr />
-                    <a href={p.projectlink} target="_blank">
+                    <a href={p.projectlink} target="_blank" className="card-text">
                       Demo{" "}
                     </a>{" "}
                     <hr />
                     
                     <pre>
                       <i>
-                        <pre className="text-light">{p.date.toString().substring(0, 10)}</pre>
+                        <pre className="text-light card-text">{p.date.toString().substring(0, 10)}</pre>
                       </i>
                     </pre>
                     <hr />
+                    </div>
                   </div>
                 </div>
               ))}

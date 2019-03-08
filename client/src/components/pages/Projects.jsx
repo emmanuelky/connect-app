@@ -69,7 +69,7 @@ class Projects extends Component {
           <hr />
         </div>
         <div className="projects d-flex flex-wrap card-group shadow-lg p-2 mb-3 bg-light rounded">
-          <div className="row justify-content-center">
+          <div className=" row justify-content-center">
             {filteredProjects
               .filter((project, i) => {
                 if (
@@ -85,48 +85,54 @@ class Projects extends Component {
                 return false;
               })
               .map((p, i) => (
-                <div className="col-sm-4 justify-content-center">
-                  <div className="p-2 shadow-lg p-3 mb-5 bg-light rounded">
+                <div className="col-sm-4 justify-content-center card-group">
+                  <div className="p-2 shadow-lg p-3 mb-5 bg-light rounded card">
                     <img
-                      className="grow"
+                      className="grow card-img-top"
                       src={p.projectimage}
-                      width="100px"
-                      height="100px"
+                      // width="10px"
+                      // height="100px"
                     />{" "}
-                    <br />
-                    <div className="card-body">
+                    <div className="card-body ">
                       <strong>
                         {" "}
-                        <h6 className="card-title font-weight-bold">
+                        <h6 className="card-text font-weight-bold">
                           {" "}
                           {p.name}
                         </h6>
                       </strong>
-                      <strong>Brief Description: </strong>
+                      <strong className="card-text">Brief Description: </strong>
                       <pre className="card-text">
                         {" "}
                         <i> {p.description} </i>
                       </pre>
-                      <strong className="font-weight-bold">
+                      <strong className="font-weight-bold card-text">
                         Technology(s) used:
                       </strong>{" "}
-                      <pre>{p.technologyused} </pre>
-                      <a href={p.projectlink} target="_blank">
+                      <pre className="card-text">{p.technologyused} </pre>
+                      <a
+                        className="card-text"
+                        href={p.projectlink}
+                        target="_blank"
+                      >
                         Demo Link{" "}
                       </a>
                       <br />
-                      <a href={p.githublink} target="_blank" className="grow">
+                      <a
+                        href={p.githublink}
+                        target="_blank"
+                        className="grow card-text"
+                      >
                         Github
                       </a>
                       <br />
-                      <strong>Creator:</strong>{" "}
-                      <h6 className="card-title"> {p.username}</h6>{" "}
-                      <pre>
+                      <strong className="card-text">Creator:</strong>{" "}
+                      <h6 className="card-text"> {p.username}</h6>{" "}
+                      <pre className="card-text">
                         {" "}
                         <Link to={"/profile/" + p.username}>About Me</Link>{" "}
                       </pre>
-                      
-                      <pre>
+                      <pre className="card-text">
                         <i>
                           {" "}
                           <span className="card-text">
@@ -134,10 +140,11 @@ class Projects extends Component {
                           </span>
                         </i>
                       </pre>
-                      <br />
                     </div>
-                    <i class="fas fa-code" /> <i class="fas fa-laptop-code" />{" "}
-                    <i class="fas fa-code" />
+                    <i className="card-text">
+                      <i class="fas fa-code" /> <i class="fas fa-laptop-code" />{" "}
+                      <i class="fas fa-code" />
+                    </i>
                   </div>
                 </div>
               ))}
