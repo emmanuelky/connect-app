@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 router.get("/", (req, res, next) => {
   console.log("I am listing all the projects");
   Project.find()
-    .sort({ date: -1 })
+    .sort({ date: 1 })
     .then(projects => {
       res.json(projects);
     })
@@ -19,7 +19,7 @@ router.get("/", (req, res, next) => {
 router.get("/byprofile", isLoggedIn, (req, res, next) => {
   let mongoFilter = { _creator: mongoose.Types.ObjectId(req.user._id) };
   Project.find(mongoFilter)
-  .sort({ date: -1 })
+  .sort({ date: 1 })
    .then(projects => {
       res.json(projects);
     })
