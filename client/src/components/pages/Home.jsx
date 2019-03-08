@@ -72,7 +72,7 @@ class Home extends Component {
         <div className="d-flex flex-wrap card-group shadow-lg p-2 mb-3 bg-dark rounded">
           <div className="row justify-content-center">
             {this.state.projects
-              .filter((p, i) => i <= 14)
+              .filter((p, i) => i <= 8)
               .map((p, i) => (
                 <div className="col-sm-4 justify-content-center">
                   <div className="  p-4 shadow-lg p-3 mb-5 bg-dark rounded">
