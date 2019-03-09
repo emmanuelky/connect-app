@@ -13,7 +13,6 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //username: "",
       email: "",
       password: "",
       message: null
@@ -41,8 +40,8 @@ class Login extends Component {
   }
 
   handleLinkedin() {
-    // let domain = (process.env.PRODUCTION) ? "" : "localhost/5000"
-    // this.props.history.push(domain + "/auth/linkedin")
+    let domain = process.env.PRODUCTION ? "" : "localhost/5000";
+    this.props.history.push(domain + "/auth/linkedin");
     api
       .loginWithLinkedin()
       .then(result => {
@@ -62,7 +61,7 @@ class Login extends Component {
   render() {
     return (
       <div className="container Login">
-      <h2>Login</h2> <br />
+        <h2>Login</h2> <br />
         <Container>
           <Form>
             <FormGroup>
@@ -88,7 +87,6 @@ class Login extends Component {
             <FormGroup>
               <Label for="password">Password</Label> <br />
               <input
-
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 valid={this.isPasswordStrong()}
@@ -113,7 +111,11 @@ class Login extends Component {
             >
               Login
             </Button>
-            {""} <br /><br />or<br /><br />
+            {""} <br />
+            <br />
+            or
+            <br />
+            <br />
           </Form>
           <Button color="primary" className="Linkedin-Login mt-2">
             <a href={api.service.defaults.baseURL + "/login/linkedin"}>
@@ -121,14 +123,28 @@ class Login extends Component {
             </a>
           </Button>
         </Container>
-        {/* <h2>Login</h2>
+        <h2>Login</h2>
         <form>
-          Username: <input type="text" value={this.state.username} onChange={(e) => this.handleInputChange("username", e)} /> <br />
-          Password: <input type="password" value={this.state.password} onChange={(e) => this.handleInputChange("password", e)} /> <br />
-          <button onClick={(e) => this.handleClick(e)}>Login</button>
-        <br/>
-         <a href="http://localhost:5000/api/login/linkedin">Login with Linkedin</a>
-        </form> */}
+          Username:{" "}
+          <input
+            type="text"
+            value={this.state.username}
+            onChange={e => this.handleInputChange("username", e)}
+          />{" "}
+          <br />
+          Password:{" "}
+          <input
+            type="password"
+            value={this.state.password}
+            onChange={e => this.handleInputChange("password", e)}
+          />{" "}
+          <br />
+          <button onClick={e => this.handleClick(e)}>Login</button>
+          <br />
+          <a href="http://localhost:5000/api/login/linkedin">
+            Login with Linkedin
+          </a>
+        </form>
         {this.state.message && (
           <div className="info info-danger">{this.state.message}</div>
         )}

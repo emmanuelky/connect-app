@@ -46,24 +46,6 @@ class Signup extends Component {
     e.preventDefault();
     console.log(this.state.firstname, this.state.description);
 
-    // let data = {
-    //   firstname: this.state.firstname,
-    //   lastname: this.state.lastname,
-    //   username: this.state.username,
-    //   password: this.state.password,
-    //   email: this.state.email,
-    //   profileimage: this.state.profileimage,
-    //   university: this.state.university,
-    //   institute: this.state.institute,
-    //   country: this.state.country,
-    //   state: this.state.state,
-    //   city: this.state.city,
-    //   specialization: this.state.specialization,
-    //   status: this.state.status,
-    //   age: this.state.age,
-    //   gender: this.state.gender,
-    //   social: this.state.social
-    // };
     let formData = new FormData();
     formData.append("firstname", this.state.firstname);
     formData.append("lastname", this.state.lastname);
@@ -198,7 +180,7 @@ class Signup extends Component {
                 <FormGroup>
                   <Label for="email">Email* </Label> <br />
                   <input
-                  placeholder="maxence@gmail.com"
+                    placeholder="maxence@gmail.com"
                     className="text-center form-control"
                     type="email"
                     name="email"
@@ -213,7 +195,7 @@ class Signup extends Component {
                 </FormGroup>
               </Col>
             </Row>
-          
+
             <Row form>
               <Col md={3}>
                 <FormGroup>
@@ -283,7 +265,7 @@ class Signup extends Component {
                   />
                 </FormGroup>
               </Col>
-              
+
               <Col md={3}>
                 <FormGroup>
                   <Label for="status">Current Status*</Label> <br />
@@ -395,8 +377,6 @@ class Signup extends Component {
               <button className="info info-danger">{this.state.message}</button>
             )}
           </Form>
-
-          
         </div>
       </div>
     );

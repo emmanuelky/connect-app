@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import api from "../../api";
-// import { Link } from "react-router-dom";
-// import image1 from "../../image1.jpeg";
-// import Signup from "./Signup";
 
 class Home extends Component {
   constructor(props) {
@@ -50,9 +47,9 @@ class Home extends Component {
         </div>
         <div className="container border-bottom-8 border border-primary shadow-lg p-3 mb-8 bg-dark rounded">
           <h1 className="p-5 text-monospace glow font-weight-bold shadow-lg p-3 mb-5 bg-dark rounded">
-             EXPLORE 
-             <br /> & <br />CONNECT{" "}
-            
+            EXPLORE
+            <br /> & <br />
+            CONNECT{" "}
           </h1>
           <hr />
           <i>
@@ -84,21 +81,26 @@ class Home extends Component {
                       src={p.projectimage}
                     />{" "}
                     <div className="card-body">
-                    <h6 className="card-text">
-                      <i>creator: {p.username} </i>{" "}
-                    </h6>
-                    <hr />
-                    <a href={p.projectlink} target="_blank" className="card-text">
-                      Demo{" "}
-                    </a>{" "}
-                    <hr />
-                    
-                    <pre>
-                      <i>
-                        <pre className="text-light card-text">{p.date.toString().substring(0, 10)}</pre>
-                      </i>
-                    </pre>
-                    <hr />
+                      <h6 className="card-text">
+                        <i>creator: {p.username} </i>{" "}
+                      </h6>
+                      <hr />
+                      <a
+                        href={p.projectlink}
+                        target="_blank"
+                        className="card-text"
+                      >
+                        Demo{" "}
+                      </a>{" "}
+                      <hr />
+                      <pre>
+                        <i>
+                          <pre className="text-light card-text">
+                            {p.date.toString().substring(0, 10)}
+                          </pre>
+                        </i>
+                      </pre>
+                      <hr />
                     </div>
                   </div>
                 </div>

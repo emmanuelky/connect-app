@@ -366,12 +366,6 @@ class Jobs extends Component {
       </div>
     );
   }
-  // componentDidMount() {
-  //   api
-  //     .getJobs()
-  //     .then(data => this.setState({ jobs: data.jobs }))
-  //     .catch(err => this.setState({ message: err.toString() }));
-  // }
 }
 
 export default Jobs;
