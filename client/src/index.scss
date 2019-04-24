@@ -1,80 +1,28 @@
 // --------------------
 // Definition of variables
-$primary: #32c3ff;
-
-
-// ----------------------------------------
-// To install Boostrap:
-// 1) Run in the client folder: $ npm i bootstrap
-// 2) Import bootstrap with the following line
-// @import 'bootstrap/scss/bootstrap';
-// ----------------------------------------
-
+$primary: #4d9de0;
+$linkedin: #0077b5;
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 // --------------------
 // Style reusable for all components
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-}
-
-.info {
-  margin: 20px;
-  padding: 10px 20px;
-  border-radius: 10px;
-  display: inline-block;
-  background-color: #5776e9;
-  color: white;
-}
-
-.info.info-danger {
-  background-color: #e73f3f;
 }
 
 // --------------------
 // Style for App component
 .App {
   text-align: center;
+}
 
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
-  }
-
-  .App-header {
-    background-color: $primary;
-    padding: 20px;
-    color: white;
-
-    a {
-      color: white;
-      padding: 0 5px;
-      text-decoration: unset;
-    }
-
-    a.active {
-      font-weight: bold;
-    }
-  }
-
-  .App-title {
-    font-size: 1.5em;
-  }
-
-  .App-intro {
-    font-size: large;
-  }
-
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(360deg);
-    }
-  }
+.Linkedin-Login {
+  background-color: $linkedin;
+}
+.Linkedin-Login > a {
+  color: white;
+  text-decoration: none;
 }
 
 // --------------------
@@ -82,7 +30,126 @@ body {
 .Home {
   p {
     font-size: 1.2em;
+    background-image: url("../src/image6.jpeg");
+    height: 700px;
+    background-repeat: no-repeat;
   }
+}
+.Home ul {
+  list-style: none;
+}
+
+.Jobs ul {
+  list-style: none;
+}
+
+.projects ul {
+  list-style: none;
+}
+
+.container1 {
+  background-image: url("./image6.jpeg");
+  width: 100vw;
+  height: 100vh;
+  background-image: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
+  justify-content: center;
+  text-align: center;
+  justify-content: space-evenly;
+  font-family: "Permanent Marker", cursive;
+  color: rgb(199, 212, 216);
+  border-radius: 50px;
+  border-bottom-left-radius: 100px;
+  border-top-left-radius: 450px;
+  border-bottom-right-radius: 450px;
+}
+.container1 h1 {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  padding: 40px;
+  margin: 3px;
+}
+
+.container1 h1:hover {
+  -webkit-stroke-width: 10.3px;
+  -webkit-stroke-color: #ffffff;
+  -webkit-fill-color: #ffffff;
+  text-shadow: 1px 0px 20px #2bd69b;
+}
+
+.container1 h2 {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  padding: 40px;
+  margin: 3px;
+}
+
+.container1 h2:hover {
+  -webkit-stroke-width: 10.3px;
+  -webkit-stroke-color: #ffffff;
+  -webkit-fill-color: #ffffff;
+  text-shadow: 1px 0px 20px #2bd69b;
+}
+
+.container1 h3 {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  padding: 40px;
+  margin: 3px;
+  transition: ease-in-out;
+}
+
+.container1 h3:hover {
+  -webkit-stroke-width: 10.3px;
+  -webkit-stroke-color: #ffffff;
+  -webkit-fill-color: #ffffff;
+  text-shadow: 1px 0px 20px #2bd69b;
+}
+
+.container1 h4 {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  padding: 40px;
+  margin: 3px;
+}
+.container1 h4:hover {
+  -webkit-stroke-width: 10.3px;
+  -webkit-stroke-color: #ffffff;
+  -webkit-fill-color: #ffffff;
+  text-shadow: 1px 0px 20px #2bd69b;
+}
+
+.container1 h5 {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  padding: 40px;
+  margin: 3px;
+}
+.container1 h5:hover {
+  -webkit-stroke-width: 10.3px;
+  -webkit-stroke-color: #ffffff;
+  -webkit-fill-color: #ffffff;
+  text-shadow: 1px 0px 20px #2bd69b;
+}
+.container1 h6 {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  padding: 40px;
+  margin: 3px;
+}
+.container1 h6:hover {
+  -webkit-stroke-width: 10.3px;
+  -webkit-stroke-color: #ffffff;
+  -webkit-fill-color: #ffffff;
+  text-shadow: 1px 0px 20px #2bd69b;
+}
+
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.5);
 }
 
 // --------------------
@@ -92,4 +159,176 @@ body {
     font-size: 1.2em;
     color: $primary;
   }
+}
+
+.projectImage {
+  padding: 20px;
+  text-align: center;
+  height: 100px;
+}
+
+.profile ul {
+  list-style: none;
+}
+
+.Search {
+  font-size: 1rem;
+  padding: 15px 5px;
+  width: 600px;
+  border-radius: 20px;
+  border: solid 1px black;
+  text-align: center;
+}
+
+.SearchUser {
+  font-size: 1rem;
+  width: 350px;
+  border-radius: 20px;
+  border: solid 5px #2e9bdb;
+  text-align: center;
+  margin-top: 16px;
+  height: 65px;
+}
+
+.home-section-two {
+  background-image: url("../src/image1.jpeg");
+  height: 700px;
+  background-repeat: no-repeat;
+}
+
+footer {
+  background-image: url("./image4.jpeg");
+  background-repeat: no-repeat;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.profile .myprofile {
+  background-color: black;
+  background-repeat: no-repeat;
+  background-image: cover;
+  background-size: contain;
+  color: rgb(122, 120, 120);
+  font-weight: bolder;
+  height: 100vh;
+}
+
+.myproject {
+  background-image: url("./image2.jpeg");
+  background-repeat: no-repeat;
+  color: rgb(255, 255, 255);
+  background-image: cover;
+  height: 100vh;
+  background-size: contain;
+  border-radius: 20px;
+}
+
+.profileUserPage {
+  background-color: #000000;
+  background-repeat: no-repeat;
+  background-image: cover;
+
+  color: #0f1320;
+  font-weight: bolder;
+  border-radius: 50px;
+  border-bottom-left-radius: 100px;
+  border-top-left-radius: 450px;
+  border-bottom-right-radius: 450px;
+}
+
+// url("./image1.jpeg")
+.Secret {
+  background-color: #0e0004;
+  background-repeat: no-repeat;
+  background-image: cover;
+  width: 100vw;
+  color: #0f1320;
+  font-weight: bolder;
+  border-radius: 50px;
+  border-bottom-left-radius: 100px;
+  border-top-left-radius: 250px;
+  border-bottom-right-radius: 450px;
+}
+
+.Secret h2 {
+  color: white;
+}
+
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px rgb(48, 44, 59), 0 0 20px #595596,
+      0 0 12px #241891, 0 0 14px #0b092c, 0 0 16px #040314, 0 0 25px #6e6ee4;
+  }
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 14px #040407, 0 0 15px #0d111f,
+      0 0 50px #3d7bc2, 0 0 18px #110f1a, 0 0 19px #0c0c16, 0 0 12px #040307;
+  }
+}
+
+.result-output {
+  position: fixed;
+  top: 100px;
+  background: white;
+  border: 1px solid rgb(58, 173, 226);
+  border-radius: 45px;
+
+  .result-item {
+    display: block;
+    padding: 10px 20px;
+  }
+}
+
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  width: 20%;
+}
+
+.Login {
+  padding: 150px;
+  background-image: url("./image1.jpeg");
+  color: #fff;
+  border-radius: 50px;
+  border-bottom-left-radius: 450px;
+  border-top-left-radius: 450px;
+  border-top-right-radius: 450px;
+  border-bottom-right-radius: 450px;
+}
+
+.Signup {
+  background-image: url("./image1.jpeg");
+  color: #fff;
+  border-radius: 50px;
+  border-bottom-left-radius: 250px;
+  border-top-left-radius: 450px;
+  border-top-right-radius: 450px;
+  border-bottom-right-radius: 450px;
+}
+
+.successlogin {
+  background-image: url("./image1.jpeg");
+  color: #fff;
+  border-radius: 50px;
+  border-bottom-left-radius: 450px;
+  border-top-left-radius: 450px;
+  border-top-right-radius: 450px;
+  border-bottom-right-radius: 450px;
+  padding: 50px;
+}
+
+.round-images {
+  border-radius: 50px;
 }

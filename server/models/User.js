@@ -5,29 +5,31 @@ const userSchema = new Schema(
   {
     firstname: {
       type: String,
-      required: true
+      required: false
     },
     lastname: {
       type: String,
-      required: true
+      required: false
     },
     username: {
       type: String,
-      required: true,
-      minlength: 1,
+      minlength: 1
     },
     password: {
-      type: String,
-      required: true,
-      
+      type: String
     },
     profileimage: {
       type: String,
-      required: true
+      required: false
     },
     email: {
       type: String,
-      required: true
+      required: true,
+      unique: true,
+      match: [
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        "Please enter a valid email address"
+      ]
     },
     university: {
       type: String,
@@ -39,37 +41,42 @@ const userSchema = new Schema(
     },
     country: {
       type: String,
-      required: true
+      required: false
     },
     state: {
       type: String,
-      required: true
+      required: false
     },
     city: {
       type: String,
-      required: true
+      required: false
     },
     specialization: {
       type: String,
-      required: true
+      required: false
     },
     status: {
-        type: String,
-        enum: ["alumni", "student", "employer"],
-      },
+      type: String,
+      enum: ["alumni", "student", "employer", "Student", "Alumni"]
+    },
     age: {
       type: Number,
-      required: true
+      required: false
     },
     gender: {
-        type: String,
-        enum: ["male", "female"]
-      },
+      type: String,
+      enum: ["male", "female", "Male", "Female"]
+    },
     social: {
-      type: [String],
+      type: String,
       default: []
+
       },
     },
+
+    }
+  },
+
 
   {
     timestamps: {
