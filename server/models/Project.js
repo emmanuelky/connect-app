@@ -13,7 +13,12 @@ const projectSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "The project name is required"],
+
+    minlength: 1,
+    required: true
+
     minlength: 1
+
   },
   projectlink: {
     type: String,

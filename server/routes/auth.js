@@ -184,12 +184,26 @@ router.post("/login", (req, res, next) => {
     .catch(err => next(err));
 });
 
+
+router.get("/profile", (req, res, next) => {
+  res.json(req.user);
+});
+
+router.post("/edit-profile", (req, res, next) => {
+  var userId = req.user._id;
+  console.log("user id is", userId);
+  console.log("user body is", req.body);
+});
+
+
+profile.updateOne(userId, updatedProfile)
+
 /*profile.updateOne(userId, updatedProfile)
+
 .then(function(success){
   console.log("update")
   response.redirect("/");
 })
-*/
 
 router.get("/logout", (req, res) => {
   req.logout();

@@ -12,6 +12,7 @@ class AddProject extends Component {
       technologyused: "",
       projectimage: null,
       message: null
+    }
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -46,12 +47,18 @@ class AddProject extends Component {
           projectlink: "",
           githublink: "",
           description: "",
+
+          technologyused: "",
+          message: `Your project '${this.state.name}' has been created`,
+        })
+
           projectimage: "",
           technologyUsed: "",
           message: `Your project '${this.state.name}' has been created`
         });
         // Redirect the user the "/projects"
         this.props.history.push("/projects");
+
         setTimeout(() => {
           this.setState({
             message: null
@@ -156,4 +163,5 @@ class AddProject extends Component {
     );
   }
 }
+
 export default AddProject;

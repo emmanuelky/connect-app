@@ -31,6 +31,11 @@ class App extends Component {
 
   render() {
     return (
+
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">MERN Boilerplate</h1>
       <div className="container border-bottom-0 border border-primary rounded">
         <nav className="navbar d-flex justify-content-between sticky-top navbar-expand-md navbar-light bg-light ">
           <NavLink to="/" exact>

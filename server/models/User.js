@@ -70,8 +70,13 @@ const userSchema = new Schema(
     social: {
       type: String,
       default: []
+
+      },
+    },
+
     }
   },
+
 
   {
     timestamps: {
